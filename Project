@@ -1,3 +1,7 @@
 git clone https://github.com/resilience1/resilience1.github.io
 cd resilience1.github.io
 echo "Hello World" > index.html
+
+git add --all
+git commit -m "Initial commit"
+git push -u origin master
