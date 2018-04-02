@@ -17,47 +17,11 @@ bg {
   
 			  }
 
-
-
-.weatherapp {
-    font-family: sans-serif;
-    width: 900px; 
-      height: 375px;
-    font-size: 20px;
-      color: orange;
-    margin: auto;
-    background: white;
-      background-position: center;
-  background-repeat: no-repeat;
-  background-size: 450px 185px, contain;
-  
-    border-color: black;
-    border-width: 5px;
-    border-style: solid;
-    padding: 1px;
-  }
-  #weather {
-    margin-top:100px;
-  }
-  #temp {
-    font-weight: bold;
-  }
-  #temp:hover {
-    background: yellow;
-    cursor: pointer;
-  }
-  #wind {
-    font-style: italic;
-  }
-
 .bg2 {
   background: url("https://images.pexels.com/photos/311458/pexels-photo-311458.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-	
- 
-  
 }
 
 .bg3 {
@@ -73,17 +37,14 @@ bg {
   background-repeat: no-repeat;
   background-size: 1700px 1975px;
   background-position: center;
-  
-}
+ }
 
 .bg5 {
   background: white;
   background-repeat: repeat;
   background-size: cover;
   background-position: center;
-  
 }
-
 
 .cropcircle{
   border-color: silver;
@@ -93,16 +54,14 @@ bg {
     height: 250px;
     border-radius: 100%;
     background: #eee no-repeat center;
-    background-size: cover;
-    
+    background-size: cover;  
 }
 
 .name {
   font-family: Georgia, Serif;
   font-style: bold;
   font-size: 300%;
-  color: black;
-    
+  color: black;    
 }    
 
 .name2 {
@@ -134,61 +93,13 @@ bg {
   color: white;  
 }    
 
- 
- var weather = new XMLHttpRequest();
-       weather.open("GET", 
-        "https://api.wunderground.com/api/038aa9444988e848/conditions/q/WA/Pullman.json", false);
-
-        weather.send(null);
-        
-        var r = JSON.parse(weather.response);
-        var weather = "Current Location: " + r.current_observation.display_location.full ;
-        
-        var temp = r.current_observation.temperature_string + "<br />";
-        
-        var wind = r.current_observation.wind_string + "<br />";
-        var relative_humidity = r.current_observation.relative_humidity + "<br />";
-        var feelslike_string = r.current_observation.feelslike_f +  "<br />";
-        
-        document.getElementById("weather").innerHTML = weather ;
-        document.getElementById("temp").innerHTML = temp ;
-        document.getElementById("wind").innerHTML = wind ;
-        document.getElementById("relative_humidity").innerHTML = relative_humidity ;
-        document.getElementById("feelslike_string").innerHTML = feelslike_string ;
-            
-
-
-
-(function($) {
-  $(document).ready(function() {
-    // hide .navbar first
-    $(".navbarscroll").hide();
-
-    //fade in .navbar
-    $(function() {
-      $(window).scroll(function() {
-        // set distance uster needs to scroll before fadeIn starts
-        if ($(this).scrollTop() > 100) {
-          $(".navscroll").fadeIn();
-        } else {
-          $(".navscroll").fadeOut();
-        }
-      });
-    });
-  });
-})(jQuery);
 <!DOCTYPE html>
 <html lang="en" >
 
 <head>
   <meta charset="UTF-8">
-  <title>Personal Webpage</title>
-  
-  
-  
+  <title>Personal Webpage</title>  
       <link rel="stylesheet" href="css/style.css">
-
-  
 </head>
 
 <body>
