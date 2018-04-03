@@ -3,7 +3,7 @@ body {
     width: 70%;
 }
 
-bg {
+.bg {
   /*Futuristic office */
   background-image: url(https://images.pexels.com/photos/4827/nature-forest-trees-fog.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260);
     height: 50%;
