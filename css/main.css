@@ -3,7 +3,7 @@ body {
     width: 70%;
 }
 html { 
-  background: url(https://images.pexels.com/photos/279547/pexels-photo-279547.jpeg?cs=srgb&dl=cold-fog-high-279547.jpg&fm=jpg)
+  background: silver; color:white;
 no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -22,7 +22,7 @@ no-repeat center center fixed;
 }
 
 .bg10{
-background: url(https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260)
+background: url(https://images.pexels.com/photos/279547/pexels-photo-279547.jpeg?cs=srgb&dl=cold-fog-high-279547.jpg&fm=jpg)
 	  no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
