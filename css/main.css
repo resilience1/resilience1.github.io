@@ -35,11 +35,11 @@ background: url(https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg
     padding: 0px;
     list-style: none;
     font-weight: bold; 
-	color:green;
+	color:black;
 }
 nav ul li, footer ul li {
     display: inline;
-    margin-right: 20px;color:green;
+    margin-right: 20px;font-weight:bold; color:black;
 }
 a {
     text-decoration: none;
@@ -54,12 +54,12 @@ h1 {
 }
 p {
     font-size: 1.5em;
-    line-height: 1.4em;
+    line-height: 1.4em; font-weight:bold;
     color: black;
 }
 footer {
     border-top: 1px solid #d5d5d5;
-    font-size: .8em; color:green;
+    font-size: .8em; color:black;
 }
 
 ul.posts { 
