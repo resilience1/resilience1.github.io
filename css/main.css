@@ -35,15 +35,15 @@ background: url(https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg
     padding: 0px;
     list-style: none;
     font-weight: bold; 
-	color:black;
+	color:green;
 }
 nav ul li, footer ul li {
     display: inline;
-    margin-right: 20px;
+    margin-right: 20px;color:green;
 }
 a {
     text-decoration: none;
-    color: #999;
+    color: green;
 }
 a:hover {
     text-decoration: underline;
@@ -55,11 +55,11 @@ h1 {
 p {
     font-size: 1.5em;
     line-height: 1.4em;
-    color: white;
+    color: black;
 }
 footer {
     border-top: 1px solid #d5d5d5;
-    font-size: .8em;
+    font-size: .8em; color:green;
 }
 
 ul.posts { 
