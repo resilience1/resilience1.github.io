@@ -4,13 +4,12 @@ body {
 }
 
 html { 
-  background: url(https://images.pexels.com/photos/4827/nature-forest-trees-fog.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260)
+  background: url(https://images.freeimages.com/images/large-previews/2e4/pacific-northwest-scenics-1312671.jpg)
 	  no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-	opacity:0.2; filter: alpha(opacity=20);
 }
 
 .bg {
@@ -139,4 +138,4 @@ ul.posts li {
   font-size: 200%;
   color: white;   
 }
-Don't forget to commit the new CSS file!
+
