@@ -148,4 +148,23 @@ ul.posts li {
   font-size: 200%;
   color: white;   
 }
-
+body2 {
+	background-color: #000000;
+	color: #ffffff;
+	overflow: hidden;
+}
+#c {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+#desc {
+	position: absolute;
+  padding: 8px;
+	top: 16px;
+	left: 16px;
+	z-index: 2;
+	background-color: rgba(0, 0, 0, 0.2);
+	width: 1024px;
+}
