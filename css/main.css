@@ -120,9 +120,11 @@ ul.posts li {
 
 .name2 {
   
-  font-size: 100%;
-  color: white;
-	text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+  font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    padding: 0px;
+    list-style: none;
+    font-weight: bold; 
+	color:black;
 }
 
 .textShadow {
