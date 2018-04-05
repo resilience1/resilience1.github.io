@@ -1,0 +1,26 @@
+<div id="desc">
+	2^19 <a href="https://en.wikipedia.org/wiki/Verlet_integration" target="wiki">kinematic</a> 2D points which get accelerated along the difference gradients	of the Gaussians of their additive projection.<br/>
+	This was mostly implemented in <a href="http://vanilla-js.com/" target="vanillajs">Vanilla JS</a> but the computationally heavy simulation runs on the <a href="https://webglfundamentals.org/webgl/lessons/webgl-shaders-and-glsl.html" target="webgl">GPU</a>.<br/>
+	Main texture size: 1024 x 512 pixels<br/>
+	Fluid simulation grid size: 64 x 32<br/>
+	Open the console and find some more implementation hints.<br/>
+	Doubleclick <a href="#" onclick="hide();">ANYWHERE</a> to (un)hide this box.<br/>
+	Fullscreen View recommended for the curve editor.<br/>
+  Drag and drop boxes then [A]dd, [M]ove, and [D]elete the <a href="https://en.wikipedia.org/wiki/B-spline#Definition" target="wiki">B-Spline</a> controls.<br/>
+	Use the browser history to step in your curve edits. Sharing URLs with hashed curve edits doesn't work (yet)<br/>
+ 	Also the binding to the control point text input does not work in both directions.<br/>
+  The spline editor is renderered with an offscreen 2D context and gets transferred to a WebGL texture.<br/>
+	One primary advance shader warps and processes the backbuffer feedback loop.<br/>
+	A secondary composite shader mixes the many layers to the screen.<br/>
+	Together with the precalculation of the blur textures, this is actually a clone of <a href="http://www.geisswerks.com/about_milkdrop.html">Milkdrop 2</a>'s pipeline.<br/>
+	You might notice some 2D drawing code for the Kinect skeletal tracking model as provided by <a href="https://github.com/Flexi23/Cake23" target="github">Cake23</a>. <br/>
+	<a href="https://www.ibiblio.org/e-notes/webgl/gpu/fluid.htm" target="evgeny">Fluid Simulation</a> code originally by Evgeny Demidov. <a href=" https://github.com/mattdesl/lwjgl-basics/wiki/ShaderLesson5" target="github">Gaussian Blur</a> by <a href="https://twitter.com/mattdesl" target="twitter">Matt DesLauriers</a><br/><span id="fps">0</span> / <input type="text" name="limitFPS" size="3" value="120" onKeyUp="setLimitFps(this)"> frames per second<br/>
+  <form>
+    <input type="radio" name="render" onclick="switchRenderer(false)" checked="checked">blur gradient composite</input><br>
+  	<input type="radio" name="render" onclick="switchRenderer(true)">only particles</input><br>
+		<input type="checkbox" onclick="goFull(this)" checked="checked">stretch canvas to viewport<br>
+		spline control points: <input type="text" id="pointsInput" value=",,," onKeyUp="setPoints(this)">
+		<!--<input type="checkbox" onclick="toggleSplineRenderer()">-->
+	</form>
+</div>
+<canvas id="c"></canvas>
