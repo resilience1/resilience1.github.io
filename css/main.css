@@ -2,6 +2,14 @@ body {
     margin: 60px auto;
     width: 70%;
 }
+html { 
+  background: lavender; 
+no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
 .bg {
   /*Futuristic office */
@@ -13,35 +21,45 @@ body {
   position: absolute;
 }
 
-nav ul, footer ul {
+.bg10{
+background: url(https://images.pexels.com/photos/7919/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=650&w=940)
+	  no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+	backkground-size: cover;
+}
+	
+	nav ul, footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
     padding: 0px;
     list-style: none;
-    font-weight: bold;
+    font-weight: bold; 
+	color:black;
 }
 nav ul li, footer ul li {
     display: inline;
-    margin-right: 20px;
+    margin-right: 20px;font-weight:bold; color:black;
 }
 a {
     text-decoration: none;
-    color: #999;
+    color: #333;
 }
 a:hover {
     text-decoration: underline;
 }
-h1 {
+h1 {align:center;
     font-size: 3em;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    font-family:'Helvetica', 'Arial', 'Sans-Serif'; color:black;
 }
 p {
     font-size: 1.5em;
-    line-height: 1.4em;
-    color: #333;
+    line-height: 1.4em; 
+    color: black;
 }
 footer {
     border-top: 1px solid #d5d5d5;
-    font-size: .8em;
+    font-size: .8em; color:black;
 }
 
 ul.posts { 
@@ -128,4 +146,4 @@ ul.posts li {
   font-size: 200%;
   color: white;   
 }
-Don't forget to commit the new CSS file!
+
