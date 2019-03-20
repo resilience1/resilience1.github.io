@@ -11,7 +11,7 @@ layout: feed
 	<id>http://resilience1.github.io/blog</id>
 	<author>
 		<name>Michael Lengefeld</name>
-		<email>resilience1@zoho.com</email>
+		<email>mrlengefeld@protonmail.com</email>
 	</author>
 
 	{% for post in site.posts %}
