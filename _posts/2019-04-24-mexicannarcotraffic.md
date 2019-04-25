@@ -4,7 +4,7 @@ title: "Mexican Narcotrafficking"
 date: 2019-04-24
 ---
 <p align="center"><kbd><img align="center" width="50%" height="50%" src="https://www.brookings.edu/wp-content/uploads/2017/05/drug_seizure_mexico001.jpg" alt="Narcotrafficking"></kbd></p><br>
-Why did Narcotraffic increase in Mexico between 1990 and the present day?
+Why did narcotraffic increase in Mexico between 1990 and the present day?
 
 Head over to Sam Cohen's Global Social Trends website to see an award-winning response to this question <a href="https://www.samuelcohn.net/april-winner/">here</a>! 
 
