@@ -6,7 +6,7 @@ date: 2019-04-24
 <p align="center"><kbd><img align="center" width="50%" height="50%" src="https://www.brookings.edu/wp-content/uploads/2017/05/drug_seizure_mexico001.jpg" alt="Narcotrafficking"></kbd></p><br>
 Why did narcotraffic increase in Mexico between 1990 and the present day?
 
-Head over to Samuel Cohn's <a href="https://www.samuelcohn.net/april-winner/"><i>Global Social Trends website</i></a> to see an award-winning response to this question! 
+Head over to Samuel Cohn's <a href="https://www.samuelcohn.net/april-winner/"><i>Global Social Trends website</i></a> to see the original award-winning response to this question! 
 
 Two central dynamics facilitated the increase in Mexican narcotrafficking organizations since 1990.
 
