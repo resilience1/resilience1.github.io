@@ -198,7 +198,7 @@ header {
   width: 100; }
 
 .text-secondary {
-  color: #06841a; }
+  color: #06a821; }
 
 main {
   padding: 4rem;
@@ -280,7 +280,7 @@ main {
     color: #000; }
 
 .btn-dark {
-  background: black;
+  background: gray;
   color: #fff; }
 
 .btn-light {
