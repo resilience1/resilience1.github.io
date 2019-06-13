@@ -55,7 +55,7 @@
     .menu-branding .portrait {
       width: 300px;
       height: 300px;
-      background: url("../img/DSCF3663.JPG");
+      background: url("../img/Profile.jpg");
       border-radius: 50%;
       border: solid 3px #eece1a;
       background-repeat: no-repeat; }
@@ -133,7 +133,7 @@
     height: 25vh;
     transform: translate3d(100%, 0, 0); }
     .menu-branding .portait {
-      background: url("../img/Profile.JPG");
+      background: url("../img/Profile.jpg");
       width: 150px;
       height: 150px; }
   .about-info {
