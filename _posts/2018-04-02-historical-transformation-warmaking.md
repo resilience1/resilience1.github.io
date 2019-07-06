@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post2
 title: "U.S. Intervention in Iraq, and the Historical Transformation of Warmaking"
 date: 2019-03-20
 ---
