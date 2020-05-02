@@ -2,66 +2,92 @@
 <p class="meta">{{ page.date | date_to_string }}</p>
 
 <!DOCTYPE html>
-	<html>
-		<head>
-		  <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-      <script src="https://use.fontawesome.com/92f3f685d7.js"></script>
-      <link rel="stylesheet" href="css/secondary.css" />
-		</head>
-    
-	<body id="bg-img">
+	<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://use.fontawesome.com/92f3f685d7.js"></script>
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+    <title>Welcome</title>
+  </head>
+
+  <body id="bg-img">
     <header>
-      <div class="menu-btn">
-        <div class="btn-line"></div>
-        <div class="btn-line"></div>
-        <div class="btn-line"></div>
-      </div>
-
-      <nav class="menu">
-        <div class="menu-branding">
-          <div class="portrait"></div>
+      <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">MRLengefeld.com</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href=/index>Home</a></li>
+	    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Research <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+	<li><a href="#">War and the Environment</a></li>
+          <li><a href="#">War on Drugs</a></li>
+          <li><a href="#">Nuclear Weapons</a></li>
+	</ul>
+			 </li>
+      <li><a href=/teaching>Teaching</a></li>
+	<li><a href=/civic>Service</a></li>
+	<li><a href=/blog>Blog</a></li>
+<li><a href=/contact>Contact</a></li>
+			      <ul class="nav navbar-nav">
+    </ul>
+<ul class="nav navbar-nav navbar-right">
+<form class="navbar-form navbar-right" action="/action_page.php">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search" name="search">
+	</div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+	 </ul>
         </div>
+</nav>
+    </header>
+<head>
+<style>
+	body {
+   	 background-image: url(../img/background.JPG);
+   	 background-attachment: fixed;
+   	 background-size: cover; }
+   	 body#bg-img:after {
+    	  content: "";
+    	  position: absolute;
+    	  top: 0;
+     	 right: 0;
+     	 width: 100%;
+     	 height: 100%;
+     	 z-index: -1;
+     	 background: rgba(170, 170, 170, .1); }
+</style>
+	    </head>
+	<body>
+    <main id="home">
+      <h1 class="lg-heading">
+       Michael<span class="text-secondary"> Lengefeld</span> 
+      </h1>
 
-        <ul class="menu-nav">
-          <li class="nav-item current">
-            <a href="https://www.mrlengefeld.com" class="nav-link">Home</a>
-          </li>
+      <h2 class="sm-heading">
+      Visiting Assistant Professor of Environmental Sociology<br>
+      Center for People, Politics and Markets<br>
+      Goucher College
+      </h2>
+      <div class="icons">
+</div>
+    </main>
 
-          <li class="nav-item">
-            <a href="research.html" class="nav-link">Research</a>
-          </li>
-          
-          <li class="nav-item">
-            <a href="teaching.html" class="nav-link">Teaching</a>
-          </li>
-          
-           <li class="nav-item">
-            <a href="/civic/index.html" class="nav-link">Service</a>
-          </li>
-          
-          <li class="nav-item">
-            <a href="blog.html" class="nav-link">Blog</a>
-          </li>
-          
-          <li class="nav-item">
-            <a href="contact.html" class="nav-link">Contact</a>
-          </li>
-        </ul>
-      </nav>
-</header>
-		<main id="home">
-			{{ content }}
-			
-			</div><!-- /.container -->
-		<script src="js/main.js"></script>	
-		<footer>
+    <script src="js/main.js"></script>
+	    </body>
+	    <footer>
 	    		<ul>
 				<a href="mailto:mrlengefeld@protonmail.com">Contact Webmaster</a> &emsp; 
 				<a href="https://resilience1.github.io/blog/atom.xml">RSS feed</a> &emsp;
-				Copyright © 2019      
+				Copyright © 2020     
 				</ul>
-			</footer>
-		</body>
+</footer>
+  </body>
 </html>
+
