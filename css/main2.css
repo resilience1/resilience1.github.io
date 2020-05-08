@@ -1,10 +1,8 @@
-
-
 body {
   background: #bbb;
   color: #fff;
   height: 100%;
-  margin: 0;
+  margin: 30px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5; }
   body#bg-img {
@@ -24,7 +22,7 @@ body {
 h1,
 h2,
 h3 {
-  margin: 0;
+  margin: 30px;
   font-weight: 400; }
   h1.lg-heading,
   h2.lg-heading,
