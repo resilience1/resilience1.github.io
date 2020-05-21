@@ -62,12 +62,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <h1 class="body" align="center">
        Michael<span class="text-secondary"> Lengefeld</span>
        </h1>
-
-      <h2 class="sm-heading" align="center">
-      Visiting Assistant Professor of Environmental Sociology<br>
-      Center for People, Politics and Markets<br>
-      Goucher College
-      </h2>
+	</main>
  </body>
   
  <div class="footer" style="color:white">
@@ -97,3 +92,4 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <p id="caption"></p>
     </div>
   </div>
+  </html>
