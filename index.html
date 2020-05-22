@@ -28,7 +28,9 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
      	 height: 100%;
      	 z-index: -1;
 	background: rgba(170, 170, 170, .1); 
-	padding-left: 10%;}
+	padding-left: 10%;}  
+	.hide {display: none;}
+    	.myDIV:hover + .hide {display: block;color: black;}
   </style>
   </body>
 
@@ -37,7 +39,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   <a href="javascript:void(0)" onclick="closeNav()" class="w3-button w3-black w3-xlarge w3-display-topright" style="padding:0 12px;">
     <i class="fa fa-remove"></i>
   </a>
-  <div class="w3-bar-block w3-center">
+  <div class="myDIV w3-bar-block w3-center">
     <a href="/index" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Home</a>
     <a href="/research" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Research</a>
     <a href="/teaching" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Teaching</a>
