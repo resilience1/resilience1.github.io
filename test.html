@@ -110,19 +110,28 @@ ul li ul li:hover {background: #666;}
 </div>
 
 </body>
-</html>
 	
 	<nav class="w3-dropdown-hover w3-sidebar w3-black w3-animate-right w3-xxlarge" style="display:none;padding-top:150px;right:0;z-index:2" id="mySidebar">
   <a href="javascript:void(0)" onclick="closeNav()" class="w3-button w3-white w3-xlarge w3-display-topright" style="padding:0 12px;">
     <i class="fa fa-remove"></i>
   </a>
-	<div class="dropdown w3-bar-block w3-center">
-  <div class="dropdown-content">
-   <a href="/index" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Home</a>
-    <a href="/research" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Research</a>
-    <a href="/teaching" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Teaching</a>
-    <a href="/civic" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Service</a>
-  </div>
+
+<div class="dropdown w3-bar-block w3-center">
+<div class="dropdown-content">
+   <ul>
+	<li>
+	<nav class="w3-dropdown-hover w3-sidebar w3-black w3-animate-right w3-xxlarge" style="display:none;padding-top:150px;right:0;z-index:2" id="mySidebar">
+  	<a href="javascript:void(0)" onclick="closeNav()" class="w3-button w3-white w3-xlarge w3-display-topright" style="padding:0 12px;">
+		<i class="fa fa-remove"></i>
+	  <ul>
+	   <li>
+	  <li><a href="/index" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Home</a></li>
+    <li><a href="/research" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Research</a></li>
+    <li><a href="/teaching" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Teaching</a></li>
+    <li><a href="/civic" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Service</a></li>
+		</ul>
+		</ul>
+		</div>
 </div>	
 	</nav>	
 
