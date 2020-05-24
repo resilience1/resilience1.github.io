@@ -1,145 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
+<title>W3.CSS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-.dropbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  right: 0;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1;}
-.dropdown:hover .dropdown-content {display: block;}
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
-  
-body {
-  font-family: "Lato", sans-serif;
-}
-/* The side navigation menu */
-.sidenav {
-    height: 100%;
-    width: 50px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    padding-top: 60px;
-    transition: 0.5s;
-}
-
-/* ON HOVER */
-.sidenav:hover{
-   width: 250px;
-}
-
-/* The navigation menu links */
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-#main {
-    transition: margin-left .5s;
-    padding: 20px;
-}
-
-
-.sidenav a:hover {
-  color: #f1f1f1;
-}
- 
- .menu a.main-nav-item:hover { }
-
- .sidenav:hover{
-   width: 250px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-</style>
-</head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <body>
 
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="/index">Home</a>
-  <a href="/research/index.html">Research</a>
-  <a href="/teaching">Teaching</a>
-  <a href="/civic">Service</a>
-</div>
-
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
-
-<script>
-function openNav() {
-  document.getElementById("mySidenav").style.display = "block";
-}
-
-function closeNav() {
-  document.getElementById("mySidenav").style.display = "none";
-}
-</script>
-   
-</body>
-</html> 
-<div class="menu dropdown w3-bar-block w3-center" style="display:none;padding-top:150px;right:0;z-index:2" id="mySidebar">" style="float:right;">
-  <button class="dropbtn w3-bar-block w3-center"></button>
-  <div class="dropdown-content">
-   <a href="/index" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Home</a>
-   <a href="/research" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Research</a>
-   <a href="/teaching" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Teaching</a>
-   <a href="/civic" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Service</a>
-  </div>
-</div>
-
-<div class="w3-bar-block w3-center w3-mobile">
+<div class="w3-container">
+  <h2>Dropdown Button</h2>
+  <p>Move the mouse over the button to open the dropdown content.</p>
+  <div class="w3-dropdown-hover">
+    <button class="w3-button w3-black">Hover Over Me!</button>
+    <div class="w3-dropdown-content w3-bar-block w3-border">
     <a href="/index" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Home</a>
     <a href="/research" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Research</a>
     <a href="/teaching" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Teaching</a>
     <a href="/civic" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Service</a>
+    </div>
   </div>
-</nav>
+</div>
+
 </body>
 </html>
