@@ -125,12 +125,13 @@ function closeNav() {
 </body>
 </html> 
 
-<div class="menu dropdown w3-bar-block w3-center" style="float:right;">
+<div class="menu dropdown w3-bar-block w3-center w3-sidebar w3-black w3-xxlarge" style="display:none;padding-top:150px;right:0;z-index:2" id="mySidebar">" style="float:right;">
   <button class="dropbtn w3-bar-block w3-center"></button>
   <div class="dropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
+   <a href="/index" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Home</a>
+   <a href="/research" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Research</a>
+   <a href="/teaching" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Teaching</a>
+   <a href="/civic" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Service</a>
   </div>
 </div>
 
