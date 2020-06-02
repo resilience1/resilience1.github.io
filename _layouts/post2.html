@@ -1,84 +1,90 @@
-
-<p class="meta">{{ page.date | date_to_string }}</p>
-
 <!DOCTYPE html>
-	<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="https://use.fontawesome.com/92f3f685d7.js"></script>
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
- 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
-  </head>
+	<html>
+		<head>
+			<title>{{ page.title }}</title>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<meta http-equiv="X-UA-Compatible" content="ie=edge">
+   			<script src="https://use.fontawesome.com/92f3f685d7.js"></script>
+	  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ 			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+			<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+				<style>
+				body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+				.w3-row-padding img {margin-bottom: 12px}
+				</style>
+		</head>
 
-  <body id="bg-img">
-    <header>
-      <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">MRLengefeld.com</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href=/index>Home</a></li>
-	    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Research <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-	<li><a href="#">War and the Environment</a></li>
-          <li><a href="#">War on Drugs</a></li>
-          <li><a href="#">Nuclear Weapons</a></li>
-	</ul>
-			 </li>
-      <li><a href=/teaching>Teaching</a></li>
-	<li><a href=/civic>Service</a></li>
-	<li><a href=/blog>Blog</a></li>
-<li><a href=/contact>Contact</a></li>
-			      <ul class="nav navbar-nav">
-    </ul>
-<ul class="nav navbar-nav navbar-right">
-<form class="navbar-form navbar-right" action="/action_page.php">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search" name="search">
-	</div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
-	 </ul>
-        </div>
-</nav>
-    </header>
-<head>
-<style>
+<!--Background-->
+<body id="bg-img">
+  <style>
+	img {opacity: .5;}
+	img:hover {opacity: .1;}
 	body {
-   	 background-image: url(../img/background.JPG);
-   	 background-attachment: fixed;
-   	 background-size: cover; }
-   	 body#bg-img:after {
-    	  content: "";
-    	  position: absolute;
-    	  top: 0;
-     	 right: 0;
-     	 width: 100%;
-     	 height: 100%;
-     	 z-index: -1;
-     	 background: rgba(170, 170, 170, .1); }
-</style>
-	    </head>
-	<body>
+   	color: black;
+	background-image: url(../img/background.JPG);
+   	background-attachment: fixed;
+   	background-size: cover; }
+   	body#bg-img:after {
+    	content: "";
+    	position: absolute;
+    	top: 0;
+     	right: 0;
+     	width: 100%;
+     	height: 100%;
+     	z-index: -1;
+	background: rgba(170, 170, 170, .3); 
+	padding-left: 1%;}
+  </style>
+  </body>
+		
+<!-- Hidden Sidebar (reveals when clicked on menu icon)-->
+<nav class="w3-sidebar w3-black w3-animate-right w3-xxlarge" style="display:none;padding-top:150px;right:0;z-index:2" id="mySidebar">
+  <a href="javascript:void(0)" onclick="closeNav()" class="w3-button w3-black w3-xlarge w3-display-topright" style="padding:0 12px;">
+    <i class="fa fa-remove"></i>
+  </a>
+  <div class="w3-bar-block w3-center">
+    <a href="/index" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Home</a>
+    <a href="/research" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Research</a>
+    <a href="/teaching" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Teaching</a>
+    <a href="/civic" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Service</a>
+  </div>
+</nav>
 
-    <script src="js/main.js"></script>
-<p class="meta">{{ page.date | date_to_string }}</p>
 
-<div class="post">
-  {{ content }}
-</div
-	    </body>
-	    <footer>
-	    		<ul>
-				<a href="mailto:mrlengefeld@protonmail.com">Contact Webmaster</a> &emsp; 
+  <!-- Menu icon to open sidebar -->
+  <span class="w3-button w3-top w3-transparent w3-xxlarge w3-text-white w3-hover-text-black" style="width:auto;right:0;" onclick="openNav()"><i class="fa fa-bars"></i></span>
+
+<!-- Page Content -->
+	<div class="container">
+	{{ content }}
+	</div>
+
+
+<!-- END PAGE CONTENT -->
+</div>
+<div class="footer" style="color:white">
+	  <a href="mailto:mrlengefeld@protonmail.com">Contact Webmaster</a> &emsp; 
 				<a href="https://resilience1.github.io/blog/atom.xml">RSS feed</a> &emsp;
 				Copyright © 2020     
-				</ul>
-</footer>
-  </body>
+				</ul></h2>
+        </div>
+<script>
+// Open and close sidebar
+function openNav() {
+  document.getElementById("mySidebar").style.width = "15%";
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+
+</body>
 </html>
+<p class="meta">{{ page.date | date_to_string }}</p>
+
 
