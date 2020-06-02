@@ -5,7 +5,7 @@ date: 2019-03-20
 ---
 <h1><b>U.S. Intervention in Iraq and the Historical Transformation of Warmaking</b></h1>
 <div class="w3-container w3-center">
-      		<img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2013/02/11/14/v2v2-SaddamStatueIraq.jpg?w968h681"     alt="Toppling Saddam"><hr>
+    <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2013/02/11/14/v2v2-SaddamStatueIraq.jpg?w968h681" alt="Toppling Saddam"><hr>
     </div>
   <hr>
   <div class="background">
