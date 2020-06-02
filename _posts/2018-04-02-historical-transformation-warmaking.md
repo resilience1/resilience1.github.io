@@ -1,5 +1,5 @@
 ---
-layout: master
+layout: post2
 title: Blog | Michael Lengefeld
 date: 2019-03-20
 ---
