@@ -2,6 +2,10 @@
 	<html>
 		<head>
 			<title>{{ page.title | page.date | date_to_string}}</title>
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>{{ page.title }}</title>
 			<meta charset="UTF-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -16,15 +20,12 @@
 				.w3-row-padding img {margin-bottom: 12px}
 				</style>
 		</head>
-	<header class="w3-container w3-center w3-black" id="home">
-    	<h1 class="w3-xxlarge">Blog | Michael Lengefeld</h1>
-	</header>
 
 <!--Background-->
 <body id="bg-img">
   <style>
 	img {opacity: .5;}
-	img:hover {opacity: 1.0;}
+	img:hover {opacity: .1;}
 	body {
    	color: black;
 	background-image: url(../img/background.JPG);
@@ -40,16 +41,6 @@
      	z-index: -1;
 	background: rgba(170, 170, 170, .3); 
 	padding-left: 1%;}
-	
-	div.transbox {margin: 40px;
-  	background-color: #ffffff;
-  	border: 1px solid black;
-  	opacity: 0.7;}
-
-	div.transbox p {
-  	margin: 5%;
-  	font-weight: bold;
-  	color: #000000;}
   </style>
   </body>
 		
@@ -71,7 +62,8 @@
   <span class="w3-button w3-top w3-transparent w3-xxlarge w3-text-white w3-hover-text-black" style="width:auto;right:0;" onclick="openNav()"><i class="fa fa-bars"></i></span>
 
 <!-- Page Content -->
-	<div class="container">
+	<title>{{ page.title | page.date | date_to_string}}</title>
+		<div class="container">
 	{{ content }}
 	</div>
 
@@ -98,6 +90,3 @@ function closeNav() {
 
 </body>
 </html>
-
-
-
