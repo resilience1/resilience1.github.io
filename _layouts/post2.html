@@ -12,15 +12,9 @@
 			<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 				<style>
-				body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+				h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 				.w3-row-padding img {margin-bottom: 12px}
-				</style>
-		</head>
-
-<!--Background-->
-<body id="bg-img">
-  <style>
-	img {opacity: .5;}
+			img {opacity: .5;}
 	img:hover {opacity: .1;}
 	body {
    	color: black;
@@ -36,9 +30,9 @@
      	height: 100%;
      	z-index: -1;
 	background: rgba(170, 170, 170, .3); 
-	padding-left: 1%;}
-  </style>
-  </body>
+	padding-left: 1%;}	
+			</style>
+		</head>
 		
 <!-- Hidden Sidebar (reveals when clicked on menu icon)-->
 <nav class="w3-sidebar w3-black w3-animate-right w3-xxlarge" style="display:none;padding-top:150px;right:0;z-index:2" id="mySidebar">
@@ -60,12 +54,13 @@
 <!-- Page Content -->
 	<title>{{ page.title | page.date | date_to_string}}</title>
 		<div class="container">
+			<body>
 	{{ content }}
+			</body>
 	</div>
 
 
 <!-- END PAGE CONTENT -->
-</div>
 <div class="footer" style="color:white">
 	  <a href="mailto:mrlengefeld@protonmail.com">Contact Webmaster</a> &emsp; 
 				<a href="https://resilience1.github.io/blog/atom.xml">RSS feed</a> &emsp;
@@ -83,6 +78,4 @@ function closeNav() {
   document.getElementById("mySidebar").style.display = "none";
 }
 </script>
-
-</body>
 </html>
