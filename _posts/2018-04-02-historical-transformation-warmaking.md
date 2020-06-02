@@ -1,9 +1,10 @@
 ---
-layout: post2
-title: "U.S. Intervention in Iraq, and the Historical Transformation of Warmaking"
+layout: master
+title: Blog | Michael Lengefeld
 date: 2019-03-20
 ---
-<p align="center"><kbd><img width="50%" height="50%" src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2013/02/11/14/v2v2-SaddamStatueIraq.jpg?w968h681" alt="Toppling Saddam"></kbd></p><br>
+<h1><b>U.S. Intervention in Iraq and the Historical Transformation of Warmaking</b></h1>
+<p align="center"><kbd><img width="100%" height="100%" src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2013/02/11/14/v2v2-SaddamStatueIraq.jpg?w968h681" alt="Toppling Saddam"></kbd></p><br>
 Last night was the 16-year anniversary of the American-led intervention in <a href="https://theintercept.com/2018/04/09/video-a-brief-history-of-u-s-intervention-in-iraq-over-the-past-half-century/">Iraq</a>. The Gulf War of the 1990s involved the destruction of oil infrastructures and sewage treatment plants, as well as the use of depleted uranium munitions that resulted in congenital malformations in children that previously did not exist in medical journals. As we contemplate the enduring consequences of this intervention for human rights and political stability in Iraq, it's also useful to think about how this intervention fits into the broader context of state warmaking around the world. In our recent piece published in <a href="https://journals.sagepub.com/doi/10.1177/0095327X19832615"><i>Armed Forces and Society</i></a>, Chad Smith and I consider the environmental consequences of this "new war" - and the variations in the warmaking for developed and lesser developed countries:<br><br>
 "Warmaking and war preparation have changed significantly in the 21st century. A number of scholars have documented and analyzed these changes. Drawing on work focused upon “new war” and “new militarism,” we argue that one facet of these practices has received little attention—the environmental consequences of “new militarism.” Specifically, we contend that “asymmetric war” through the mechanism of risk-transfer militarism results in increased carbon emissions. Our analyses utilize fixed effects models for 126 countries using international panel data from 2000 to 2010. We sketch the differences in these outcomes for both developed and developing nations, contextualize carbon emissions within both times of economic prosperity and decline, provide evidence of the differential effects on carbon emissions by a nation’s world-systems standing, and provide empirical evidence of the rise of risk-transfer militarism and its negative effects on the environment."<br>
 
