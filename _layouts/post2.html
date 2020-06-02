@@ -2,27 +2,31 @@
 layout: master<!DOCTYPE html>
 	<html>
 		<head>
-			<title>{{ page.title }}</title>
-			<meta charset="UTF-8">
-			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<meta http-equiv="X-UA-Compatible" content="ie=edge">
-   			<script src="https://use.fontawesome.com/92f3f685d7.js"></script>
-	  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
- 			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-			<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-			<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-				<style>
-				body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
-				.w3-row-padding img {margin-bottom: 12px}
-				</style>
-		</head>
+<style>
+	div.transbox {margin: 40px;
+  	background-color: #ffffff;
+  	border: 1px solid black;
+  	opacity: 0.7;}
+
+	div.transbox p {
+  	margin: 5%;
+  	font-weight: bold;
+  	color: #000000;}
+	
+	img {opacity: 0.5;}
+	img:hover {opacity: 1.0;}
+	
+</style>
+</head>
+	<header class="w3-container w3-center w3-black" id="home">
+    	<h1 class="w3-xxlarge">Blog | Michael Lengefeld</h1>
+	</header>
 
 <!--Background-->
 <body id="bg-img">
   <style>
 	img {opacity: .5;}
-	img:hover {opacity: .1;}
+	img:hover {opacity: 1.0;}
 	body {
    	color: black;
 	background-image: url(../img/background.JPG);
