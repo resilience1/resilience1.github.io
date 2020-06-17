@@ -5,6 +5,7 @@ title: Violence and the Environment | Michael Lengefeld
 <html>
 	<head>
 <style>
+	<style>
 	div.transbox {margin: 40px;
   	background-color: #ffffff;
   	border: 2px solid black;
@@ -42,7 +43,7 @@ title: Violence and the Environment | Michael Lengefeld
     	background-color: #222;
     	color: #fff;
     	font: bold sans-serif;
-	font-size: 1.2em;
+	font-size: 1em;
     	padding: 3px;
     	text-align: center;
 	}	
@@ -52,8 +53,99 @@ title: Violence and the Environment | Michael Lengefeld
 	}
 	
 	h2 {
-		font-size: large;
+		font-size: x-large;
 	}
+	
+	img.displayed {
+   	display: block;
+    	margin-left: auto;
+    	margin-right: auto; 
+	}
+	
+	#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
 </style>
 </head>
 	
@@ -65,10 +157,16 @@ title: Violence and the Environment | Michael Lengefeld
 	<div class="w3-row">
 	<div class="w3-half w3-container">
 	<h1>What you need to know</h1>
-		<h2>War and preparation for war have harmful environmental impacts, but not every nation uses the same strategies.
-			There has been a dramatic shift in the way contemporary wars are fought, and the environmental consequences have also
-			changed. In the modern era, many developed nations have shifted to a new form of high-tech warfare termed 
-			"risk-transfer militarism." 
+		<h2>War and preparation for war entail harmful environmental impacts, but not every nation relies on the same 
+			strategies. There has been a dramatic historical shift in the way contemporary wars are fought, and 
+			the environmental consequences have also changed. In the 21st century, many developed nations have shifted to a new form of 
+			to a strategy of high-tech and resource-intensive warfare. Parallel to this shift is the national 
+			security threat of climate change - an issue which must be addressed by the global community. National
+			militaries in the Global North are pursuing a warmaking strategy with two disproportionate impacts 
+			on the Global South. First, the attendant risks of war are minimized to the Global North while 
+			the attendant risks of war such as casualties, forced displacement, and social upheaval are concentrated
+			in the Global South. Second, the resource and capital-intensive war strategy of the
+			Global North worsens global climate change which disproportionately affects the Global South.
 		</h2>
 	</div>
 	<div class="w3-half w3-container">
