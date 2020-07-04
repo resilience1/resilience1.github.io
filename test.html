@@ -13,14 +13,20 @@ body {
 	background-image: url(../img/background.JPG);
    	background-attachment: fixed;
    	background-size: cover;
-}
+	}
 
 body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif
-}
+	}
 
 .w3-row-padding img {margin-bottom: 5px
-}
+	}
 
+.center {
+  	text-align: center;
+	margin: auto;
+  	width: 60%;
+		padding: 10px;
+	}
 </style>
 
 <!-- Sidebar (hidden by default) -->
@@ -44,8 +50,12 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif
 <!--Background-->
 <body id="bg-img">
 </body>
-<div class="fakeimg" style:"height:300px;">
+
+	
+<div class="header">
+	<div class="fakeimg" style:"height:300px;">
 	</div>
+</div>
 	
 <!-- END PAGE CONTENT -->
 
@@ -54,8 +64,8 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif
 				Copyright © 2020     
         </div>
 
-<script>
 // Script to open and close sidebar
+<script>	
 function w3_open() {
   document.getElementById("mySidebar").style.display = "block";
 }
