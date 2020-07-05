@@ -13,7 +13,7 @@ title: About Me
 	}
 	
 	h2 {
-    	font-size: 3.5vw;
+    	font-size: 3vw;
 	font-style: bold;
     	margin: 3px;
     	padding: 3px;
@@ -72,9 +72,16 @@ title: About Me
 		
 	@media screen and (min-width: 601px) {
   	div.example {
-    	font-size: 20px;
+    	font-size: 1.4em;
   	}
 	}
+	
+	/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+	@media screen and (max-width: 600px) {
+  	div.example {
+    	font-size: 3vw;
+  }
+}
 }
 </style>
 </head>
