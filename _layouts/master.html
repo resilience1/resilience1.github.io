@@ -24,14 +24,14 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif;
 	}
 
 	h1{
-    	font-size: 3vw;
+    	font-size: 1.8em;
 	font-style: bold;
     	margin: 3px;
     	padding: 3px;
 	}
 	
 	h2 {
-    	font-size: 2vw;
+    	font-size: 1.2em;
 	font-style: bold;
     	margin: 3px;
     	padding: 3px;
@@ -54,7 +54,11 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif;
 img {
 	opacity: .7;
 	}
+	
 img:hover {opacity: .1;
+	}
+img.scaled {
+  	width: 100%;
 	}
 body {
    	color: black;
@@ -69,6 +73,35 @@ body {
   	width: 60%;
   	padding: 10px;
 	}
+	
+	.resp-container {
+    	position: relative;
+    	overflow: hidden;
+   	padding-top: 56.25%;
+	}
+	
+	.resp-iframe {
+    	position: absolute;
+    	top: 0;
+    	left: 0;
+    	width: 100%;
+    	height: 100%;
+    	border: 0;
+	}
+		
+	@media screen and (min-width: 601px) {
+  	div.example {
+    	font-size: 1.2em;
+  	}
+	}
+	
+	/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+	@media screen and (max-width: 600px) {
+  	div.example {
+    	font-size: 3vw;
+  }
+}
+}
 </style>
 </head>
 
@@ -95,7 +128,7 @@ body {
   <span class="w3-button w3-top w3-transparent w3-xxlarge w3-text-grey w3-hover-text-black" style="width:auto;right:0;" onclick="w3_open()"><i class="fa fa-bars"></i></span>
 	
 <!-- Page Content -->
-	<div class="container">
+	<div class="example container">
 	{{ content }}
 	</div>
 
