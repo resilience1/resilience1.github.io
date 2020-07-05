@@ -22,18 +22,32 @@ title: Teaching | Michael Lengefeld
 	img:hover {opacity: 1.0;}
 	
 	h2 {
-    	font-size: 1.5em;
+    	font-size: 1.2em;
     	margin: 15px;
     	padding: 10px;
 	}
 
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+	@media screen and (min-width: 601px) {
+  	div.example {
+    	font-size: 1.2em;
+  	}
+	}
+	
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+	@media screen and (max-width: 600px) {
+  	div.example {
+    	font-size: 3vw;
+  }
+}
+}
 </style>
 </head>
 	<header class="w3-container w3-center w3-black" id="home">
     	<h1 class="w3-xxlarge"><span class="w3-hide-small">Teaching | </span>Michael Lengefeld</h1>
 	</header>
 <body>
-<div class="background w3-padding">
+<div class="example background w3-padding">
 	<div class="transbox w3-padding-12">
 		<h1><b><center>Environmental Sociology</center></b></h1>
 	<h2> The goal of the course is to deepen collective understanding of the dynamics of power and inequality that shape human 
