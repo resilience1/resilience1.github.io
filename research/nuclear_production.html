@@ -2,13 +2,7 @@
 layout: research
 title: Nuclear Weapons and Anthropocene | Michael Lengefeld
 ---
-<html>
-	<head>
-	<style>
-	div. {
-		padding:10px 0;
-	}
-	
+<style>
 	div.transbox {margin: 40px;
   	background-color: #ffffff;
   	border: 2px solid black;
@@ -51,35 +45,43 @@ title: Nuclear Weapons and Anthropocene | Michael Lengefeld
     	text-align: center;
 	}	
 	
-	h1{
-	font-size: 1.8em;
-	font-style: bold;
-    	margin: 3px;
-    	padding: 3px;
-	}
-	
-	h2 {
-		font-size: x-large;
-	}
-	h3 {
-		font-size:1.2em;
-	text-align:center;
-	color: #fff;
-	}
-		
 	img.displayed {
    	display: block;
     	margin-left: auto;
     	margin-right: auto; 
 	}
 	
-	#myImg {
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
-}
+	h1{
+    	font-size: 1.8em;
+	font-style: bold;
+    	margin: 3px;
+    	padding: 3px;
+	}
+	
+	h2 {
+    	font-size: 1.2em;
+	font-style: bold;
+    	margin: 3px;
+    	padding: 3px;
+	}
 
-#myImg:hover {opacity: 0.7;}
+	p {font-size: 2vw;
+		margin: 3px;
+    	padding: 3px;
+	}
+	h3 {
+		font-size:1.2em;
+	text-align:center;
+	color: #fff;
+	}
+	
+	#myImg {
+ 	border-radius: 5px;
+ 	cursor: pointer;
+ 	transition: 0.3s;
+	}
+
+	#myImg:hover {opacity: 0.7;}
 
 /* The Modal (background) */
 .modal {
@@ -100,7 +102,7 @@ title: Nuclear Weapons and Anthropocene | Michael Lengefeld
 .modal-content {
   margin: auto;
   display: block;
-  width: 100%;
+  width: 80%;
   max-width: 700px;
 }
 
@@ -157,15 +159,29 @@ title: Nuclear Weapons and Anthropocene | Michael Lengefeld
   .modal-content {
     width: 100%;
   }
-	</style>
-	</head>
+		
+	@media screen and (min-width: 601px) {
+  	div.example {
+    	font-size: 1.2em;
+  	}
+	}
+	
+	/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+	@media screen and (max-width: 600px) {
+  	div.example {
+    	font-size: 3vw;
+  }
+}
+}
+</style>
+</head>
 	
 	<header class="w3-container w3-center w3-black" id="home">
     	<h1 class="w3-xxlarge"><span class="w3-hide-small">Nuclear Weapons and Anthropocene | </span>Michael Lengefeld</h1>
 	</header>
 <body>
 	
-	<div class="w3-row">
+	<div class="example w3-row">
 		<div class="w3-third w3-container">
 			<figure class="item" align="middle">				
 			<img id="myImg" src="/img/planetaryboundariesmain.jpg" alt="9 Planetary Boundaries" style="width: 100%; border:1px solid black; align:middle">
@@ -185,7 +201,7 @@ title: Nuclear Weapons and Anthropocene | Michael Lengefeld
 	</div>
 	<hr>	
 			
-	<div class="w3-row">
+	<div class="example w3-row">
 		<div class="w3-twothird w3-container">
 		<h1>What is this research about?<h1>
 			<h2>  An arms race always generates negative environmental impacts, but the Cold War nuclear arms race introduced
@@ -247,7 +263,7 @@ title: Nuclear Weapons and Anthropocene | Michael Lengefeld
 	</div>	<br>
 	<hr>	
 			<br>
-<div class="w3-row">
+<div class="example w3-row">
 		<div class="w3-half w3-container">
 			<br>
 			<figure class="item">
@@ -272,7 +288,7 @@ title: Nuclear Weapons and Anthropocene | Michael Lengefeld
 	</div>	
 			<hr>
 			
-	<div class="w3-row">
+	<div class="example w3-row">
 		<div class="w3-half w3-container">
 		<h1>What did the researcher find?<h1>
 			<h2>The American military competed in a nuclear arms race by imposing a "treadmill" strategy. National security and military
@@ -316,7 +332,7 @@ title: Nuclear Weapons and Anthropocene | Michael Lengefeld
 	</div>		
 		<hr>
 			
-		<div class="w3-row">
+		<div class="example w3-row">
 		<div class="w3-container">
 			<h1>How can you use this research?</h1>
 			<h2>In 2020, several countries are pursuing a new nuclear arms race. In the United 
@@ -356,7 +372,7 @@ title: Nuclear Weapons and Anthropocene | Michael Lengefeld
 		</div>
 			<hr>
 			
-	<div class="w3-container">
+	<div class="example w3-container">
 		<h1>Citation</h1>
 		<h2>Lengefeld, Michael. Forthcoming 2020. "The Treadmill of Destruction in the Making of the 
 			Anthropocene." <i>Journal of World-Systems Research</i> 
