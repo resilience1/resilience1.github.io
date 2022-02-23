@@ -1,0 +1,311 @@
+---
+layout: research
+title: ICE, COVID, & Blowback | Michael Lengefeld
+---
+<html>
+	<head>
+<style>
+	div.transbox {margin: 40px;
+  	background-color: #ffffff;
+  	border: 2px solid black;
+  	opacity: 0.7;
+	padding: 30px 0;
+	text-align: center;}
+
+	div.transbox p {
+  	margin: 5%;
+  	font-weight: bold;
+  	color: #000000;}
+	
+	div.item {
+    	vertical-align: top;
+    	display: inline-block;
+    	text-align: center;
+    	width: 120px;
+	}
+
+	figure {
+   	border: thin #c0c0c0 solid;
+    	display: flex;
+    	flex-flow: column;
+    	padding: 1px;
+    	max-width: 100%;
+    	max-height: 100%;
+    	margin: auto;
+	}
+
+	div.background {
+	margin: 5px;
+	}
+
+	figcaption {
+    	background-color: #222;
+    	color: #fff;
+    	font: bold sans-serif;
+	font-size: 1em;
+    	padding: 3px;
+    	text-align: center;
+	}	
+	
+	img.displayed {
+   	display: block;
+    	margin-left: auto;
+    	margin-right: auto; 
+	}
+	
+	h1{
+    	font-size: 1.8em;
+	font-style: bold;
+    	margin: 3px;
+    	padding: 3px;
+	}
+	
+	h2 {
+    	font-size: 1.2em;
+	font-style: bold;
+    	margin: 3px;
+    	padding: 3px;
+	}
+
+	p {font-size: 2vw;
+		margin: 3px;
+    	padding: 3px;
+	}
+	h3 {
+		font-size:1.2em;
+	text-align:center;
+	color: #fff;
+	}
+	
+	#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+</style>
+</head>
+	
+	<header class="w3-container w3-center w3-black" id="home">
+    	<h1 class="w3-xxlarge"><span class="w3-hide-small">Michael Lengefeld | </span>ICE, COVID, BLM, and Blowback</h1>
+	</header>
+	
+<body>
+	<div class="example w3-row">
+	<div class="w3-half w3-container">
+	<h1>What you need to know</h1>
+		<h2>Enforcement first immigration policies are justified on racist and nativist grounds—to protect and insulate the 
+    larger society from the “threat” posed by nonwhite immigrants. This nativist imagery suggests that risks are— similar 
+    to the people detained in them— confined by the walls and fences that surround ICE facilities. However, this is a fantasy.
+    The COVID-19 pandemic brought the blow back of nativist and racist immigration policy into sharp relief. Instead of making
+    the United States safer, ICE detention facilities altered the riskscape and increased the risk of infection for the 
+    residents of nearby communities and counties. 
+		</h2>
+	</div>
+	<div class="w3-half w3-container">
+		<br>
+		<figure class="item">
+    		<img src="/img/predatordrone.jpg" alt="American Reaper Drone" style="width:100%; height: 100%; border:1px solid black">
+   		<figcaption class="caption">American Reaper Drone<br>
+			Source: Lt. Col. Leslie Pratt/U.S. Air Force
+		</figcaption>
+		</figure>
+	</div>
+	</div>
+	<hr>
+	
+	<div class="example w3-row">
+		<div class="w3-half w3-container">
+			<figure class="item">
+				<img src="/img/aircraftcarrier.jpg" alt="U.S.S Abraham Lincoln " 
+			    	style="width:100%; height: 100%; border:1px solid black">
+				<figcaption class="caption">Flight Deck of U.S.S. Abraham Lincoln.<br>
+					Source: Public Domain/U.S. Navy
+				</figcaption>
+			</figure>
+		</div>
+		
+		<div class="w3-half w3-container">
+			<h1>What is this research about?</h1>
+				<h2> Deciding to criminalize and detain immigrants (including those seeking asylum) generated
+        a stream of unwelcome (if unintended) side effects that were fully anticipated. Even before
+        the Trump presidency, ICE provided substandard health care. Because ICE failed to provide 
+        readily available vaccines, ICE facilities were prone to (avoidable) outbreaks of mumps, flu, and other communicable diseases.
+        Given this indifference to the health and well-being of people detained, the exacerbation of COVID-19 transmission
+        in and near to ICE facilities was not the result of “error, ignorance, or blindness …. [The question is not why ICE
+        officials and U.S. political leaders] failed to anticipate these effects but why, given the foreseen risks, they chose
+        to go ahead anyway.”111 We argue that due to the callous cruelty that permeates ICE's policies and procedures, 
+        the human, social, and political rights of people seeking to immigrate to the United States were routinely violated.
+        This same callousness led ICE to persist in detention policies that gave rise to alarmingly high infection COVID-19 rates in ICE facilities.
+				</h2>
+		</div>
+	</div>
+	<hr>
+	
+	<div class="example w3-row">
+		<div class="w3-half w3-container">
+			<h1>What did the researchers do?</h1>
+				<h2>The researchers located and analyzed academic, government, and non-governmental data to understand 
+					the impact of ICE facilities on the community spread of COVID-19. This research examined risks at 
+          two spatial scales—specific to ICE facilities and among surrounding 
+          communities. At both scales, we highlighted a distinction: the intentions of policy makers 
+        and, whether or not unwelcome outcomes were intended, the degree to which policymakers anticipated
+        (and permitted) these outcomes. As the Black Lives Movement and critical race literature have 
+        documented, racist over-policing and mass incarceration policies were put in place with the 
+        intention of intimidating and stigmatizing Black Americans. Although mass incarceration was 
+        not designed to facilitate disease transmission, heightened infection rates in overcrowded 
+        prisons and jails was well documented long before the COVID-19 pandemic. 
+				</h2>
+		</div>
+		
+		<div class="w3-half w3-container">
+			<figure class="item">
+			<img src="/img/laserbomb2.jpg" alt="A laser guided bomb before it strikes a small boat during a training exercise" 
+			     style="width:100%; height: 100%; border:1px solid black">
+				<figcaption class="caption">A laser guided bomb before it strikes a small boat during a training exercise<br>
+					Source: Public Domain/ U.S. Air Force
+				</figcaption>
+			</figure>
+		</div>
+		
+	</div>
+	<hr>
+	
+	<div class="example w3-row">
+		<div class="w3-third w3-container">
+			<figure class="item">
+			<img class="displayed" src="/img/airshipfleet.jpg" alt="U.S.S. George Washington Carrier Strike Group." 
+			     style="width:100%; height: 100%; border:1px solid black; align:middle">
+				<figcaption class="caption">U.S.S. George Washington Carrier Strike Group.
+				Source: Public Domain/U.S. Navy
+				</figcaption>
+			</figure><br>
+			<figure class="item">
+				<img class="displayed" src="/img/tankapache.jpg" alt="U.K. Apache and Tank formation during a readiness exercise" style="width:100%;height:100%">
+				<figcaption class="caption">United Kingdom Apache and Tank formation during a readiness exercise<br>
+				</figcaption>
+			</figure><br>
+			<figure class="item">
+			<img class="displayed" src="/img/indonesianarmy.jpg" alt="Indonesian Army Infantry Battalion" 
+			     style="width:100%; height: 100%; border:1px solid black; align:middle">
+				<figcaption class="caption">Indonesian Army Infantry Battalion
+				</figcaption>
+			</figure>									   
+		</div>
+		<div class="w3-twothird w3-container">
+			<h1>What did the researcher find?</h1>
+				<h2>Warmaking drives carbon emissions even in times of global 
+					Recession - when the slow-down of the global economy is reducing the impact of gross domestic product on carbon emissions.
+					Risk-tranfer militarism in the Global North shifts the attendant risks of war to the peoples and the environments of the 
+					Global South. While the Global North is pursuing a strategy that relies on carbon-intensive advanced weaponry,
+					the Global South is investing in more boots on the ground. In addition to bearing the brundt of impacts from the Global North's
+					asymmetric warfare, the Global South will also be the most impacted by global climate change driven by CO2 emissions.
+				</h2><br><br>
+					   
+				<h2>At a second—and more diffused—spatial scale, ICE facilities were part of the riskscape of surrounding communities and counties.
+        The ICE controlled the movement, living conditions, and opportunities for disease mitigation for those detained, whereas ICE did 
+        not control public health policy making among nearby communities. At this spatial scale, the concept of blow back offers insights.113 
+        When deploying chemical and biological weapons, the intent is to inflict harm on enemy troops.<br><br>
+        
+        Although generals and admirals cannot prevent the drift of chemical and biological weapons (resulting in casualties and deaths among 
+        their own troops), they fully anticipate these unwelcome consequences. In the same vein, the blow back (in this case, an elevated infection
+        rate in surrounding communities) that flowed from the spike in COVID-19 infections in ICE facilities was predicted by the people 
+        detained by ICE, public health officials, and immigrant advocacy groups.
+				</h2>
+		</div>
+		
+	</div>
+	<hr>
+	<div class="example w3-row">
+		<div class="w3-container">
+			<h1>How can you use this research?</h1>
+			<h2>Governments can be reminded that racist and nativist policies produce blowback. 
+			</h2>
+		</div>
+	</div>
+	<hr>
+
+	<div class="example w3-container">
+		<h1>Citation</h1>
+		<h2>Gregory Hooks and Michael Lengefeld.Environmental Justice.Feb 2022.39-57.http://doi.org/10.1089/env.2021.0040 <i>Armed Forces & Society</i> 2020, Vol. 46(2) 214-237. 
+			Available online at: 
+			<a href="https://www.liebertpub.com/doi/full/10.1089/env.2021.0040>
+      </div>
