@@ -26,7 +26,7 @@ function loadData(cc) {
 
 const url = new URL(`https://newsapi.org/v2/top-headlines`);
   url.searchParams.append("country", cc);
-  url.searchParams.append("apiKey", "YOUR_NEWSAPI_KEY");
+  url.searchParams.append("apiKey", "86457d0e650946588b129fb1dfe4164d");
   fetch(url.toString())
     .then((response) => response.json())
     .then((data) => {
