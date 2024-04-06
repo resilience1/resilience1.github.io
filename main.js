@@ -8,7 +8,7 @@ const main = document.getElementsByTagName('main')[0];
 
 // News API Data
 
-const apiKey = 'e1bd2c8a7f5c40bfa8b9c773feac20a9';
+const apiKey = '86457d0e650946588b129fb1dfe4164d';
 const engadgetUrl = 'https://newsapi.org/v1/articles?source=engadget&sortBy=top&apiKey=';
 const recodeUrl = 'https://newsapi.org/v1/articles?source=recode&sortBy=top&apiKey=';
 const nextWebUrl = 'https://newsapi.org/v1/articles?source=the-next-web&sortBy=latest&apiKey=';
