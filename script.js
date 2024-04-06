@@ -10,6 +10,7 @@ fetch("./countryCodes.json")
     countryCodes = Object.keys(data);
     countryNames = Object.values(data);
   })
+  
 .then(() => {
     for (let cn of countryNames) {
       let btn = document.createElement("button");
