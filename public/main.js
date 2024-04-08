@@ -9,7 +9,7 @@ const main = document.getElementsByTagName('main')[0];
 // News API Data
 
 const apiKey = '86457d0e650946588b129fb1dfe4164d';
-const engadgetUrl = 'https://newsapi.org/v1/articles?source=engadget&sortBy=top&apiKey=';
+const engadgetUrl = 'https://newsapi.org/v2/everything?q=Apple&from=2024-04-08&sortBy=popularity&apiKey=API_KEY';
 const recodeUrl = 'https://newsapi.org/v1/articles?source=recode&sortBy=top&apiKey=';
 const nextWebUrl = 'https://newsapi.org/v1/articles?source=the-next-web&sortBy=latest&apiKey=';
 const ignUrl = 'https://newsapi.org/v1/articles?source=ign&sortBy=latest&apiKey=';
