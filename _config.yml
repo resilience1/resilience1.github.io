@@ -2,5 +2,5 @@ name: Michael Lengefeld
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
 
-url: https://mrlengefeld.com
-enforce_ssl: mrlengefeld.com
+url: https://mlengefeld.com
+enforce_ssl: mlengefeld.com
