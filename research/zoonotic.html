@@ -1,179 +1,1195 @@
----
-layout: research
-title: Zoonotic Spillover | Michael Lengefeld
----
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	</head>
-<header class="w3-container w3-center w3-black" id="home">
-    	<h1 class="w3-xxlarge"><span class="w3-hide-small">Michael Lengefeld | </span>Zoonotic Spillover</h1>
-	</header>
-	
-<html>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zoonotic Spillover | Michael Lengefeld</title>
+  <meta name="description" content="Lengefeld, Hooks &amp; Smith (2020). Social Science Contributions to the Study of Zoonotic Spillover: Normal Accidents and Treadmill Theory. This View of Life (TVOL).">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #16120d;
+      --cream:      #f3ede0;
+      --warm:       #e6dcc8;
+      --tan:        #cfc0a4;
+      --rust:       #7c3120;
+      --rust-light: #a3452e;
+      --gold:       #9e7a2e;
+      --gold-light: #c4a050;
+      --muted:      #5e4e38;
+      --faint:      #9c8b74;
+      --dark:       #16120d;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── NAV ───────────────────────────────────── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--cream);
+      border-bottom: 1px solid var(--warm);
+    }
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+    }
+    .nav-brand span { font-weight: 300; font-style: italic; color: var(--muted); }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--rust); }
+    .nav-cv {
+      border: 1px solid var(--tan);
+      padding: 6px 16px !important;
+      color: var(--ink) !important;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .nav-cv:hover { border-color: var(--rust) !important; color: var(--rust) !important; }
+
+    /* ─── HERO ──────────────────────────────────── */
+    .article-hero {
+      background: var(--dark);
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://www.mlengefeld.com/img/deforestationspillover.jpg');
+      background-size: cover;
+      background-position: center 40%;
+      opacity: 0.2;
+    }
+    .hero-inner {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 96px 48px 80px;
+    }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 36px;
+    }
+    .breadcrumb a {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(243,237,224,0.45);
+      transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: var(--gold-light); }
+    .breadcrumb-sep { font-size: 0.65rem; color: rgba(243,237,224,0.25); }
+    .breadcrumb-cur {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .article-tag {
+      display: inline-block;
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      border: 1px solid rgba(196,160,80,0.4);
+      padding: 4px 12px;
+      margin-bottom: 24px;
+    }
+    .article-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 300;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      max-width: 820px;
+      margin-bottom: 32px;
+      animation: fadeUp 0.8s ease both;
+    }
+    .article-title em { font-style: italic; font-weight: 300; }
+    .article-meta-row {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+    .meta-block-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(243,237,224,0.4);
+      margin-bottom: 4px;
+    }
+    .meta-block-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--cream);
+    }
+
+    /* ─── FINDINGS STRIP ────────────────────────── */
+    .findings-strip {
+      background: var(--rust);
+      color: var(--cream);
+    }
+    .findings-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .findings-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.3;
+      color: rgba(243,237,224,0.7);
+      border-right: 1px solid rgba(255,255,255,0.2);
+      padding-right: 48px;
+    }
+    .findings-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .finding-stat {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+    .finding-desc {
+      font-size: 0.82rem;
+      line-height: 1.65;
+      color: rgba(243,237,224,0.75);
+    }
+
+    /* ─── FRAMEWORK BAND ────────────────────────── */
+    .framework-band {
+      background: var(--dark);
+      color: var(--cream);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .framework-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 64px 48px;
+    }
+    .framework-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 18px;
+    }
+    .framework-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 300;
+      line-height: 1.3;
+      color: var(--cream);
+      margin-bottom: 36px;
+      max-width: 680px;
+    }
+    .framework-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: rgba(255,255,255,0.07);
+    }
+    .framework-card {
+      background: var(--dark);
+      padding: 32px 36px;
+      transition: background 0.2s;
+    }
+    .framework-card:hover { background: #1e1810; }
+    .framework-card-tag {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 10px;
+    }
+    .framework-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+    .framework-card-body {
+      font-size: 0.86rem;
+      line-height: 1.75;
+      color: rgba(243,237,224,0.6);
+    }
+    .framework-card-body a {
+      color: var(--gold-light);
+      border-bottom: 1px solid rgba(196,160,80,0.3);
+      padding-bottom: 1px;
+      transition: border-color 0.2s;
+    }
+    .framework-card-body a:hover { border-color: var(--gold-light); }
+
+    /* ─── ARTICLE BODY ──────────────────────────── */
+    .article-body {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 96px 48px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 96px;
+      align-items: start;
+    }
+
+    .prose-section { margin-bottom: 72px; }
+    .prose-section:last-child { margin-bottom: 0; }
+    .section-kicker {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 16px;
+    }
+    .prose-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      color: var(--ink);
+    }
+    .prose-section h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      line-height: 1.3;
+      margin: 36px 0 14px;
+      color: var(--ink);
+    }
+    .prose-section p {
+      font-size: 1.0rem;
+      line-height: 1.9;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .prose-section p:last-child { margin-bottom: 0; }
+    .prose-section strong { font-weight: 700; }
+    .prose-section em { font-style: italic; color: var(--muted); }
+    .prose-section a {
+      color: var(--rust);
+      border-bottom: 1px solid rgba(124,49,32,0.25);
+      padding-bottom: 1px;
+      transition: border-color 0.2s;
+    }
+    .prose-section a:hover { border-color: var(--rust); }
+
+    .pull-quote {
+      border-left: 3px solid var(--rust);
+      padding: 8px 0 8px 28px;
+      margin: 40px 0;
+    }
+    .pull-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem !important;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.45 !important;
+      color: var(--muted) !important;
+      margin: 0 !important;
+    }
+
+    .prose-figure { margin: 44px 0; }
+    .prose-figure img {
+      width: 100%;
+      display: block;
+      filter: sepia(0.08) contrast(1.02);
+    }
+    /* data / scientific figures — no sepia */
+    .prose-figure.data-fig img {
+      filter: none;
+      border: 1px solid var(--warm);
+      background: white;
+      padding: 12px;
+    }
+    .prose-figure figcaption {
+      padding-top: 12px;
+      font-size: 0.75rem;
+      line-height: 1.6;
+      color: var(--faint);
+      font-style: italic;
+      border-top: 1px solid var(--warm);
+    }
+    .prose-figure figcaption strong {
+      font-style: normal;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    /* figure pair */
+    .figure-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin: 44px 0;
+      background: var(--warm);
+    }
+    .figure-pair .prose-figure {
+      margin: 0;
+      background: var(--cream);
+    }
+    .figure-pair .prose-figure img { height: 220px; object-fit: cover; }
+    .figure-pair .prose-figure figcaption { padding: 12px 14px; }
+
+    /* risk drivers list */
+    .risk-list {
+      list-style: none;
+      margin: 24px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--warm);
+    }
+    .risk-item {
+      background: var(--cream);
+      padding: 18px 22px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--ink);
+      transition: background 0.2s;
+    }
+    .risk-item:hover { background: white; }
+    .risk-item::before {
+      content: '—';
+      color: var(--rust);
+      flex-shrink: 0;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+
+    /* impact list */
+    .impact-list {
+      list-style: none;
+      margin: 24px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .impact-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-size: 1.0rem;
+      line-height: 1.75;
+      color: var(--ink);
+    }
+    .impact-list li::before {
+      content: '—';
+      color: var(--rust);
+      flex-shrink: 0;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    /* dark callout */
+    .callout-box {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 32px 36px;
+      margin: 44px 0;
+    }
+    .callout-box-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+    }
+    .callout-box p {
+      font-size: 0.92rem !important;
+      line-height: 1.8 !important;
+      color: rgba(243,237,224,0.75) !important;
+      margin-bottom: 0 !important;
+    }
+    .callout-box strong { color: var(--cream) !important; }
+
+    .prose-rule {
+      border: none;
+      border-top: 1px solid var(--warm);
+      margin: 64px 0;
+    }
+
+    /* ─── SIDEBAR ───────────────────────────────── */
+    .sidebar {
+      position: sticky;
+      top: 88px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .sidebar-card {
+      border: 1px solid var(--warm);
+      padding: 28px;
+    }
+    .sidebar-card-title {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--warm);
+    }
+    .citation-text {
+      font-size: 0.82rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+    .citation-text em { font-style: italic; }
+    .citation-doi {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--rust);
+      border-bottom: 1px solid var(--tan);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .citation-doi:hover { border-color: var(--rust); }
+    .detail-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .detail-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 3px;
+    }
+    .detail-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.0rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    /* virus count stat card */
+    .virus-stat-card {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 28px;
+    }
+    .virus-stat-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 16px;
+    }
+    .virus-stat-row {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .virus-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+    .virus-stat-desc {
+      font-size: 0.78rem;
+      line-height: 1.6;
+      color: rgba(243,237,224,0.6);
+      margin-top: 3px;
+    }
+    .virus-stat-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .related-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      background: var(--warm);
+    }
+    .related-link-item a {
+      display: block;
+      background: var(--cream);
+      padding: 14px 16px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      transition: background 0.2s, color 0.2s;
+      line-height: 1.4;
+    }
+    .related-link-item a:hover { background: white; color: var(--rust); }
+    .link-tag {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--faint);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    /* ─── OUTBREAK TIMELINE BAND ────────────────── */
+    .outbreak-band {
+      background: var(--warm);
+      border-top: 1px solid var(--tan);
+      border-bottom: 1px solid var(--tan);
+    }
+    .outbreak-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 72px 48px;
+    }
+    .outbreak-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .outbreak-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 300;
+      color: var(--ink);
+      margin-bottom: 36px;
+      max-width: 580px;
+    }
+    .outbreak-figure {
+      border: 1px solid var(--tan);
+      background: white;
+      overflow: hidden;
+    }
+    .outbreak-figure img {
+      width: 100%;
+      display: block;
+      filter: none;
+    }
+    .outbreak-figure figcaption {
+      padding: 14px 20px;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--faint);
+      font-style: italic;
+      border-top: 1px solid var(--warm);
+    }
+    .outbreak-figure figcaption strong {
+      font-style: normal;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    /* ─── GALLERY ───────────────────────────────── */
+    .gallery-section {
+      border-top: 1px solid var(--warm);
+      border-bottom: 1px solid var(--warm);
+    }
+    .gallery-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 64px 48px;
+    }
+    .gallery-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: var(--tan);
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--tan);
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: sepia(0.08) contrast(1.02);
+      transition: transform 0.5s ease, filter 0.4s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.04); filter: sepia(0) contrast(1.05); }
+    /* scientific image gallery items — no sepia */
+    .gallery-item.sci img { filter: none; }
+    .gallery-item.sci:hover img { filter: none; }
+    .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px 14px 14px;
+      background: linear-gradient(transparent, rgba(22,18,13,0.78));
+      font-size: 0.68rem;
+      line-height: 1.45;
+      color: rgba(243,237,224,0.85);
+      font-style: italic;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover .gallery-caption { opacity: 1; }
+
+    /* ─── BOTTOM NAV ────────────────────────────── */
+    .article-footer-nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 48px 96px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--warm);
+    }
+    .back-link, .bio-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .back-link:hover, .bio-link:hover { color: var(--rust); }
+
+    /* ─── FOOTER ────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 40px 48px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-brand-sm {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 300;
+    }
+    .footer-ext { display: flex; gap: 24px; }
+    .footer-ext a {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      transition: opacity 0.2s;
+    }
+    .footer-ext a:hover { opacity: 0.7; }
+    .footer-copy {
+      font-size: 0.65rem;
+      color: rgba(243,237,224,0.25);
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── ANIMATION ─────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── RESPONSIVE ────────────────────────────── */
+    @media (max-width: 960px) {
+      nav { padding: 0 24px; }
+      .nav-links { gap: 20px; }
+      .hero-inner { padding: 64px 24px 56px; }
+      .findings-inner { grid-template-columns: 1fr; gap: 32px; }
+      .findings-label {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        padding-right: 0; padding-bottom: 24px;
+      }
+      .findings-cards { grid-template-columns: 1fr 1fr; }
+      .framework-inner { padding: 48px 24px; }
+      .framework-grid { grid-template-columns: 1fr; }
+      .article-body { grid-template-columns: 1fr; padding: 64px 24px; gap: 56px; }
+      .sidebar { position: static; }
+      .risk-list { grid-template-columns: 1fr; }
+      .figure-pair { grid-template-columns: 1fr; }
+      .outbreak-inner { padding: 56px 24px; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .article-footer-nav { padding: 40px 24px 64px; }
+      footer { padding: 32px 24px; }
+    }
+    @media (max-width: 600px) {
+      .findings-cards { grid-template-columns: 1fr; }
+      .article-meta-row { gap: 24px; }
+    }
+  </style>
+</head>
 <body>
-	<div class="example w3-row">
-	<div class="w3-half w3-container">
-	<h1>What you need to know</h1>
-		<h2>The transmission of animal diseases to humans - zoonotic spillover - is occuring at a faster pace. Greater engagement between social 
-			sciences and the biological sciences can contribute to understanding the causes of the increased frequency of what is a statistically rare event.
-		</h2>
-	</div>
-	<div class="w3-half w3-container">
-		<figure class="item">
-    		<img src="/img/deforestationspillover.jpg" alt="deforestation causes spillover" style="width:100%; max-height: 380px; border:1px solid black">
-   		<figcaption class="caption">Deforestation is a central cause of increased spillover.<br>Source: Zoë van Dijk for NPR 
-		</figcaption>
-		</figure>
-	</div>
-	</div>
-	<hr>
-	
-	<div class="example w3-row">
-		<div class="w3-half w3-container">
-			<figure class="item">
-			<img class="displayed" src="/img/BatsFernCave.jpg" alt="Bat Colony in Fern Cave, U.S." style="width:75%; height: 30%; border:1px solid black; align:middle">
-				<figcaption class="caption">Bat Colony in Fern Cave, United States<br>
-					Source: http://www.fws.gov/ferncave / Wikimedia Commons
-				</figcaption>
-			</figure>
-		</div>
-		<div class="w3-half w3-container">
-			<h1>What is this research about?</h1>
-				<h2>The threat of zoonotic spillover is accelerating. It is estimated that there are over 
-					1.5 million unknown viruses in animal reservoirs; over 600,000 (perhaps as many as
-					850,000) of these viruses have the potential to infect humans. There is a need for 
-					collaboration between social and biological sciences if we are to anticipate and come 
-					to terms with zoonotic spillover.
-				</h2>
-		</div>
-	</div>
-	<hr>
-	
-	<div class="example w3-row">
-		<div class="w3-half w3-container">
-			<h1>What did the researcher do?</h1>
-				<h2>The researchers identified "normal accidents" and "treadmill theory" as concepts 
-					that can help societies identify high-risk activities and social structures and 
-					processes that heighten the likelihood of zoonotic spillover. 
-				</h2>
-		</div>
-		
-		<div class="w3-half w3-container">
-			<figure class="item">
-			<img class="displayed" src="/img/jungleag.jpg" alt="Rainforest in Mexico cleared for Agriculture" 
-			     style="width:100%; border:1px solid black">
-				<figcaption class="caption">Rainforest in Mexico cleared for Agriculture<br>
-					Source: Jamie Dyer / Wikimedia Commons
-				</figcaption>
-			</figure>
-		</div>
-		
-	</div>
-	<hr>
-	
-	<div class="example w3-row">
-		<div class="w3-third w3-container">
-			<figure class="item">
-				<img class="displayed" id="myImg" src="/img/Ebola_virus.png" alt="Ebola Virus" style="width:100%;height:100%">
-				<figcaption class="caption">Electron Micrograph of Ebola Virus<br>
-					Source: U.S. Centers for Disease Control / Wikimedia Commons
-				</figcaption>
-			</figure><br>
-			<figure class="item">
-			<img class="displayed" src="/img/BushmeatGhana.jpg" alt="Bushmeat, Ghana" 
-			     style="width:100%; height: 100%; border:1px solid black; align:middle">
-				<figcaption class="caption">Bushmeat is one of many possible sources of zoonotic spillover.
-				Source: Wikimedia Commons</figcaption>
-			</figure><br>									   
-		</div>
-		<div class="w3-twothird w3-container">
-			<h1>What did the researcher find?</h1>
-			<h2>Two social science concepts are of direct relevance. The first is <a href="https://press.princeton.edu/books/paperback/9780691004129/normal-accidents">"<i>normal accidents</i>"</a>.
-				Zoonotic spillover is a relatively rare event, and although 
-				humans are continually exposed to many potentially infectious pathogens that are derived from other species, most of
-				these microorganisms cannot infect or cause disease in humans. Pathogen spillover events can be linked with human-animal
-				interactions with both natural hosts (such as bats) and intermediate hosts (such as domesticated animals). Although the 
-				risk posed by a single encounter or even several hundred encounters is quite low, the chance of spillover grows as the 
-				number of encounters grows. If encounters are frequent enough, spillover becomes “normal” – in the Anthropocene
-				these encounters are growing rapidly – and in some cases exponentially.<br><br>
-				
-				Several human activities have already caused and elevate the risk of future zoonotic spillover, including climate change,
-				hunting, human migration, landscape changes, livestock trade, and environmental contamination — and these threats have been
-				accelerated with the process of globalization. <a href="https://jwsr.pitt.edu/ojs/jwsr/article/view/981/1498">"Treadmills"</a> 
-				can emerge and pose a unique set of environmental threats to biodiversity and land system stability across a range of contexts.
-				A “treadmill of production” is derived from and propels economic competition;
-				a “treadmill of destruction” is fueled by geopolitical and military rivalries. Treadmills of production and destruction 
-				accelerate environmental degradation and heighten the risk of zoonotic spillover. The dangers posed by treadmills are 
-				istinctive because powerful organizations exploit nature and extract resources in competition with rivals that threaten 
-				their organizational vitality – and potentially their survival. These powerful organizations are caught on a treadmill of 
-				environmental degradation – and the pace of degradation quickens.
-				</h2>
-		</div>
-	</div>
-	<hr>
-	<div class="example">
-		<div class="w3-container">
-			<h1>How can you use this research?</h1>
-			<h2>Governments and institutions can utilize this knowledge to target interdisciplinary research initiatives aimed at
-				anticipating zoonotic spillover. The social sciences can make valuable contributions. "Normal accidents" 
-				demonstrate that rare events are likely to occur with repeated trials over a range of contexts. 
-				"Treadmill theory" points to human organizations and
-				processes that generate repeated exposure to novel viruses and heighten the risk of these exposures.
-				Treadmills are a uniquely pernicious type of human activity. Zoonotic spillover is exacerbated by 
-				environmental transformation and biodiversity degradation propelled by treadmills of destruction and production. 
-			</h2>
-		</div>
-		
-		<div class="w3-container">
-			<figure class="item">
-			<img class="displayed" src="/img/outbreaks.png" alt="increasing frequency of pandemics" 
-			     style="width:75%; height: 75%; border:1px solid black; align:middle">
-				<figcaption class="caption">The frequency of pandemics is increasingly rapidly across the world.
-				</figcaption>
-			</figure>
-		</div>
-	</div>
-	<hr>
-	
-	<div class="example w3-container">
-		<h1>Citation</h1>
-		<h2>Lengefeld, Michael, Greg Hooks, and Chad Smith. 2020. “Social Science Contributions to the Study 
-			of Zoonotic Spillover: Normal Accidents and Treadmill Theory.” <i>This View of Life</i> (TVOL)
-			<a href="https://evolution-institute.org/social-science-contributions-to-the-study-of-zoonotic-spillover-normal-accidents-and-treadmill-theory/">
-		Available Here</a>.
-		</h2>
-	</div>
-	<hr>
-<!-- The Modal -->
-<div id="myModal" class="modal">
-  <span class="close">&times;</span>
-  <img class="modal-content" id="img01">
-  <div id="caption"></div>
-</div>
-<script>
-	
-// Get the modal
-var modal = document.getElementById("myModal");
 
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementById("myImg");
-var modalImg = document.getElementById("img01");
-var captionText = document.getElementById("caption");
-img.onclick = function(){
-  modal.style.display = "block";
-  modalImg.src = this.src;
-  captionText.innerHTML = this.alt;
-}
+  <!-- ─── NAV ──────────────────────────────────────────── -->
+  <header>
+    <nav>
+      <a href="../index.html" class="nav-brand">Lengefeld <span>PhD</span></a>
+      <ul class="nav-links">
+        <li><a href="../research/index.html" class="active">Research</a></li>
+        <li><a href="../teaching/index.html">Teaching</a></li>
+        <li><a href="../civic/index.html">Service</a></li>
+        <li><a href="../about/index.html">Bio</a></li>
+        <li><a href="/img/CV_3.16.26_no references.pdf" class="nav-cv">CV ↓</a></li>
+      </ul>
+    </nav>
+  </header>
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+  <main>
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() { 
-  modal.style.display = "none";
-}
-</script>
-	
-	<!-- END PAGE CONTENT -->  
-</body> 
+    <!-- ─── HERO ─────────────────────────────────────── -->
+    <section class="article-hero">
+      <div class="hero-bg"></div>
+      <div class="hero-inner">
+        <div class="breadcrumb">
+          <a href="../index.html">Home</a>
+          <span class="breadcrumb-sep">›</span>
+          <a href="../research/index.html">Research</a>
+          <span class="breadcrumb-sep">›</span>
+          <span class="breadcrumb-cur">Zoonotic Spillover</span>
+        </div>
+
+        <span class="article-tag">Global Health · Environmental Sociology</span>
+
+        <h1 class="article-title">
+          Zoonotic Spillover &amp;<br><em>Social-Ecological</em><br>Systems
+        </h1>
+
+        <div class="article-meta-row">
+          <div>
+            <p class="meta-block-label">Authors</p>
+            <p class="meta-block-value">Lengefeld, Hooks &amp; Smith</p>
+          </div>
+          <div>
+            <p class="meta-block-label">Journal</p>
+            <p class="meta-block-value">This View of Life (TVOL)</p>
+          </div>
+          <div>
+            <p class="meta-block-label">Published</p>
+            <p class="meta-block-value">2020</p>
+          </div>
+          <div>
+            <p class="meta-block-label">Focus</p>
+            <p class="meta-block-value">Normal Accidents &amp; Treadmill Theory</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── KEY FINDINGS ──────────────────────────────── -->
+    <div class="findings-strip">
+      <div class="findings-inner">
+        <p class="findings-label">Key Findings</p>
+        <div class="findings-cards">
+          <div>
+            <p class="finding-stat">1.5M+</p>
+            <p class="finding-desc">Unknown viruses estimated to exist in animal reservoirs worldwide — the vast majority never yet encountered by humans</p>
+          </div>
+          <div>
+            <p class="finding-stat">600–850K</p>
+            <p class="finding-desc">Of those viruses have the potential to infect humans — representing the full scope of future pandemic risk</p>
+          </div>
+          <div>
+            <p class="finding-stat">Accelerating</p>
+            <p class="finding-desc">The frequency of zoonotic spillover events is increasing — driven by deforestation, biodiversity loss, and economic treadmills</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── THEORETICAL FRAMEWORK BAND ───────────────── -->
+    <div class="framework-band">
+      <div class="framework-inner">
+        <p class="framework-label">Two Social Science Frameworks</p>
+        <h2 class="framework-title">Applying Sociology to a Biological Problem</h2>
+        <div class="framework-grid">
+          <div class="framework-card">
+            <p class="framework-card-tag">Framework One</p>
+            <h3 class="framework-card-title">"Normal Accidents"</h3>
+            <p class="framework-card-body">
+              Developed by sociologist Charles Perrow, <a href="https://press.princeton.edu/books/paperback/9780691004129/normal-accidents" target="_blank" rel="noopener">normal accidents theory</a> holds that in complex, tightly coupled systems, catastrophic failures are not aberrations — they are inevitable. Applied to zoonotic spillover: although the risk of any single human-animal encounter producing a pandemic pathogen is very low, the sheer volume of encounters — accelerating rapidly in the Anthropocene — makes spillover events statistically inevitable. Rare events become normal with sufficient repetition across sufficient contexts.
+            </p>
+          </div>
+          <div class="framework-card">
+            <p class="framework-card-tag">Framework Two</p>
+            <h3 class="framework-card-title">Treadmill Theory</h3>
+            <p class="framework-card-body">
+              Building on <a href="https://jwsr.pitt.edu/ojs/jwsr/article/view/981/1498" target="_blank" rel="noopener">treadmill theory</a>, this research applies the concept to pandemic risk. A <em>treadmill of production</em> — driven by economic competition — and a <em>treadmill of destruction</em> — fueled by military and geopolitical rivalry — each independently accelerate deforestation, biodiversity loss, and human encroachment into animal habitats. When both treadmills operate simultaneously, the pace of environmental degradation that elevates spillover risk compounds dramatically.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── ARTICLE BODY ──────────────────────────────── -->
+    <div class="article-body">
+
+      <article class="prose">
+
+        <!-- BACKGROUND -->
+        <section class="prose-section">
+          <p class="section-kicker">Background</p>
+          <h2>What You Need to Know</h2>
+          <p>
+            The transmission of animal diseases to humans — <strong>zoonotic spillover</strong> — is occurring at a faster pace. Greater engagement between the social sciences and the biological sciences can contribute to understanding the causes of the increased frequency of what is, statistically, a rare event.
+          </p>
+          <p>
+            It is estimated that there are over <strong>1.5 million unknown viruses</strong> in animal reservoirs around the world. Of these, between 600,000 and 850,000 have the potential to infect humans. Most never will — but as human activities increasingly bring people into contact with wildlife and disrupt the ecological buffers that contain animal pathogens, spillover events are becoming more frequent and more dangerous.
+          </p>
+
+          <figure class="prose-figure">
+            <img src="https://www.mlengefeld.com/img/deforestationspillover.jpg"
+                 alt="Deforestation is a central cause of increased zoonotic spillover" loading="lazy">
+            <figcaption><strong>Deforestation is a central driver of increased spillover.</strong> As forest ecosystems collapse, the ecological barriers that separate human populations from animal disease reservoirs disappear. Source: Zoë van Dijk for NPR</figcaption>
+          </figure>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- METHODOLOGY -->
+        <section class="prose-section">
+          <p class="section-kicker">Methodology</p>
+          <h2>What Did the Researchers Do?</h2>
+          <p>
+            The researchers conducted a theoretical and interdisciplinary analysis, identifying social science concepts from environmental sociology that can help societies understand, anticipate, and respond to zoonotic spillover. The paper bridges two literatures — biological research on viral transmission and sociological theory about the structural causes of environmental degradation — that have rarely been brought into direct conversation.
+          </p>
+          <p>
+            The analysis maps how <em>normal accidents</em> and <em>treadmill theory</em> each illuminate different dimensions of the spillover problem: one focusing on the statistical inevitability of rare events under conditions of repeated exposure, the other focusing on the organizational and competitive dynamics that generate those exposures in the first place.
+          </p>
+
+          <div class="figure-pair">
+            <figure class="prose-figure">
+              <img src="https://www.mlengefeld.com/img/BatsFernCave.jpg"
+                   alt="Bat colony in Fern Cave, United States" loading="lazy">
+              <figcaption><strong>Bat colony in Fern Cave, United States.</strong> Bats are natural reservoir hosts for many zoonotic pathogens, including coronaviruses. Source: USFWS / Wikimedia Commons</figcaption>
+            </figure>
+            <figure class="prose-figure">
+              <img src="https://www.mlengefeld.com/img/jungleag.jpg"
+                   alt="Rainforest in Mexico cleared for agriculture" loading="lazy">
+              <figcaption><strong>Rainforest cleared for agriculture, Mexico.</strong> Agricultural expansion into forested habitats is among the most significant drivers of spillover risk. Source: Jamie Dyer / Wikimedia Commons</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- FINDINGS: NORMAL ACCIDENTS -->
+        <section class="prose-section">
+          <p class="section-kicker">Findings — Normal Accidents</p>
+          <h2>When Rare Events Become Inevitable</h2>
+          <p>
+            Zoonotic spillover is a relatively rare event. Humans are continually exposed to many potentially infectious pathogens derived from other species — but most cannot infect or cause disease in humans. Pathogen spillover events are linked to human-animal interactions with both <strong>natural hosts</strong> (such as bats) and <strong>intermediate hosts</strong> (such as domesticated animals).
+          </p>
+          <p>
+            Although the risk posed by a single encounter — or even several hundred encounters — is quite low, <strong>the chance of spillover grows as the number of encounters grows.</strong> If encounters are frequent enough, spillover becomes "normal." In the Anthropocene, these encounters are growing rapidly — and in some cases exponentially.
+          </p>
+
+          <div class="pull-quote">
+            <p>"If encounters are frequent enough, spillover becomes normal. In the Anthropocene, these encounters are growing rapidly — in some cases exponentially."</p>
+          </div>
+
+          <p>
+            Several human activities have already caused and continue to elevate the risk of zoonotic spillover. These threats have been accelerated by the process of globalization, which simultaneously drives habitat encroachment and connects distant populations:
+          </p>
+
+          <ul class="risk-list">
+            <li class="risk-item"><strong>Climate change</strong> — shifting animal ranges into closer proximity with human populations</li>
+            <li class="risk-item"><strong>Hunting &amp; bushmeat trade</strong> — direct handling of wild animals with unknown pathogen loads</li>
+            <li class="risk-item"><strong>Human migration</strong> — moving people into novel ecological contexts</li>
+            <li class="risk-item"><strong>Landscape changes</strong> — deforestation and habitat fragmentation reducing ecological buffers</li>
+            <li class="risk-item"><strong>Livestock trade</strong> — intermediate hosts bridging wild and human disease ecologies</li>
+            <li class="risk-item"><strong>Environmental contamination</strong> — pollution stressing animal immune systems and increasing viral shedding</li>
+          </ul>
+
+          <figure class="prose-figure">
+            <img src="https://www.mlengefeld.com/img/BushmeatGhana.jpg"
+                 alt="Bushmeat market in Ghana — a pathway for zoonotic spillover" loading="lazy">
+            <figcaption><strong>Bushmeat market, Ghana.</strong> The bushmeat trade creates direct pathways for zoonotic transmission — hunters, sellers, and consumers are all exposed to animal pathogens at elevated risk. Source: Wikimedia Commons</figcaption>
+          </figure>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- FINDINGS: TREADMILL THEORY -->
+        <section class="prose-section">
+          <p class="section-kicker">Findings — Treadmill Theory</p>
+          <h2>Organizational Treadmills &amp; Pandemic Risk</h2>
+          <p>
+            <em>Treadmills</em> can emerge and pose a unique set of environmental threats to biodiversity and land system stability across a range of contexts. The dangers posed by treadmills are distinctive because <strong>powerful organizations exploit nature and extract resources in competition with rivals</strong> that threaten their organizational vitality — and potentially their survival. These organizations are caught on a treadmill of environmental degradation, and the pace of degradation quickens.
+          </p>
+
+          <div class="callout-box">
+            <p class="callout-box-label">How Treadmills Drive Spillover Risk</p>
+            <p>A treadmill of production accelerates deforestation and agricultural expansion, clearing habitat and bringing farming communities into closer contact with wildlife. A treadmill of destruction accelerates resource extraction in peripheral regions to finance military and geopolitical competition. <strong>Both treadmills independently generate repeated human exposure to novel animal viruses</strong> — and when they operate simultaneously, as in conflict-affected regions, the spillover risk compounds dramatically.</p>
+          </div>
+
+          <ul class="impact-list">
+            <li>Treadmills of production drive forest clearance for agriculture and resource extraction — the most significant structural driver of spillover risk globally</li>
+            <li>Treadmills of destruction force displacement of human populations into previously uninhabited ecological zones, generating novel contact with animal reservoirs</li>
+            <li>Both treadmills suppress information about their environmental consequences through secrecy, counterframing, and political influence — limiting the public health response</li>
+            <li>The interplay between economic and military competition can create synergistic treadmills that accelerate environmental degradation faster than either would alone</li>
+          </ul>
+
+          <figure class="prose-figure data-fig">
+            <img src="https://www.mlengefeld.com/img/Ebola_virus.png"
+                 alt="Electron micrograph of Ebola virus" loading="lazy">
+            <figcaption><strong>Electron micrograph of Ebola virus.</strong> Ebola is a zoonotic pathogen with a bat reservoir that has repeatedly spilled over into human populations in Central Africa — a region where deforestation, conflict, and poverty create compounding spillover risk. Source: U.S. Centers for Disease Control / Wikimedia Commons</figcaption>
+          </figure>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- IMPLICATIONS -->
+        <section class="prose-section">
+          <p class="section-kicker">Implications</p>
+          <h2>How Can You Use This Research?</h2>
+          <p>
+            Governments and institutions can use this knowledge to <strong>target interdisciplinary research initiatives</strong> aimed at anticipating zoonotic spillover. The social sciences have valuable contributions to make that purely biological approaches cannot — identifying the organizational, economic, and military dynamics that generate the conditions for spillover in the first place.
+          </p>
+          <p>
+            <em>Normal accidents</em> theory demonstrates that rare events are likely to occur with repeated trials across a range of contexts. <em>Treadmill theory</em> points to the human organizations and competitive processes that generate repeated exposure to novel viruses and heighten spillover risk. Understanding these structural drivers can help policymakers craft prevention strategies that go beyond surveillance and response — addressing the root causes of pandemic risk before they trigger the next outbreak.
+          </p>
+          <p>
+            Zoonotic spillover is exacerbated by environmental transformation and biodiversity degradation propelled by treadmills of production and destruction. <strong>Pandemic prevention and environmental protection are not separate agendas — they are the same agenda</strong>, addressed at different scales.
+          </p>
+        </section>
+
+      </article>
+
+      <!-- ─── SIDEBAR ──────────────────────────────── -->
+      <aside class="sidebar">
+
+        <div class="sidebar-card">
+          <p class="sidebar-card-title">Citation</p>
+          <p class="citation-text">
+            Lengefeld, Michael, Greg Hooks, and Chad Smith. (2020). "Social Science Contributions to the Study of Zoonotic Spillover: Normal Accidents and Treadmill Theory." <em>This View of Life</em> (TVOL).
+          </p>
+          <a href="https://evolution-institute.org/social-science-contributions-to-the-study-of-zoonotic-spillover-normal-accidents-and-treadmill-theory/"
+             target="_blank" rel="noopener" class="citation-doi">Read Article ↗</a>
+        </div>
+
+        <div class="virus-stat-card">
+          <p class="virus-stat-label">Viral Reservoir Estimates</p>
+          <div class="virus-stat-row">
+            <div>
+              <p class="virus-stat-num">1.5M+</p>
+              <p class="virus-stat-desc">Unknown viruses in animal reservoirs worldwide</p>
+            </div>
+            <hr class="virus-stat-divider">
+            <div>
+              <p class="virus-stat-num">600–850K</p>
+              <p class="virus-stat-desc">Of those with potential to infect humans</p>
+            </div>
+            <hr class="virus-stat-divider">
+            <div>
+              <p class="virus-stat-num">~1%</p>
+              <p class="virus-stat-desc">Of mammalian viruses currently known to science</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <p class="sidebar-card-title">Study Details</p>
+          <ul class="detail-list">
+            <li>
+              <p class="detail-label">Method</p>
+              <p class="detail-value">Theoretical &amp; Interdisciplinary Analysis</p>
+            </li>
+            <li>
+              <p class="detail-label">Frameworks</p>
+              <p class="detail-value">Normal Accidents Theory &amp; Treadmill Theory</p>
+            </li>
+            <li>
+              <p class="detail-label">Field Bridge</p>
+              <p class="detail-value">Environmental Sociology ↔ Epidemiology</p>
+            </li>
+            <li>
+              <p class="detail-label">Published</p>
+              <p class="detail-value">This View of Life, 2020</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <p class="sidebar-card-title">Related Research</p>
+          <ul class="related-links">
+            <li class="related-link-item">
+              <a href="colombiancivilwar.html">
+                <span class="link-tag">Treadmill Theory</span>
+                Treadmills: Coca &amp; Gold in Colombia &amp; Peru
+              </a>
+            </li>
+            <li class="related-link-item">
+              <a href="colombia.html">
+                <span class="link-tag">Environment &amp; Conflict</span>
+                War on Drugs in Colombia
+              </a>
+            </li>
+            <li class="related-link-item">
+              <a href="nuclear_production.html">
+                <span class="link-tag">Environmental Contamination</span>
+                Nuclear Weapons &amp; the Anthropocene
+              </a>
+            </li>
+            <li class="related-link-item">
+              <a href="pfas.html">
+                <span class="link-tag">Environmental Health</span>
+                PFAS Contamination in the United States
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </aside>
+    </div><!-- /.article-body -->
+
+    <!-- ─── PANDEMIC FREQUENCY BAND ───────────────────── -->
+    <div class="outbreak-band">
+      <div class="outbreak-inner">
+        <p class="outbreak-label">The Accelerating Trend</p>
+        <h2 class="outbreak-title">The Frequency of Outbreaks Is Rising Rapidly Across the World</h2>
+        <figure class="outbreak-figure">
+          <img src="https://www.mlengefeld.com/img/outbreaks.png"
+               alt="Chart showing rapidly increasing frequency of pandemic outbreaks over time" loading="lazy">
+          <figcaption><strong>The frequency of pandemics and major zoonotic outbreaks is accelerating.</strong> As human activities expand into previously undisturbed ecosystems and global connectivity increases, the conditions for spillover events — and their spread — compound. This is not a coincidence: it is the predictable outcome of the treadmill dynamics and repeated exposure patterns described in this research.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- ─── GALLERY ───────────────────────────────────── -->
+    <section class="gallery-section">
+      <div class="gallery-inner">
+        <p class="gallery-label">Photography &amp; Science</p>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="https://www.mlengefeld.com/img/deforestationspillover.jpg"
+                 alt="Deforestation drives zoonotic spillover" loading="lazy">
+            <div class="gallery-caption">Deforestation eliminates the ecological buffers separating human populations from wildlife disease reservoirs — the central structural driver of spillover risk. Source: Zoë van Dijk / NPR</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://www.mlengefeld.com/img/BatsFernCave.jpg"
+                 alt="Bat colony in Fern Cave" loading="lazy">
+            <div class="gallery-caption">Bat colony in Fern Cave, United States. Bats are natural reservoir hosts for a wide range of zoonotic pathogens, including coronaviruses, Ebola, and Nipah virus. Source: USFWS / Wikimedia Commons</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://www.mlengefeld.com/img/BushmeatGhana.jpg"
+                 alt="Bushmeat market Ghana" loading="lazy">
+            <div class="gallery-caption">Bushmeat market, Ghana. The hunting, handling, and consumption of wild animals creates direct pathways for zoonotic spillover from animal reservoirs to human populations. Source: Wikimedia Commons</div>
+          </div>
+          <div class="gallery-item sci">
+            <img src="https://www.mlengefeld.com/img/Ebola_virus.png"
+                 alt="Electron micrograph of Ebola virus" loading="lazy">
+            <div class="gallery-caption">Electron micrograph of Ebola virus — a filovirus with origins in Central African bat populations that has caused multiple deadly human outbreaks. Source: U.S. CDC / Wikimedia Commons</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── BOTTOM NAV ─────────────────────────────── -->
+    <div class="article-footer-nav">
+      <a href="../research/index.html" class="back-link">
+        <span>←</span> All Research
+      </a>
+      <a href="../about/index.html" class="bio-link">
+        About Dr. Lengefeld →
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ─── FOOTER ─────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-brand-sm">Michael Lengefeld, PhD · Goucher College</p>
+      <div class="footer-ext">
+        <a href="https://scholar.google.com/citations?hl=en&user=zWWml-4AAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+        <a href="https://orcid.org/0000-0002-8063-0808" target="_blank" rel="noopener">ORCiD ↗</a>
+      </div>
+      <p class="footer-copy">© 2026 Michael Lengefeld</p>
+    </div>
+  </footer>
+
+</body>
 </html>
