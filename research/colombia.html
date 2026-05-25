@@ -1,190 +1,931 @@
----
-layout: research
-title: War on Drugs in Colombia | Michael Lengefeld
----
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>War on Drugs in Colombia | Michael Lengefeld</title>
+  <meta name="description" content="Smith, Hooks &amp; Lengefeld (2014). The War on Drugs in Colombia: The Environment, the Treadmill of Destruction, and Risk-Transfer Militarism. Journal of World-Systems Research.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #16120d;
+      --cream:      #f3ede0;
+      --warm:       #e6dcc8;
+      --tan:        #cfc0a4;
+      --rust:       #7c3120;
+      --rust-light: #a3452e;
+      --gold:       #9e7a2e;
+      --gold-light: #c4a050;
+      --muted:      #5e4e38;
+      --faint:      #9c8b74;
+      --dark:       #16120d;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* grain */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── NAV ─────────────────────────────────────────── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--cream);
+      border-bottom: 1px solid var(--warm);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+    }
+    .nav-brand span { font-weight: 300; font-style: italic; color: var(--muted); }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--rust); }
+
+    .nav-cv {
+      border: 1px solid var(--tan);
+      padding: 6px 16px !important;
+      color: var(--ink) !important;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .nav-cv:hover { border-color: var(--rust) !important; color: var(--rust) !important; }
+
+    /* ─── HERO BANNER ─────────────────────────────────── */
+    .article-hero {
+      background: var(--dark);
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://www.mlengefeld.com/img/fumigation_soldier.jpg');
+      background-size: cover;
+      background-position: center 35%;
+      opacity: 0.2;
+    }
+
+    .hero-inner {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 96px 48px 80px;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 36px;
+    }
+    .breadcrumb a {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(243,237,224,0.45);
+      transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: var(--gold-light); }
+    .breadcrumb-sep { font-size: 0.65rem; color: rgba(243,237,224,0.25); }
+    .breadcrumb-cur {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+
+    .article-tag {
+      display: inline-block;
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      border: 1px solid rgba(196,160,80,0.4);
+      padding: 4px 12px;
+      margin-bottom: 24px;
+    }
+
+    .article-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 300;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      max-width: 820px;
+      margin-bottom: 32px;
+      animation: fadeUp 0.8s ease both;
+    }
+    .article-title em { font-style: italic; font-weight: 300; }
+
+    .article-meta-row {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+
+    .meta-block-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(243,237,224,0.4);
+      margin-bottom: 4px;
+    }
+    .meta-block-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--cream);
+    }
+
+    /* ─── KEY FINDINGS STRIP ──────────────────────────── */
+    .findings-strip {
+      background: var(--rust);
+      color: var(--cream);
+    }
+
+    .findings-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .findings-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.3;
+      color: rgba(243,237,224,0.7);
+      border-right: 1px solid rgba(255,255,255,0.2);
+      padding-right: 48px;
+    }
+
+    .findings-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .finding-stat {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+    .finding-desc {
+      font-size: 0.82rem;
+      line-height: 1.65;
+      color: rgba(243,237,224,0.75);
+    }
+
+    /* ─── ARTICLE BODY ────────────────────────────────── */
+    .article-body {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 96px 48px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 96px;
+      align-items: start;
+    }
+
+    /* ── prose ── */
+    .prose-section { margin-bottom: 72px; }
+    .prose-section:last-child { margin-bottom: 0; }
+
+    .section-kicker {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 16px;
+    }
+
+    .prose-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      color: var(--ink);
+    }
+
+    .prose-section p {
+      font-size: 1.0rem;
+      line-height: 1.9;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .prose-section p:last-child { margin-bottom: 0; }
+    .prose-section strong { font-weight: 700; }
+    .prose-section em { font-style: italic; color: var(--muted); }
+
+    .pull-quote {
+      border-left: 3px solid var(--rust);
+      padding: 8px 0 8px 28px;
+      margin: 40px 0;
+    }
+    .pull-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem !important;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.45 !important;
+      color: var(--muted) !important;
+      margin: 0 !important;
+    }
+
+    .prose-figure { margin: 44px 0; }
+    .prose-figure img {
+      width: 100%;
+      display: block;
+      filter: sepia(0.1) contrast(1.02);
+    }
+    .prose-figure figcaption {
+      padding-top: 12px;
+      font-size: 0.75rem;
+      line-height: 1.6;
+      color: var(--faint);
+      font-style: italic;
+      border-top: 1px solid var(--warm);
+    }
+    .prose-figure figcaption strong {
+      font-style: normal;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    /* two-up figure pair */
+    .figure-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin: 44px 0;
+      background: var(--warm);
+    }
+    .figure-pair .prose-figure {
+      margin: 0;
+      background: var(--cream);
+      padding: 0;
+    }
+    .figure-pair .prose-figure img { height: 240px; object-fit: cover; }
+    .figure-pair .prose-figure figcaption { padding: 12px 14px; }
+
+    /* impact list */
+    .impact-list {
+      list-style: none;
+      margin: 24px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .impact-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-size: 1.0rem;
+      line-height: 1.75;
+      color: var(--ink);
+    }
+    .impact-list li::before {
+      content: '—';
+      color: var(--rust);
+      flex-shrink: 0;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .prose-rule {
+      border: none;
+      border-top: 1px solid var(--warm);
+      margin: 64px 0;
+    }
+
+    /* ── sidebar ── */
+    .sidebar {
+      position: sticky;
+      top: 88px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .sidebar-card {
+      border: 1px solid var(--warm);
+      padding: 28px;
+    }
+    .sidebar-card-title {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--warm);
+    }
+
+    .citation-text {
+      font-size: 0.82rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+    .citation-text em { font-style: italic; }
+
+    .citation-doi {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--rust);
+      border-bottom: 1px solid var(--tan);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .citation-doi:hover { border-color: var(--rust); }
+
+    .impact-badge {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.68rem;
+      line-height: 1.5;
+      background: rgba(124,49,32,0.08);
+      color: var(--rust);
+      padding: 8px 12px;
+      border-left: 2px solid var(--rust);
+    }
+
+    .detail-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .detail-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 3px;
+    }
+    .detail-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.0rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .related-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      background: var(--warm);
+    }
+    .related-link-item a {
+      display: block;
+      background: var(--cream);
+      padding: 14px 16px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      transition: background 0.2s, color 0.2s;
+      line-height: 1.4;
+    }
+    .related-link-item a:hover { background: white; color: var(--rust); }
+    .link-tag {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--faint);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    /* ─── GALLERY ─────────────────────────────────────── */
+    .gallery-section {
+      background: var(--warm);
+      border-top: 1px solid var(--tan);
+      border-bottom: 1px solid var(--tan);
+    }
+    .gallery-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 64px 48px;
+    }
+    .gallery-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: var(--tan);
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--tan);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: sepia(0.1) contrast(1.02);
+      transition: transform 0.5s ease, filter 0.4s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.04); filter: sepia(0) contrast(1.05); }
+    .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px 14px 14px;
+      background: linear-gradient(transparent, rgba(22,18,13,0.75));
+      font-size: 0.68rem;
+      line-height: 1.45;
+      color: rgba(243,237,224,0.85);
+      font-style: italic;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover .gallery-caption { opacity: 1; }
+
+    /* ─── BOTTOM NAV ──────────────────────────────────── */
+    .article-footer-nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 48px 96px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--warm);
+    }
+    .back-link, .bio-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .back-link:hover, .bio-link:hover { color: var(--rust); }
+
+    /* ─── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 40px 48px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-brand-sm {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 300;
+    }
+    .footer-ext { display: flex; gap: 24px; }
+    .footer-ext a {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      transition: opacity 0.2s;
+    }
+    .footer-ext a:hover { opacity: 0.7; }
+    .footer-copy {
+      font-size: 0.65rem;
+      color: rgba(243,237,224,0.25);
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── ANIMATION ───────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 960px) {
+      nav { padding: 0 24px; }
+      .nav-links { gap: 20px; }
+      .hero-inner { padding: 64px 24px 56px; }
+      .findings-inner { grid-template-columns: 1fr; gap: 32px; }
+      .findings-label {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        padding-right: 0; padding-bottom: 24px;
+      }
+      .findings-cards { grid-template-columns: 1fr 1fr; }
+      .article-body { grid-template-columns: 1fr; padding: 64px 24px; gap: 56px; }
+      .sidebar { position: static; }
+      .figure-pair { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .article-footer-nav { padding: 40px 24px 64px; }
+      footer { padding: 32px 24px; }
+    }
+    @media (max-width: 600px) {
+      .findings-cards { grid-template-columns: 1fr; }
+      .article-meta-row { gap: 24px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
 </head>
-	<header class="w3-container w3-center w3-black" id="home">
-    	<h1 class="w3-xxlarge"><span class="w3-hide-small">Michael Lengefeld | </span>War on Drugs in Colombia</h1>
-	</header>
 <body>
-	<div class="example w3-row">
-	<div class="w3-half w3-container">
-	<h1>What you need to know</h1>
-		<h2>The militarized war on drugs in Colombia has devastating environmental impacts. There is a long history of violent
-			political conflict in Colombia, and several violent organizations attempt to control coca crops that supply
-			a global cocaine market. The conflict - which drives deforestation, biodiversity loss, and landscape 
-			transformation- demonstrates the new way that wars are conducted. In this new way of war, the risks of ecological 
-			harms is concentrated in the Global South. 
-		</h2>
-	</div>
-	<div class="w3-half w3-container">
-		<figure class="item">
-    		<img src="/img/cocaerad.jpg" alt="Coca Crop Eradication" style="width:100%; max-height: 380px; border:1px solid black">
-   		<figcaption class="caption">Anti-Drug Policeman Guards as Workers<br>Manually Eradicate Coca Crops.<br>Source: Jose Gomez / Reuters
-		</figcaption>
-		</figure>
-	</div>
-	</div>
-	<hr>
-	
-	<div class="example w3-row">
-		<div class="w3-half w3-container">
-			<figure class="item">
-			<img class="displayed" src="/img/HR_Colombia.jpg" alt="Human Rights Cost During Plan Colombia. 
-			Source: The Latin America Working Group 2015" style="width:75%; height: 30%; border:1px solid black; align:middle">
-				<figcaption class="caption">The Human Rights Cost During Plan Colombia<br>
-					Source: The Latin America Working Group 2015
-				</figcaption>
-			</figure>
-		</div>
-		<div class="w3-half w3-container">
-			<h1>What is this research about?</h1>
-				<h2>Environmental destruction always results from war, but as war changes, so do its environmental 
-					consequences. Modern wars are fought in a way that shifts environmental consequences to
-					the Global South. Since the United States militarized its effort in the war on drugs in 1981,
-					it has provided equipment, training, and weaponry to the Colombian state. Since 2000, the United 
-					States has supported the Colombian state through "Plan Colombia." There are numerous 
-					state and non-state violent groups participating in the war on drugs, and human rights abuses
-					and environmental degradation are widespread. The United States remains insulated from the 
-					environmental and human rights consequences of this war; Colombia bears the costs in war casualties,
-					environmental damage, and the underdevelopment of peripheral regions where coca growing occurs. 
-				</h2>
-		</div>
-	</div>
-	<hr>
-	
-	<div class="example w3-row">
-		<div class="w3-half w3-container">
-			<h1>What did the researcher do?</h1>
-				<h2>The researchers located and analyzed academic research, media, and governmental publications
-					on the environmental damage resulting from the militarized war on drugs in Colombia. They 
-					identified historical and social factors that led to cocaine production and organized revolutionary 
-					anti-government groups. They document American efforts to suppress the drug trade and the
-					consequences for the Colombian government, the natural environment, and peoples of 
-					Colombia. 
-				</h2>
-		</div>
-		
-		<div class="w3-half w3-container">
-			<figure class="item">
-			<img class="displayed" src="/img/fumigation_soldier.jpg" alt="Soldier stands guard during aerial fumigation in Colombia" 
-			     style="width:100%; border:1px solid black">
-				<figcaption class="caption">Soldier stands guard during aerial fumigation in Colombia<br>
-					Source: Colombian Defense Ministry
-				</figcaption>
-			</figure>
-		</div>
-		
-	</div>
-	<hr>
-	
-	<div class="example w3-row">
-		<div class="w3-third w3-container">
-			<figure class="item">
-				<img class="displayed" id="myImg" src="/img/Coca1994thru2018.jpg" alt="Coca Production and Mitigation, 1994-2018" style="width:100%;height:100%">
-				<figcaption class="caption">Coca Production and Mitigation, 1994-2018<br>
-					Source: The Washington Office on Latin America 2020
-				</figcaption>
-			</figure><br>
-			<figure class="item">
-			<img class="displayed" src="/img/yuccadefoliated.jpg" alt="Yucca crops destroyed by aerial defoliation.
-				Source: http://usfumigation.org" 
-			     style="width:100%; height: 100%; border:1px solid black; align:middle">
-				<figcaption class="caption">In the distance, half an hectare of coca remains untouched while
-					the three hectares of yucca and plantain have been totally wiped out by fumigation. Source: usfumigation.org
-				</figcaption>
-			</figure><br>									   
-		</div>
-		<div class="w3-twothird w3-container">
-			<h1>What did the researcher find?</h1>
-				<h2>Eradication efforts have been largely unsuccessful at curbing coca production and generally
-					result in a "balloon effect" where coca growers simply relocate. Despite the United States' involvement in this conflict, the harmful environmental effects are
-					disproportionately borne by Colombia. The Colombian military, paramilitary, guerilla, and criminal
-					forces all contribute to the environmental damage that occurs in Colombia. This is consistent
-					with how wars are now fought - the consequences are shifted to the Global South.<br><br>
-					
-					Eradicating cocaine production involves harmful environment consequences. For example, 
-					aerial fumigation to destroy crops of cocaine-producing coca plants distributes harmful chemicals 
-					into the environment, and these chemicals bioaccumulate and bioconcentrate in the food chain.
-					The threats to biodiversity are significant because many newly established coca-growing
-					regions are biodiversity "hotspots"; Colombia is home to the largest number of bird species
-					in the world and the second highest number of plant species in the world. <br><br>
-					
-					Coca production and eradication drive cycles of deforestation. When efforts to eradicate coca plants damage legal crops, 
-					farmers either turn to producing coca themselves to supplement their income, or to converting forested
-					land into farmland. Cocaine production involves toxic and unsustainable cultivation techniques. 
-					Coca leaves are ground into coca paste, which requires the use of large amounts of water and several noxious chemicals.
-					Coca producers do not anticipate their crops being around for many years and so use liberal amounts of chemicals 
-					on their plants, further compromising the integrity of local and regional water sources.
-				</h2>
-		</div>
-		
-	</div>
-	<hr>
-	<div class="example">
-		<div class="w3-container">
-			<h1>How can you use this research?</h1>
-			<h2>Governments can be reminded that militarized efforts to suppress the drug trade have negative environmental
-				consequences. Understanding the effects the drug trade has on the ecosystem can help governments formulate
-				less damaging strategies to eradicate the drug trade. Environmental organizations may use this research
-				to inform their strategies for targeting prevalent coca-producing regions. This research has been used by
-				the Colombian government to ban the use of aerial fumigation on coca crops.
-			</h2>
-		</div>
-		
-		<div class="w3-container">
-			<figure class="item">
-			<img class="displayed" src="/img/speciescolombia.jpg" alt="Colombian biodiversity" 
-			     style="width:100%; height: 100%; border:1px solid black; align:middle">
-				<figcaption class="caption">One of every 10 species on Earth can be found in Colombia
-				</figcaption>
-			</figure>
-		</div>
-	</div>
-	<hr>
-	
-	<div class="example w3-container">
-		<h1>Citation</h1>
-		<h2>Smith, C., Hooks, G., and Lengefeld, M. 2014. "The War on Drugs in Colombia: The Environment, the Treadmill
-			of Destruction, and Risk-Transfer Militarism." <i>Journal of World-Systems Research</i>. Available online at: 
-			<a href="http://jwsr.pitt.edu/ojs/index.php/jwsr/article/view/554">http://jwsr.pitt.edu/ojs/index.php/jwsr/article/view/554</a>.
-		</h2>
-	</div>
-	<hr>
-<!-- The Modal -->
-<div id="myModal" class="modal">
-  <span class="close">&times;</span>
-  <img class="modal-content" id="img01">
-  <div id="caption"></div>
-</div>
 
-<script>
-	
-// Get the modal
-var modal = document.getElementById("myModal");
+  <!-- ─── NAV ──────────────────────────────────────────── -->
+  <header>
+    <nav>
+      <a href="../index.html" class="nav-brand">Lengefeld <span>PhD</span></a>
+      <ul class="nav-links">
+        <li><a href="../research/index.html" class="active">Research</a></li>
+        <li><a href="../teaching/index.html">Teaching</a></li>
+        <li><a href="../civic/index.html">Service</a></li>
+        <li><a href="../about/index.html">Bio</a></li>
+        <li><a href="/img/CV_3.16.26_no references.pdf" class="nav-cv">CV ↓</a></li>
+      </ul>
+    </nav>
+  </header>
 
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementById("myImg");
-var modalImg = document.getElementById("img01");
-var captionText = document.getElementById("caption");
-img.onclick = function(){
-  modal.style.display = "block";
-  modalImg.src = this.src;
-  captionText.innerHTML = this.alt;
-}
+  <main>
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+    <!-- ─── HERO ──────────────────────────────────────── -->
+    <section class="article-hero">
+      <div class="hero-bg"></div>
+      <div class="hero-inner">
+        <div class="breadcrumb">
+          <a href="../index.html">Home</a>
+          <span class="breadcrumb-sep">›</span>
+          <a href="../research/index.html">Research</a>
+          <span class="breadcrumb-sep">›</span>
+          <span class="breadcrumb-cur">War on Drugs in Colombia</span>
+        </div>
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() { 
-  modal.style.display = "none";
-}
-</script>
-	
+        <span class="article-tag">Drug Policy · Latin America</span>
+
+        <h1 class="article-title">
+          The War on Drugs<br>in <em>Colombia</em>
+        </h1>
+
+        <div class="article-meta-row">
+          <div>
+            <p class="meta-block-label">Authors</p>
+            <p class="meta-block-value">Smith, Hooks &amp; Lengefeld</p>
+          </div>
+          <div>
+            <p class="meta-block-label">Journal</p>
+            <p class="meta-block-value">Journal of World-Systems Research</p>
+          </div>
+          <div>
+            <p class="meta-block-label">Published</p>
+            <p class="meta-block-value">2014</p>
+          </div>
+          <div>
+            <p class="meta-block-label">Policy Impact</p>
+            <p class="meta-block-value">Cited in Colombian fumigation ban</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── KEY FINDINGS ──────────────────────────────── -->
+    <div class="findings-strip">
+      <div class="findings-inner">
+        <p class="findings-label">Key Findings</p>
+        <div class="findings-cards">
+          <div>
+            <p class="finding-stat">Balloon<br>Effect</p>
+            <p class="finding-desc">Eradication efforts consistently fail — growers relocate rather than stop, displacing harm without reducing production</p>
+          </div>
+          <div>
+            <p class="finding-stat">Global<br>South</p>
+            <p class="finding-desc">Colombia bears the casualties, displacement, and environmental costs of a war bankrolled by the United States</p>
+          </div>
+          <div>
+            <p class="finding-stat">Bio&shy;diversity<br>Hotspot</p>
+            <p class="finding-desc">Colombia holds the world's most bird species and second-highest plant diversity — all threatened by coca and fumigation cycles</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── ARTICLE BODY ──────────────────────────────── -->
+    <div class="article-body">
+
+      <article class="prose">
+
+        <!-- BACKGROUND -->
+        <section class="prose-section">
+          <p class="section-kicker">Background</p>
+          <h2>What You Need to Know</h2>
+          <p>
+            The militarized war on drugs in Colombia has devastating environmental impacts. Colombia has a long history of violent political conflict, and several armed organizations compete to control coca crops that supply a global cocaine market. This conflict drives <strong>deforestation, biodiversity loss, and landscape transformation</strong> — and demonstrates the new geography of modern warfare.
+          </p>
+          <p>
+            In this new way of war, the ecological risks are concentrated in the Global South. The United States provides the funding, equipment, and training; Colombia absorbs the casualties, the contamination, and the costs.
+          </p>
+
+          <figure class="prose-figure">
+            <img src="https://www.mlengefeld.com/img/cocaerad.jpg" alt="Anti-drug policeman guards workers manually eradicating coca crops" loading="lazy">
+            <figcaption><strong>Anti-drug policeman guards workers manually eradicating coca crops.</strong> Source: Jose Gomez / Reuters</figcaption>
+          </figure>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- CONTEXT -->
+        <section class="prose-section">
+          <p class="section-kicker">Context</p>
+          <h2>What Is This Research About?</h2>
+          <p>
+            Environmental destruction always results from war — but as war changes, so do its environmental consequences. Modern wars are fought in ways that shift their consequences to the Global South. Since the United States militarized its effort in the war on drugs in 1981, it has provided equipment, training, and weaponry to the Colombian state. Since 2000, the United States has supported Colombia through <strong>"Plan Colombia."</strong>
+          </p>
+          <p>
+            Numerous state and non-state armed groups participate in the drug war, and human rights abuses and environmental degradation are widespread. The United States remains insulated from the environmental and human rights consequences; Colombia bears the costs in war casualties, environmental damage, and the chronic underdevelopment of peripheral coca-growing regions.
+          </p>
+
+          <div class="pull-quote">
+            <p>"The United States remains insulated from the consequences of this war. Colombia bears the costs in casualties, environmental damage, and underdevelopment."</p>
+          </div>
+
+          <figure class="prose-figure">
+            <img src="https://www.mlengefeld.com/img/HR_Colombia.jpg" alt="The Human Rights Cost During Plan Colombia" loading="lazy">
+            <figcaption><strong>The Human Rights Cost During Plan Colombia.</strong> Source: The Latin America Working Group, 2015</figcaption>
+          </figure>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- METHODOLOGY -->
+        <section class="prose-section">
+          <p class="section-kicker">Methodology</p>
+          <h2>What Did the Researchers Do?</h2>
+          <p>
+            The researchers located and analyzed academic research, media coverage, and governmental publications on the environmental damage resulting from the militarized war on drugs in Colombia. They identified the historical and social factors that led to cocaine production and the emergence of organized revolutionary anti-government groups.
+          </p>
+          <p>
+            The study documents American efforts to suppress the drug trade and traces their consequences for the Colombian government, the natural environment, and the peoples of Colombia — drawing on the theoretical frameworks of the <strong>treadmill of destruction</strong> and risk-transfer militarism.
+          </p>
+
+          <figure class="prose-figure">
+            <img src="https://www.mlengefeld.com/img/fumigation_soldier.jpg" alt="Soldier stands guard during aerial fumigation in Colombia" loading="lazy">
+            <figcaption><strong>Soldier stands guard during aerial fumigation in Colombia.</strong> Source: Colombian Defense Ministry</figcaption>
+          </figure>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- FINDINGS -->
+        <section class="prose-section">
+          <p class="section-kicker">Findings</p>
+          <h2>What Did the Researchers Find?</h2>
+          <p>
+            Eradication efforts have been largely unsuccessful at curbing coca production and generally result in a <strong>"balloon effect"</strong> — coca growers simply relocate rather than stop producing. Despite U.S. involvement in this conflict, the harmful environmental effects are disproportionately borne by Colombia.
+          </p>
+          <p>
+            The Colombian military, paramilitary, guerrilla, and criminal forces all contribute to the environmental damage occurring within Colombia — consistent with the pattern of how contemporary wars are fought: consequences shift to the Global South.
+          </p>
+
+          <ul class="impact-list">
+            <li><strong>Aerial fumigation</strong> distributes harmful chemicals into the environment, which bioaccumulate and bioconcentrate through the food chain</li>
+            <li><strong>Biodiversity loss</strong> is severe: many newly established coca-growing regions are biodiversity hotspots. Colombia hosts the world's largest number of bird species and the second-highest number of plant species</li>
+            <li><strong>Deforestation cycles</strong> are driven by eradication: when fumigation damages legal crops, farmers convert forested land to farmland or turn to coca production themselves</li>
+            <li><strong>Water contamination</strong> results from toxic coca processing — coca paste production requires large volumes of water and noxious chemicals, often disposed of near water sources</li>
+          </ul>
+
+          <div class="figure-pair">
+            <figure class="prose-figure">
+              <img src="https://www.mlengefeld.com/img/Coca1994thru2018.jpg" alt="Coca Production and Mitigation, 1994–2018" loading="lazy">
+              <figcaption><strong>Coca Production and Mitigation, 1994–2018.</strong> Source: The Washington Office on Latin America, 2020</figcaption>
+            </figure>
+            <figure class="prose-figure">
+              <img src="https://www.mlengefeld.com/img/yuccadefoliated.jpg" alt="Yucca crops destroyed by aerial defoliation" loading="lazy">
+              <figcaption><strong>Legal yucca and plantain crops wiped out by fumigation</strong> while nearby coca remains untouched. Source: usfumigation.org</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- IMPLICATIONS -->
+        <section class="prose-section">
+          <p class="section-kicker">Implications</p>
+          <h2>How Can You Use This Research?</h2>
+          <p>
+            Governments can be reminded that militarized efforts to suppress the drug trade carry serious negative environmental consequences. Understanding the ecosystem effects of the drug trade can help governments formulate less damaging eradication strategies. Environmental organizations may use this research to target prevalent coca-producing regions and advocate for policy change.
+          </p>
+          <p>
+            This research has had direct policy impact: <strong>it has been used by the Colombian government to support the ban on aerial fumigation of coca crops</strong> — one of the most harmful and ineffective tools deployed during Plan Colombia.
+          </p>
+
+          <figure class="prose-figure">
+            <img src="https://www.mlengefeld.com/img/speciescolombia.jpg" alt="Colombian biodiversity — one of every ten species on Earth" loading="lazy">
+            <figcaption><strong>One of every 10 species on Earth can be found in Colombia</strong> — making it one of the most biodiverse nations on the planet and one of the most ecologically vulnerable to the drug war's environmental toll.</figcaption>
+          </figure>
+        </section>
+
+      </article>
+
+      <!-- ─── SIDEBAR ─────────────────────────────────── -->
+      <aside class="sidebar">
+
+        <div class="sidebar-card">
+          <p class="sidebar-card-title">Citation</p>
+          <p class="citation-text">
+            Smith, C., Hooks, G., and Lengefeld, M. (2014). "The War on Drugs in Colombia: The Environment, the Treadmill of Destruction, and Risk-Transfer Militarism." <em>Journal of World-Systems Research.</em>
+          </p>
+          <a href="http://jwsr.pitt.edu/ojs/index.php/jwsr/article/view/554" target="_blank" rel="noopener" class="citation-doi">Read Article ↗</a>
+          <p class="impact-badge">Cited in Colombian government ban on aerial fumigation of coca crops</p>
+        </div>
+
+        <div class="sidebar-card">
+          <p class="sidebar-card-title">Study Details</p>
+          <ul class="detail-list">
+            <li>
+              <p class="detail-label">Method</p>
+              <p class="detail-value">Historical &amp; Document Analysis</p>
+            </li>
+            <li>
+              <p class="detail-label">Region</p>
+              <p class="detail-value">Colombia / Latin America</p>
+            </li>
+            <li>
+              <p class="detail-label">Period</p>
+              <p class="detail-value">1981–2014</p>
+            </li>
+            <li>
+              <p class="detail-label">Framework</p>
+              <p class="detail-value">Treadmill of Destruction &amp; Risk-Transfer Militarism</p>
+            </li>
+            <li>
+              <p class="detail-label">Data Sources</p>
+              <p class="detail-value">Academic, Government &amp; NGO Publications</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <p class="sidebar-card-title">Related Research</p>
+          <ul class="related-links">
+            <li class="related-link-item">
+              <a href="afsarticle.html">
+                <span class="link-tag">Military &amp; Environment</span>
+                Asymmetric Warfare &amp; Carbon Emissions
+              </a>
+            </li>
+            <li class="related-link-item">
+              <a href="colombiancivilwar.html">
+                <span class="link-tag">Conflict &amp; Resources</span>
+                Civil War, Coca &amp; Gold in Colombia
+              </a>
+            </li>
+            <li class="related-link-item">
+              <a href="nuclear_production.html">
+                <span class="link-tag">Cold War Legacies</span>
+                Nuclear Weapons Production
+              </a>
+            </li>
+            <li class="related-link-item">
+              <a href="zoonotic.html">
+                <span class="link-tag">Global Health</span>
+                Zoonotic Spillover
+              </a>
+            </li>
+            <li class="related-link-item">
+              <a href="envsoc.html">
+                <span class="link-tag">Environmental Sociology</span>
+                Environmental Sociology
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </aside>
+    </div><!-- /.article-body -->
+
+    <!-- ─── PHOTO GALLERY ──────────────────────────────── -->
+    <section class="gallery-section">
+      <div class="gallery-inner">
+        <p class="gallery-label">Photography</p>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="https://www.mlengefeld.com/img/cocaerad.jpg" alt="Coca crop manual eradication" loading="lazy">
+            <div class="gallery-caption">Anti-drug police guard workers manually eradicating coca crops — Jose Gomez / Reuters</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://www.mlengefeld.com/img/fumigation_soldier.jpg" alt="Soldier guards aerial fumigation" loading="lazy">
+            <div class="gallery-caption">Soldier stands guard during aerial fumigation in Colombia — Colombian Defense Ministry</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://www.mlengefeld.com/img/yuccadefoliated.jpg" alt="Yucca crops destroyed by fumigation" loading="lazy">
+            <div class="gallery-caption">Legal yucca and plantain crops destroyed by aerial fumigation while nearby coca survives — usfumigation.org</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://www.mlengefeld.com/img/speciescolombia.jpg" alt="Colombian biodiversity" loading="lazy">
+            <div class="gallery-caption">One of every 10 species on Earth is found in Colombia — the world's most biodiverse nation per square kilometer</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── BOTTOM NAV ─────────────────────────────────── -->
+    <div class="article-footer-nav">
+      <a href="../research/index.html" class="back-link">
+        <span>←</span> All Research
+      </a>
+      <a href="../about/index.html" class="bio-link">
+        About Dr. Lengefeld →
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ─── FOOTER ────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-brand-sm">Michael Lengefeld, PhD · Goucher College</p>
+      <div class="footer-ext">
+        <a href="https://scholar.google.com/citations?hl=en&user=zWWml-4AAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+        <a href="https://orcid.org/0000-0002-8063-0808" target="_blank" rel="noopener">ORCiD ↗</a>
+      </div>
+      <p class="footer-copy">© 2026 Michael Lengefeld</p>
+    </div>
+  </footer>
+
 </body>
-	<!-- END PAGE CONTENT -->
-
 </html>
