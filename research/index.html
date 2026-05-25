@@ -1,183 +1,956 @@
----
-layout: master
-title: Research | Michael Lengefeld
----
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<style>
-	div.transbox {margin: 10px;
-  	background-color: #C0C0C0;
-  	border: 1px solid black;
-  	opacity: 1.0;
-	}
-	
-	div.transbox p {
-  	margin: 1%;
-  	font-weight: bold;
-  	color: #000000;
-	}
-	
-	img {opacity: 0.85;
-	max-width: 100%;
-    	max-height: 331px;
-	}
-	
-	img:hover {opacity: 1.0;
-	}
-	
-	.center {margin: auto;
-	}
-	
-	div.item {
-    	vertical-align: top;
-    	display: inline-block;
-    	text-align: center;
-    	width: 120px;
-	}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research | Michael Lengefeld, PhD</title>
+  <meta name="description" content="Research by Michael Lengefeld on war, environmental politics, and globalization. Published in Journal of World-Systems Research, Human Ecology Review, and Armed Forces and Society.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-	figure {
-   	border: thin #c0c0c0 solid;
-    	display: flex;
-    	flex-flow: column;
-    	padding: 1px;
-    	max-width: 100%;
-    	max-height: 331px;
-    	margin: auto;
-	}
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-	div.background {
-	margin: 5px;
-		opacity: 1;
-	}
+    :root {
+      --ink:        #16120d;
+      --cream:      #f3ede0;
+      --warm:       #e6dcc8;
+      --tan:        #cfc0a4;
+      --rust:       #7c3120;
+      --rust-light: #a3452e;
+      --gold:       #9e7a2e;
+      --gold-light: #c4a050;
+      --muted:      #5e4e38;
+      --faint:      #9c8b74;
+      --dark:       #16120d;
+    }
 
-	figcaption {
-    	background-color: #222;
-    	color: #fff;
-    	font: bold sans-serif;
-	font-size: 1.0em;
-    	padding: 2px;
-    	text-align: center;
-	}	
-	
-	h2 {
-	font-size:1.2em;
-	text-align:center;
-	color: #fff;
-	}
-</style>
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── NAV ─────────────────────────────────────── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--cream);
+      border-bottom: 1px solid var(--warm);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+    }
+    .nav-brand span { font-weight: 300; font-style: italic; color: var(--muted); }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--rust); }
+    .nav-links a.active { color: var(--rust); }
+    .nav-cv {
+      border: 1px solid var(--tan);
+      padding: 6px 16px !important;
+      color: var(--ink) !important;
+      transition: border-color 0.2s, color 0.2s !important;
+    }
+    .nav-cv:hover { border-color: var(--rust) !important; color: var(--rust) !important; }
+
+    /* ─── PAGE HERO ───────────────────────────────── */
+    .page-hero {
+      background: var(--dark);
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://www.mlengefeld.com/img/predatordrone.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      opacity: 0.12;
+    }
+
+    .page-hero-inner {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 48px 72px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: end;
+    }
+
+    .page-hero-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 18px;
+    }
+
+    .page-hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 5vw, 4.4rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin-bottom: 20px;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .page-hero-sub {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: rgba(243,237,224,0.6);
+      max-width: 580px;
+      font-weight: 400;
+      animation: fadeUp 0.7s 0.1s ease both;
+    }
+
+    .page-hero-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      text-align: right;
+      flex-shrink: 0;
+      animation: fadeUp 0.7s 0.15s ease both;
+    }
+
+    .hero-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(243,237,224,0.4);
+      margin-top: 3px;
+    }
+
+    /* ─── FILTER BAR ──────────────────────────────── */
+    .filter-bar {
+      border-bottom: 1px solid var(--warm);
+      background: var(--cream);
+      position: sticky;
+      top: 64px;
+      z-index: 90;
+    }
+
+    .filter-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px;
+      display: flex;
+      gap: 0;
+      align-items: stretch;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .filter-inner::-webkit-scrollbar { display: none; }
+
+    .filter-btn {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--faint);
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 18px 20px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.2s, border-color 0.2s;
+      margin-bottom: -1px;
+    }
+    .filter-btn:hover { color: var(--muted); }
+    .filter-btn.active {
+      color: var(--rust);
+      border-bottom-color: var(--rust);
+    }
+
+    /* ─── MAIN CONTENT ────────────────────────────── */
+    .content-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 72px 48px 96px;
+    }
+
+    /* ─── FEATURED (first) PROJECT ───────────────── */
+    .featured-project {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--warm);
+      margin-bottom: 64px;
+    }
+
+    .featured-img-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--tan);
+    }
+
+    .featured-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: sepia(0.1) contrast(1.02);
+      transition: transform 0.6s ease;
+    }
+
+    .featured-project:hover .featured-img-wrap img { transform: scale(1.03); }
+
+    .featured-content {
+      background: var(--cream);
+      padding: 56px 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .project-tag {
+      display: inline-block;
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rust);
+      border: 1px solid rgba(124,49,32,0.25);
+      padding: 3px 10px;
+      margin-bottom: 20px;
+      align-self: flex-start;
+    }
+
+    .project-status-badge {
+      display: inline-block;
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .badge-published {
+      background: rgba(124,49,32,0.1);
+      color: var(--rust);
+    }
+    .badge-progress {
+      background: rgba(158,122,46,0.12);
+      color: var(--gold);
+    }
+
+    .featured-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.1rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: var(--ink);
+    }
+
+    .featured-desc {
+      font-size: 0.93rem;
+      line-height: 1.85;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .featured-meta {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 32px;
+      padding-top: 20px;
+      border-top: 1px solid var(--warm);
+    }
+
+    .featured-meta-item {}
+    .featured-meta-label {
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 3px;
+    }
+    .featured-meta-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .project-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--rust);
+      transition: gap 0.2s;
+    }
+    .project-cta:hover { gap: 16px; }
+    .project-cta-arrow { font-size: 1rem; }
+
+    /* ─── GRID ────────────────────────────────────── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--warm);
+    }
+
+    .project-card {
+      background: var(--cream);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.25s;
+    }
+    .project-card:hover { background: #faf6ee; }
+
+    /* accent line on hover */
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--rust);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .project-card:hover::before { transform: scaleX(1); }
+
+    .card-img-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      background: var(--tan);
+      flex-shrink: 0;
+    }
+
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: sepia(0.08) contrast(1.02);
+      transition: transform 0.5s ease, filter 0.4s ease;
+    }
+    .project-card:hover .card-img-wrap img {
+      transform: scale(1.05);
+      filter: sepia(0) contrast(1.04);
+    }
+
+    /* "Under Construction" overlay */
+    .card-wip-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(22,18,13,0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-wip-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(243,237,224,0.7);
+      border: 1px solid rgba(243,237,224,0.3);
+      padding: 5px 12px;
+    }
+
+    .card-body {
+      padding: 28px 28px 32px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-tag-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .card-tag {
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rust);
+    }
+
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+
+    .card-desc {
+      font-size: 0.83rem;
+      line-height: 1.75;
+      color: var(--muted);
+      flex-grow: 1;
+      margin-bottom: 20px;
+    }
+
+    .card-footer {
+      border-top: 1px solid var(--warm);
+      padding-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-journal {
+      font-size: 0.72rem;
+      font-style: italic;
+      color: var(--faint);
+    }
+
+    .card-arrow {
+      font-size: 0.85rem;
+      color: var(--rust);
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+      transform: translateX(-4px);
+    }
+    .project-card:hover .card-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ─── PUBLICATIONS BAND ───────────────────────── */
+    .pub-band {
+      background: var(--dark);
+      color: var(--cream);
+      margin-top: 80px;
+      padding: 40px 0;
+    }
+
+    .pub-band-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .pub-band-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(243,237,224,0.35);
+      flex-shrink: 0;
+    }
+
+    .pub-journals {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .pub-journal {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      font-weight: 600;
+      color: rgba(243,237,224,0.6);
+      transition: color 0.2s;
+    }
+    .pub-journal:hover { color: var(--gold-light); }
+
+    .pub-sep { color: rgba(243,237,224,0.2); font-size: 0.7rem; }
+
+    .pub-band-profiles {
+      margin-left: auto;
+      display: flex;
+      gap: 20px;
+    }
+
+    .pub-profile-link {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      border-bottom: 1px solid rgba(196,160,80,0.3);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .pub-profile-link:hover { border-color: var(--gold-light); }
+
+    /* ─── FOOTER ──────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 40px 48px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-brand-sm {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 300;
+    }
+
+    .footer-nav-sm {
+      display: flex;
+      gap: 28px;
+    }
+
+    .footer-nav-sm a {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(243,237,224,0.4);
+      transition: color 0.2s;
+    }
+    .footer-nav-sm a:hover { color: var(--cream); }
+
+    .footer-copy {
+      font-size: 0.65rem;
+      color: rgba(243,237,224,0.25);
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── ANIMATIONS ──────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── FILTER JS HIDE ──────────────────────────── */
+    .project-card[data-hidden="true"],
+    .featured-project[data-hidden="true"] {
+      display: none;
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────────── */
+    @media (max-width: 1024px) {
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .nav-links { gap: 20px; }
+      .page-hero-inner { grid-template-columns: 1fr; padding: 60px 24px 52px; }
+      .page-hero-stats { flex-direction: row; text-align: left; }
+      .filter-inner { padding: 0 24px; }
+      .content-wrap { padding: 48px 24px 72px; }
+      .featured-project { grid-template-columns: 1fr; }
+      .featured-img-wrap { aspect-ratio: 16/9; }
+      .featured-content { padding: 36px 28px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .pub-band-inner { padding: 0 24px; }
+      .pub-band-profiles { margin-left: 0; }
+      footer { padding: 32px 24px; }
+    }
+  </style>
 </head>
-	
-	<header class="w3-container w3-center w3-black" id="home">
-    	<h1 class="w3-xxlarge"><span class="w3-hide-small">Michael Lengefeld | </span>Research</h1>
-	</header>
-	
-<!-- Photo grid -->
 <body>
-	<div class="w3-container w3-row w3-center w3-mobile w3-padding-small">
-		<div class="background">
-	 		<div class="transbox">
-				<div class="w3-third">
-      				<a href="/research/afsarticle.html">
-				<figure class="item">
-    				<img src="/img/kuwait2.jpg" alt="Kuwaiti Oil Fires Burn as American Jets Pass Overhead" style="width:100%; height: 289px; border:3px solid black">
-   				<figcaption class="caption">Asymmetric Warfare</figcaption>
-				</figure></a>
-		 		</div>
-				
-				<div class="w3-third">
-      				<a href="/research/colombia.html">
-				<figure class="item">
-    				<img src="/img/cocaerad.jpg" alt="Coca eradication" style="width:100%; height: 289px; border:3px solid black">
-   				<figcaption class="caption">War on Drugs in Colombia</figcaption>
-				</figure></a>
-		 		</div>
-			
-				<div class="w3-third">
-      				<a href="/research/nuclear_production.html">
-				<figure class="item">
-    				<img src="/img/Mayak_Cows.jpg" alt="Cows grazing near Mayak nuclear weapons facility" style="width:100%; height: 289px; border:3px solid black">
-   				<figcaption class="caption">Nuclear Weapons Production
-				</figcaption>
-				</figure>
-				</a>
-		 		</div>
-			</div>
-		</div>
-	</div>	
-	<div class="w3-container w3-row w3-center w3-mobile w3-padding-small">
-		<div class="background">
-	 		<div class="transbox">
-				<div class="w3-third">
-      				<a href="/research/nucleartech.html">
-				<figure class="item">
-    				<img src="/img/Cherynobylabandoned.jpg" alt="CO2 Emissions and Nuclear Technologies" style="width:100%; height: 289px; border:3px solid black">
-   				<figcaption class="caption">CO2 Emissions and Nuclear Technologies</figcaption>
-				</figure>
-				</a>
-		 		</div>
-				
-				<div class="w3-third">
-      				<a href="/research/vio_env.html">
-				<figure class="item">
-    				<img src="/img/b29bomber2.jpg" alt="B-29 Bomber Production Line" style="width:100%; height: 289px; border:3px solid black">
-   				<figcaption class="caption">War and the Environment</figcaption>
-				</figure>
-				</a>
-		 		</div>
-			
-				<div class="w3-third">
-      				<a href="/research/zoonotic.html">
-				<figure class="item">
-    				<img src="/img/congoebola.jpg" alt="Bushmeat" style="width:100%; height: 289px; border:3px solid black">
-   				<figcaption class="caption">Zoonotic Spillover
-				</figcaption>
-				</figure>
-				</a>
-		 		</div>
-			</div>
-		</div>
-	</div>	
-	<div class="w3-container w3-row w3-center w3-mobile w3-padding-small">
-		<div class="background">
-	 		<div class="transbox">
-				<div class="w3-third">
-      				<a href="/research/concussion.html">
-				<figure class="item">
-    				<img src="/img/concussion.jpg" alt="Concussion Public Domain" style="width:100%; height: 289px; border:3px solid black">
-   				<figcaption class="caption">Concussions and Youth Sports</figcaption>
-				</figure>
-				</a>
-		 		</div>
-				
-				<div class="w3-third">
-      				<a href="/research/colombiancivilwar.html">
-				<figure class="item">
-    				<img src="/img/goldminingperu.jpg" alt="AP Photo / Rodrigo Abd, File" style="width:100%; height: 289px; border:3px solid black">
-   				<figcaption class="caption">Civil War, Coca, Gold</figcaption>
-				</figure>
-				</a>
-		 		</div>
-			
-				<div class="w3-third">
-      				<a href="/research/envsoc.html">
-				<figure class="item">
-    				<img src="/img/kuwaittankburningoil.jpg" alt="By JO1 Gawlowicz - DN-ST-92-00823, Public Domain, https://commons.wikimedia.org/w/index.php?curid=9741358" style="width:100%; height: 289px; border:3px solid black">
-   				<figcaption class="caption">Environmental Sociology
-				</figcaption>
-				</figure>
-				</a>
-		 		</div>
-			</div>
-		</div>
-	</div>	
-	<h2>
-	<a href="https://scholar.google.com/citations?hl=en&user=zWWml-4AAAAJ"
-	   class="w3-btn w3-black">Find my research on Google Scholar
-	</a>
-	</h2>
-	<h2><a href="https://orcid.org/0000-0002-8063-0808"
-	       class="w3-btn w3-black">ORCid Public Profile
-		</a>
-	</h2>
-	</body>
+
+  <!-- ─── NAV ──────────────────────────────────────── -->
+  <header>
+    <nav>
+      <a href="../index.html" class="nav-brand">Lengefeld <span>PhD</span></a>
+      <ul class="nav-links">
+        <li><a href="../research/index.html" class="active">Research</a></li>
+        <li><a href="../teaching/index.html">Teaching</a></li>
+        <li><a href="../civic/index.html">Service</a></li>
+        <li><a href="../about/index.html">Bio</a></li>
+        <li><a href="/img/CV_3.16.26_no references.pdf" class="nav-cv">CV ↓</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ─── PAGE HERO ──────────────────────────────── -->
+    <section class="page-hero">
+      <div class="page-hero-bg"></div>
+      <div class="page-hero-inner">
+        <div>
+          <p class="page-hero-eyebrow">Michael Lengefeld, PhD · Goucher College</p>
+          <h1 class="page-hero-title">Research</h1>
+          <p class="page-hero-sub">
+            Comparative-historical and quantitative scholarship at the intersection of
+            war, environmental degradation, and globalization — examining how power shapes
+            ecological consequences across the Global South and beyond.
+          </p>
+        </div>
+        <div class="page-hero-stats">
+          <div>
+            <p class="hero-stat-num">9</p>
+            <p class="hero-stat-label">Projects</p>
+          </div>
+          <div>
+            <p class="hero-stat-num">3</p>
+            <p class="hero-stat-label">Journals</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FILTER BAR ─────────────────────────────── -->
+    <div class="filter-bar">
+      <div class="filter-inner">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="military">Military &amp; War</button>
+        <button class="filter-btn" data-filter="environment">Environment</button>
+        <button class="filter-btn" data-filter="latinamerica">Latin America</button>
+        <button class="filter-btn" data-filter="nuclear">Nuclear</button>
+        <button class="filter-btn" data-filter="health">Health &amp; Society</button>
+        <button class="filter-btn" data-filter="published">Published</button>
+      </div>
+    </div>
+
+    <!-- ─── CONTENT ────────────────────────────────── -->
+    <div class="content-wrap">
+
+      <!-- FEATURED: Asymmetric Warfare -->
+      <a href="afsarticle.html" class="featured-project" data-categories="military environment published" data-featured="true">
+        <div class="featured-img-wrap">
+          <img src="https://www.mlengefeld.com/img/aircraftcarrier.jpg" alt="Flight Deck of U.S.S. Abraham Lincoln" loading="lazy">
+        </div>
+        <div class="featured-content">
+          <span class="project-tag">Military &amp; Environment</span>
+          <h2 class="featured-title">The Environmental Consequences of Asymmetric War</h2>
+          <p class="featured-desc">
+            High-tech warfare in the Global North drives carbon emissions and shifts ecological risks onto the peoples and environments of the Global South. A panel study of 126 countries finds that militarism increases CO₂ even during global recessions.
+          </p>
+          <div class="featured-meta">
+            <div class="featured-meta-item">
+              <p class="featured-meta-label">Authors</p>
+              <p class="featured-meta-value">Smith &amp; Lengefeld</p>
+            </div>
+            <div class="featured-meta-item">
+              <p class="featured-meta-label">Journal</p>
+              <p class="featured-meta-value">Armed Forces &amp; Society</p>
+            </div>
+            <div class="featured-meta-item">
+              <p class="featured-meta-label">Year</p>
+              <p class="featured-meta-value">2020</p>
+            </div>
+          </div>
+          <span class="project-cta">Read Article <span class="project-cta-arrow">→</span></span>
+        </div>
+      </a>
+
+      <!-- PROJECT GRID -->
+      <div class="projects-grid" id="projects-grid">
+
+        <!-- War on Drugs in Colombia -->
+        <a href="colombia.html" class="project-card" data-categories="military environment latinamerica published">
+          <div class="card-img-wrap">
+            <img src="https://www.mlengefeld.com/img/cocaerad.jpg" alt="Coca crop eradication in Colombia" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div class="card-tag-row">
+              <span class="card-tag">Drug Policy · Latin America</span>
+              <span class="project-status-badge badge-published">Published</span>
+            </div>
+            <h3 class="card-title">War on Drugs in Colombia</h3>
+            <p class="card-desc">U.S.-backed aerial fumigation campaigns devastated Andean ecosystems and rural communities. Eradication drives deforestation, biodiversity loss, and toxic contamination in biodiversity hotspots — and largely fails to curb production.</p>
+            <div class="card-footer">
+              <span class="card-journal">Journal of World-Systems Research, 2014</span>
+              <span class="card-arrow">→</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Nuclear Weapons Production -->
+        <a href="nuclear_production.html" class="project-card" data-categories="nuclear environment military published">
+          <div class="card-img-wrap">
+            <img src="https://www.mlengefeld.com/img/hanford1944.jpg" alt="Hanford Nuclear Reservation, 1944" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div class="card-tag-row">
+              <span class="card-tag">Nuclear · Cold War</span>
+              <span class="project-status-badge badge-published">Published</span>
+            </div>
+            <h3 class="card-title">Nuclear Weapons &amp; the Anthropocene</h3>
+            <p class="card-desc">Since 1945, nuclear weapons production has left a radioactive legacy threatening human health and ecosystems. From Hanford to Rocky Flats, the Cold War arms race imposed ecological atrocities concealed for decades by national security doctrine.</p>
+            <div class="card-footer">
+              <span class="card-journal">Journal of World-Systems Research, 2020</span>
+              <span class="card-arrow">→</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- CO2 and Nuclear Tech -->
+        <a href="nucleartech.html" class="project-card" data-categories="nuclear environment published">
+          <div class="card-img-wrap">
+            <img src="https://www.mlengefeld.com/img/reactor.jpg" alt="Civilian nuclear power plant" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div class="card-tag-row">
+              <span class="card-tag">Energy &amp; Climate</span>
+              <span class="project-status-badge badge-published">Published</span>
+            </div>
+            <h3 class="card-title">CO₂ Emissions &amp; Nuclear Technologies</h3>
+            <p class="card-desc">Does nuclear power reduce carbon emissions? A cross-national panel of 136 countries finds that nuclear energy production does not offset emissions — and that nuclear weapons possession is the strongest predictor of elevated CO₂ in the analysis.</p>
+            <div class="card-footer">
+              <span class="card-journal">Human Ecology Review, 2013</span>
+              <span class="card-arrow">→</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Zoonotic Spillover -->
+        <a href="zoonotic.html" class="project-card" data-categories="environment health published">
+          <div class="card-img-wrap">
+            <img src="https://www.mlengefeld.com/img/deforestationspillover.jpg" alt="Deforestation and zoonotic spillover" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div class="card-tag-row">
+              <span class="card-tag">Global Health</span>
+              <span class="project-status-badge badge-published">Published</span>
+            </div>
+            <h3 class="card-title">Zoonotic Spillover</h3>
+            <p class="card-desc">Over 600,000 animal viruses have potential to infect humans. Applying "normal accidents" theory and treadmill theory, this research shows how economic and military competition accelerates deforestation, biodiversity loss, and pandemic risk.</p>
+            <div class="card-footer">
+              <span class="card-journal">This View of Life, 2020</span>
+              <span class="card-arrow">→</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Concussions and Youth Sports -->
+        <a href="concussion.html" class="project-card" data-categories="health published">
+          <div class="card-img-wrap">
+            <img src="https://www.mlengefeld.com/img/concussion.jpg" alt="Youth football concussion" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div class="card-tag-row">
+              <span class="card-tag">Health &amp; Society</span>
+              <span class="project-status-badge badge-published">Published</span>
+            </div>
+            <h3 class="card-title">Concussions &amp; Youth Sports</h3>
+            <p class="card-desc">States with more high school football participation passed concussion laws later — supporting a resistance hypothesis. NFL counterframing diluted media coverage of football's unique risks, shielding corporate interests during Congressional hearings.</p>
+            <div class="card-footer">
+              <span class="card-journal">Sport in Society, 2025 · Social Science &amp; Medicine, 2020</span>
+              <span class="card-arrow">→</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Civil War, Coca, Gold -->
+        <a href="colombiancivilwar.html" class="project-card" data-categories="military latinamerica environment">
+          <div class="card-img-wrap">
+            <img src="https://www.mlengefeld.com/img/cocaerad.jpg" alt="Colombian civil war and coca production" loading="lazy">
+            <div class="card-wip-overlay"><span class="card-wip-label">In Progress</span></div>
+          </div>
+          <div class="card-body">
+            <div class="card-tag-row">
+              <span class="card-tag">Conflict &amp; Resources</span>
+              <span class="project-status-badge badge-progress">In Progress</span>
+            </div>
+            <h3 class="card-title">Civil War, Coca &amp; Gold in Colombia</h3>
+            <p class="card-desc">Examines how Colombia's civil war shaped the coca and gold economies, with implications for resource extraction, violence, and environmental governance in conflict-affected peripheral regions.</p>
+            <div class="card-footer">
+              <span class="card-journal">Research in Progress</span>
+              <span class="card-arrow">→</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- War and the Environment -->
+        <a href="vio_env.html" class="project-card" data-categories="military environment">
+          <div class="card-img-wrap">
+            <img src="https://www.mlengefeld.com/img/predatordrone.jpg" alt="War and the environment" loading="lazy">
+            <div class="card-wip-overlay"><span class="card-wip-label">In Progress</span></div>
+          </div>
+          <div class="card-body">
+            <div class="card-tag-row">
+              <span class="card-tag">Military &amp; Environment</span>
+              <span class="project-status-badge badge-progress">In Progress</span>
+            </div>
+            <h3 class="card-title">War &amp; the Environment</h3>
+            <p class="card-desc">From B-29 bomber production lines to contemporary drone campaigns — a broad investigation of how changing modes of warfare transform the relationship between organized violence and ecological destruction across history.</p>
+            <div class="card-footer">
+              <span class="card-journal">Research in Progress</span>
+              <span class="card-arrow">→</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Environmental Sociology -->
+        <a href="envsoc.html" class="project-card" data-categories="environment">
+          <div class="card-img-wrap">
+            <img src="https://www.mlengefeld.com/img/speciescolombia.jpg" alt="Environmental sociology" loading="lazy">
+            <div class="card-wip-overlay"><span class="card-wip-label">In Progress</span></div>
+          </div>
+          <div class="card-body">
+            <div class="card-tag-row">
+              <span class="card-tag">Environmental Sociology</span>
+              <span class="project-status-badge badge-progress">In Progress</span>
+            </div>
+            <h3 class="card-title">Environmental Sociology</h3>
+            <p class="card-desc">Broad theoretical and empirical work in environmental sociology, examining the social structures, power dynamics, and institutional forces that drive environmental degradation and shape human-nature relationships globally.</p>
+            <div class="card-footer">
+              <span class="card-journal">Research in Progress</span>
+              <span class="card-arrow">→</span>
+            </div>
+          </div>
+        </a>
+
+      </div><!-- /.projects-grid -->
+
+      <!-- No results message -->
+      <p id="no-results" style="display:none; text-align:center; padding:64px 0; font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-style:italic; color:var(--faint);">
+        No projects match this filter.
+      </p>
+
+    </div><!-- /.content-wrap -->
+
+    <!-- ─── PUBLICATIONS BAND ───────────────────────── -->
+    <div class="pub-band">
+      <div class="pub-band-inner">
+        <span class="pub-band-label">Published in</span>
+        <div class="pub-journals">
+          <a href="https://jwsr.pitt.edu/" target="_blank" rel="noopener" class="pub-journal">Journal of World-Systems Research</a>
+          <span class="pub-sep">·</span>
+          <a href="https://humanecologyreview.org/" target="_blank" rel="noopener" class="pub-journal">Human Ecology Review</a>
+          <span class="pub-sep">·</span>
+          <a href="https://journals.sagepub.com/home/afs" target="_blank" rel="noopener" class="pub-journal">Armed Forces &amp; Society</a>
+          <span class="pub-sep">·</span>
+          <a href="https://www.tandfonline.com/journals/fssr20" target="_blank" rel="noopener" class="pub-journal">Sport in Society</a>
+          <span class="pub-sep">·</span>
+          <a href="https://www.sciencedirect.com/journal/social-science-and-medicine" target="_blank" rel="noopener" class="pub-journal">Social Science &amp; Medicine</a>
+        </div>
+        <div class="pub-band-profiles">
+          <a href="https://scholar.google.com/citations?hl=en&user=zWWml-4AAAAJ" target="_blank" rel="noopener" class="pub-profile-link">Google Scholar ↗</a>
+          <a href="https://orcid.org/0000-0002-8063-0808" target="_blank" rel="noopener" class="pub-profile-link">ORCiD ↗</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ─── FOOTER ──────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-brand-sm">Michael Lengefeld, PhD · Goucher College</p>
+      <nav class="footer-nav-sm">
+        <a href="../index.html">Home</a>
+        <a href="../teaching/index.html">Teaching</a>
+        <a href="../civic/index.html">Service</a>
+        <a href="../about/index.html">Bio</a>
+      </nav>
+      <p class="footer-copy">© 2026 Michael Lengefeld</p>
+    </div>
+  </footer>
+
+  <!-- ─── FILTER SCRIPT ────────────────────────────── -->
+  <script>
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards      = document.querySelectorAll('.project-card');
+    const featured   = document.querySelector('.featured-project');
+    const noResults  = document.getElementById('no-results');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+
+        // update active button
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        let visibleCount = 0;
+
+        // handle featured card
+        if (featured) {
+          const cats = featured.dataset.categories || '';
+          const show = filter === 'all' || cats.split(' ').includes(filter);
+          featured.dataset.hidden = show ? 'false' : 'true';
+          if (show) visibleCount++;
+        }
+
+        // handle grid cards
+        cards.forEach(card => {
+          const cats = card.dataset.categories || '';
+          const show = filter === 'all' || cats.split(' ').includes(filter);
+          card.dataset.hidden = show ? 'false' : 'true';
+          if (show) visibleCount++;
+        });
+
+        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+      });
+    });
+  </script>
+
+</body>
 </html>
