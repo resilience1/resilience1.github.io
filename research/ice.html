@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICE Facilities, Riskscapes &amp; COVID-19 | Michael Lengefeld</title>
+  <meta name="description" content="Hooks &amp; Lengefeld (2022). Callous Cruelty and Blow Back: Immigration and Customs Enforcement Facilities, Riskscapes, and Community Transmission of COVID-19. Environmental Justice, Vol. 15(1).">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #16120d;
+      --cream:      #f3ede0;
+      --warm:       #e6dcc8;
+      --tan:        #cfc0a4;
+      --rust:       #7c3120;
+      --rust-light: #a3452e;
+      --gold:       #9e7a2e;
+      --gold-light: #c4a050;
+      --muted:      #5e4e38;
+      --faint:      #9c8b74;
+      --dark:       #16120d;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── NAV ───────────────────────────────────── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--cream);
+      border-bottom: 1px solid var(--warm);
+    }
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+    }
+    .nav-brand span { font-weight: 300; font-style: italic; color: var(--muted); }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--rust); }
+    .nav-cv {
+      border: 1px solid var(--tan);
+      padding: 6px 16px !important;
+      color: var(--ink) !important;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .nav-cv:hover { border-color: var(--rust) !important; color: var(--rust) !important; }
+
+    /* ─── HERO ──────────────────────────────────── */
+    .article-hero {
+      background: var(--dark);
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    /* abstract geometric riskscape pattern — no photograph needed */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 10% 80%, rgba(124,49,32,0.35) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 20%, rgba(90,60,20,0.2) 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 50%, rgba(30,24,16,0.4) 0%, transparent 60%);
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(196,160,80,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(196,160,80,0.035) 1px, transparent 1px);
+      background-size: 52px 52px;
+    }
+    .hero-inner {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 96px 48px 80px;
+    }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 36px;
+    }
+    .breadcrumb a {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(243,237,224,0.45);
+      transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: var(--gold-light); }
+    .breadcrumb-sep { font-size: 0.65rem; color: rgba(243,237,224,0.25); }
+    .breadcrumb-cur {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .article-tag {
+      display: inline-block;
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      border: 1px solid rgba(196,160,80,0.4);
+      padding: 4px 12px;
+      margin-bottom: 24px;
+    }
+    .article-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 300;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      max-width: 820px;
+      margin-bottom: 32px;
+      animation: fadeUp 0.8s ease both;
+    }
+    .article-title em { font-style: italic; font-weight: 300; }
+    .article-meta-row {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+    .meta-block-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(243,237,224,0.4);
+      margin-bottom: 4px;
+    }
+    .meta-block-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--cream);
+    }
+
+    /* ─── FINDINGS STRIP ────────────────────────── */
+    .findings-strip {
+      background: var(--rust);
+      color: var(--cream);
+    }
+    .findings-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .findings-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.3;
+      color: rgba(243,237,224,0.7);
+      border-right: 1px solid rgba(255,255,255,0.2);
+      padding-right: 48px;
+    }
+    .findings-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+    .finding-stat {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+    .finding-desc {
+      font-size: 0.8rem;
+      line-height: 1.65;
+      color: rgba(243,237,224,0.75);
+    }
+
+    /* ─── RISKSCAPE CONCEPT BAND ────────────────── */
+    .riskscape-band {
+      background: var(--dark);
+      color: var(--cream);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .riskscape-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 64px 48px;
+    }
+    .riskscape-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 18px;
+    }
+    .riskscape-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 300;
+      line-height: 1.3;
+      color: var(--cream);
+      margin-bottom: 36px;
+      max-width: 680px;
+    }
+    .riskscape-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: rgba(255,255,255,0.07);
+    }
+    .riskscape-card {
+      background: var(--dark);
+      padding: 32px 36px;
+      transition: background 0.2s;
+      position: relative;
+    }
+    .riskscape-card:hover { background: #1e1810; }
+    .riskscape-card-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--rust);
+      opacity: 0.5;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .riskscape-card-tag {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 10px;
+    }
+    .riskscape-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+    .riskscape-card-body {
+      font-size: 0.86rem;
+      line-height: 1.75;
+      color: rgba(243,237,224,0.6);
+    }
+
+    /* ─── ARTICLE BODY ──────────────────────────── */
+    .article-body {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 96px 48px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 96px;
+      align-items: start;
+    }
+
+    .prose-section { margin-bottom: 72px; }
+    .prose-section:last-child { margin-bottom: 0; }
+    .section-kicker {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 16px;
+    }
+    .prose-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      color: var(--ink);
+    }
+    .prose-section h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      line-height: 1.3;
+      margin: 36px 0 14px;
+      color: var(--ink);
+    }
+    .prose-section p {
+      font-size: 1.0rem;
+      line-height: 1.9;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .prose-section p:last-child { margin-bottom: 0; }
+    .prose-section strong { font-weight: 700; }
+    .prose-section em { font-style: italic; color: var(--muted); }
+
+    .pull-quote {
+      border-left: 3px solid var(--rust);
+      padding: 8px 0 8px 28px;
+      margin: 40px 0;
+    }
+    .pull-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem !important;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.45 !important;
+      color: var(--muted) !important;
+      margin: 0 !important;
+    }
+
+    .prose-figure { margin: 44px 0; }
+    .prose-figure img {
+      width: 100%;
+      display: block;
+      filter: sepia(0.08) contrast(1.02);
+    }
+    .prose-figure.data-fig img {
+      filter: none;
+      border: 1px solid var(--warm);
+      background: white;
+      padding: 12px;
+    }
+    .prose-figure figcaption {
+      padding-top: 12px;
+      font-size: 0.75rem;
+      line-height: 1.6;
+      color: var(--faint);
+      font-style: italic;
+      border-top: 1px solid var(--warm);
+    }
+    .prose-figure figcaption strong {
+      font-style: normal;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    /* figure pair */
+    .figure-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin: 44px 0;
+      background: var(--warm);
+    }
+    .figure-pair .prose-figure {
+      margin: 0;
+      background: var(--cream);
+    }
+    .figure-pair .prose-figure img { height: 240px; object-fit: cover; }
+    .figure-pair .prose-figure figcaption { padding: 12px 14px; }
+
+    /* risk table */
+    .risk-table-wrap {
+      margin: 36px 0;
+      overflow-x: auto;
+    }
+    .risk-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+    .risk-table thead tr { background: var(--ink); color: var(--cream); }
+    .risk-table thead th {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 13px 18px;
+      text-align: left;
+      letter-spacing: 0.03em;
+    }
+    .risk-table tbody tr { border-bottom: 1px solid var(--warm); }
+    .risk-table tbody tr:nth-child(even) { background: rgba(230,220,200,0.3); }
+    .risk-table tbody td {
+      padding: 13px 18px;
+      line-height: 1.6;
+      color: var(--muted);
+      vertical-align: top;
+    }
+
+    /* impact list */
+    .impact-list {
+      list-style: none;
+      margin: 24px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .impact-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-size: 1.0rem;
+      line-height: 1.75;
+      color: var(--ink);
+    }
+    .impact-list li::before {
+      content: '—';
+      color: var(--rust);
+      flex-shrink: 0;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    /* dark callout */
+    .callout-box {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 32px 36px;
+      margin: 44px 0;
+    }
+    .callout-box-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+    }
+    .callout-box p {
+      font-size: 0.92rem !important;
+      line-height: 1.8 !important;
+      color: rgba(243,237,224,0.75) !important;
+      margin-bottom: 0 !important;
+    }
+    .callout-box strong { color: var(--cream) !important; }
+
+    .prose-rule {
+      border: none;
+      border-top: 1px solid var(--warm);
+      margin: 64px 0;
+    }
+
+    /* ─── SIDEBAR ───────────────────────────────── */
+    .sidebar {
+      position: sticky;
+      top: 88px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .sidebar-card {
+      border: 1px solid var(--warm);
+      padding: 28px;
+    }
+    .sidebar-card-title {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--warm);
+    }
+    .citation-text {
+      font-size: 0.82rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+    .citation-text em { font-style: italic; }
+    .citation-doi {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--rust);
+      border-bottom: 1px solid var(--tan);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .citation-doi:hover { border-color: var(--rust); }
+    .detail-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .detail-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 3px;
+    }
+    .detail-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.0rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    /* key numbers stat card */
+    .stat-card {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 28px;
+    }
+    .stat-card-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 16px;
+    }
+    .stat-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .stat-row-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+    .stat-row-desc {
+      font-size: 0.76rem;
+      line-height: 1.55;
+      color: rgba(243,237,224,0.6);
+      margin-top: 3px;
+    }
+    .stat-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .related-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      background: var(--warm);
+    }
+    .related-link-item a {
+      display: block;
+      background: var(--cream);
+      padding: 14px 16px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      transition: background 0.2s, color 0.2s;
+      line-height: 1.4;
+    }
+    .related-link-item a:hover { background: white; color: var(--rust); }
+    .link-tag {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--faint);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    /* ─── GALLERY ───────────────────────────────── */
+    .gallery-section {
+      background: var(--warm);
+      border-top: 1px solid var(--tan);
+      border-bottom: 1px solid var(--tan);
+    }
+    .gallery-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 64px 48px;
+    }
+    .gallery-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--tan);
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--tan);
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: sepia(0.08) contrast(1.02);
+      transition: transform 0.5s ease, filter 0.4s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.04); filter: sepia(0) contrast(1.05); }
+    .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px 14px 14px;
+      background: linear-gradient(transparent, rgba(22,18,13,0.78));
+      font-size: 0.68rem;
+      line-height: 1.45;
+      color: rgba(243,237,224,0.85);
+      font-style: italic;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover .gallery-caption { opacity: 1; }
+    .gallery-item-wide {
+      grid-column: span 2;
+      aspect-ratio: 8/3;
+    }
+
+    /* ─── BOTTOM NAV ────────────────────────────── */
+    .article-footer-nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 48px 96px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--warm);
+    }
+    .back-link, .bio-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .back-link:hover, .bio-link:hover { color: var(--rust); }
+
+    /* ─── FOOTER ────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 40px 48px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-brand-sm {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 300;
+    }
+    .footer-ext { display: flex; gap: 24px; }
+    .footer-ext a {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      transition: opacity 0.2s;
+    }
+    .footer-ext a:hover { opacity: 0.7; }
+    .footer-copy {
+      font-size: 0.65rem;
+      color: rgba(243,237,224,0.25);
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── ANIMATION ─────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── RESPONSIVE ────────────────────────────── */
+    @media (max-width: 960px) {
+      nav { padding: 0 24px; }
+      .nav-links { gap: 20px; }
+      .hero-inner { padding: 64px 24px 56px; }
+      .findings-inner { grid-template-columns: 1fr; gap: 32px; }
+      .findings-label {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        padding-right: 0; padding-bottom: 24px;
+      }
+      .findings-cards { grid-template-columns: 1fr 1fr; }
+      .riskscape-inner { padding: 48px 24px; }
+      .riskscape-grid { grid-template-columns: 1fr; }
+      .article-body { grid-template-columns: 1fr; padding: 64px 24px; gap: 56px; }
+      .sidebar { position: static; }
+      .figure-pair { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item-wide { grid-column: span 2; aspect-ratio: 16/9; }
+      .article-footer-nav { padding: 40px 24px 64px; }
+      footer { padding: 32px 24px; }
+    }
+    @media (max-width: 600px) {
+      .findings-cards { grid-template-columns: 1fr; }
+      .article-meta-row { gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ──────────────────────────────────────────── -->
+  <header>
+    <nav>
+      <a href="../index.html" class="nav-brand">Lengefeld <span>PhD</span></a>
+      <ul class="nav-links">
+        <li><a href="../research/index.html" class="active">Research</a></li>
+        <li><a href="../teaching/index.html">Teaching</a></li>
+        <li><a href="../civic/index.html">Service</a></li>
+        <li><a href="../about/index.html">Bio</a></li>
+        <li><a href="/img/CV_3.16.26_no references.pdf" class="nav-cv">CV ↓</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ─── HERO ─────────────────────────────────────── -->
+    <section class="article-hero">
+      <div class="hero-bg"></div>
+      <div class="hero-inner">
+        <div class="breadcrumb">
+          <a href="../index.html">Home</a>
+          <span class="breadcrumb-sep">›</span>
+          <a href="../research/index.html">Research</a>
+          <span class="breadcrumb-sep">›</span>
+          <span class="breadcrumb-cur">ICE Facilities &amp; COVID-19</span>
+        </div>
+
+        <span class="article-tag">Environmental Justice · Immigration · COVID-19</span>
+
+        <h1 class="article-title">
+          Callous Cruelty<br>&amp; <em>Blow Back:</em><br>ICE Facilities, Riskscapes,<br>&amp; COVID-19
+        </h1>
+
+        <div class="article-meta-row">
+          <div>
+            <p class="meta-block-label">Authors</p>
+            <p class="meta-block-value">Hooks &amp; Lengefeld</p>
+          </div>
+          <div>
+            <p class="meta-block-label">Journal</p>
+            <p class="meta-block-value">Environmental Justice</p>
+          </div>
+          <div>
+            <p class="meta-block-label">Published</p>
+            <p class="meta-block-value">2022 · Vol. 15(1)</p>
+          </div>
+          <div>
+            <p class="meta-block-label">Pages</p>
+            <p class="meta-block-value">39–57</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── KEY FINDINGS ──────────────────────────────── -->
+    <div class="findings-strip">
+      <div class="findings-inner">
+        <p class="findings-label">Key Findings</p>
+        <div class="findings-cards">
+          <div>
+            <p class="finding-stat">13.4×</p>
+            <p class="finding-desc">Higher mean monthly COVID-19 case rate among ICE detainees compared with the U.S. general population (spring–summer 2020)</p>
+          </div>
+          <div>
+            <p class="finding-stat">Earlier</p>
+            <p class="finding-desc">Counties with ICE facilities saw COVID-19 arrive sooner and outbreaks become more severe compared with comparable counties without ICE facilities</p>
+          </div>
+          <div>
+            <p class="finding-stat">3,139</p>
+            <p class="finding-desc">U.S. counties in the quantitative analysis — logistic regression and spatially weighted regression used across all contiguous 48 states</p>
+          </div>
+          <div>
+            <p class="finding-stat">+29%</p>
+            <p class="finding-desc">Higher estimated COVID-19 caseload in counties within BEA economic areas with 1,000 or more ICE detainees, relative to counties with minimal detention</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── RISKSCAPE FRAMEWORK BAND ──────────────────── -->
+    <div class="riskscape-band">
+      <div class="riskscape-inner">
+        <p class="riskscape-label">Two Spatial Scales of Analysis</p>
+        <h2 class="riskscape-title">The Riskscape Framework: From Inside the Facility to the Surrounding Community</h2>
+        <div class="riskscape-grid">
+          <div class="riskscape-card">
+            <p class="riskscape-card-num">01</p>
+            <p class="riskscape-card-tag">Riskscape 1 · Inside ICE Facilities</p>
+            <h3 class="riskscape-card-title">Callous Cruelty</h3>
+            <p class="riskscape-card-body">ICE detention facilities created ideal conditions for COVID-19 transmission: overcrowding, denied medical care, no access to vaccines, and physical retaliation against those who raised concerns. Drawing on Collins's concept of "callous cruelty" — cruelty without passion, arising from structures that cut off the possibility of personal empathy — this research documents how these conditions were not accidental but structurally produced and administratively maintained.</p>
+          </div>
+          <div class="riskscape-card">
+            <p class="riskscape-card-num">02</p>
+            <p class="riskscape-card-tag">Riskscape 2 · Surrounding Communities</p>
+            <h3 class="riskscape-card-title">Blow Back</h3>
+            <p class="riskscape-card-body">Borrowed from biological and chemical weapons discourse, "blow back" describes the unintended but fully anticipated spread of COVID-19 from ICE facilities into neighboring counties and regions. Just as military organizations cannot prevent biological agents from drifting toward their own troops, ICE could not contain the infection it had cultivated. The walls and fences surrounding ICE facilities did not prevent community transmission — and the policy makers knew it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── ARTICLE BODY ──────────────────────────────── -->
+    <div class="article-body">
+
+      <article class="prose">
+
+        <!-- BACKGROUND -->
+        <section class="prose-section">
+          <p class="section-kicker">Background</p>
+          <h2>What You Need to Know</h2>
+          <p>
+            This research builds on and extends critical environmental justice scholarship into carceral spaces — focusing on U.S. Immigration and Customs Enforcement (ICE) detention facilities during the COVID-19 pandemic. The United States detains more immigrants, including asylum-seekers, than any other nation in the world. Drawing on the lessons of the Black Lives Matter movement and critical race theory, the research draws direct connections between institutionalized racism in the criminal justice system and immigration enforcement policies.
+          </p>
+          <p>
+            The nativist and racist rationale for harsh immigration policies asserts that callous treatment of immigrants makes U.S. society safer. The data show the opposite: <strong>the blow back from these policies made U.S. society less secure</strong> and degraded civil and political rights for all — including residents of communities near ICE facilities who faced dramatically elevated COVID-19 infection rates.
+          </p>
+
+          <figure class="prose-figure">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Adelanto_ICE_Processing_Center%2C_California.jpg/1280px-Adelanto_ICE_Processing_Center%2C_California.jpg"
+              alt="Adelanto ICE Processing Center, California"
+              loading="lazy"
+            >
+            <figcaption><strong>Adelanto ICE Processing Center, California.</strong> Most ICE facilities were originally constructed as jails and prisons — their design and operational standards inherited from the carceral system, not from public health or immigration law. Source: U.S. Immigration and Customs Enforcement / Public Domain</figcaption>
+          </figure>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- RACE, IMMIGRATION & BLM -->
+        <section class="prose-section">
+          <p class="section-kicker">Context</p>
+          <h2>Racism, Immigration, &amp; the Carceral State</h2>
+          <p>
+            The links between racist over-policing and the criminalization of immigration are indirect but powerful. Since the Civil Rights reforms of the 1960s and 70s, policing and corrections bureaucracies have been officially rendered "colorblind" — yet as BLM has documented and condemned, the ongoing war on Black lives has deployed a cocktail of racialized surveillance, policing, and incarceration that devastates Black communities.
+          </p>
+          <p>
+            These same racialized logics have been extended to immigration enforcement. The coercive approach to immigration is especially harsh for Black immigrants, but numerically it impacts far more people from Mexico and Central America, who constitute 89% of the ICE detainee population. Although the degradation of their freedom, dignity, and health was understood and anticipated, <strong>callous political and bureaucratic calculations drove policymakers to expand the criminalization of immigration</strong> across presidential administrations — Democratic and Republican alike.
+          </p>
+
+          <div class="callout-box">
+            <p class="callout-box-label">The "Enforcement First" Machine</p>
+            <p>By 2012, the United States spent <strong>$3.5 billion more on immigration enforcement agencies than on the FBI, DEA, Secret Service, U.S. Marshals Service, and ATF combined.</strong> From 2008 to 2011, more than half of all federal prosecutions focused on immigration-related offenses. The creation of the Department of Homeland Security consolidated and rationalized this machinery — making immigrant surveillance, apprehension, detention, and deportation not an aberration, but the systematic product of a modern bureaucratic state.</p>
+          </div>
+
+          <figure class="prose-figure">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Black_Lives_Matter_protest_in_Washington%2C_D.C.%2C_June_2020.jpg/1280px-Black_Lives_Matter_protest_in_Washington%2C_D.C.%2C_June_2020.jpg"
+              alt="Black Lives Matter protest in Washington D.C., June 2020"
+              loading="lazy"
+            >
+            <figcaption><strong>Black Lives Matter protest, Washington D.C., June 2020.</strong> The BLM movement mobilized the reckoning over criminal justice that provides essential context for this research. The same racialized logics that produced mass incarceration were directly infused into ICE's immigration enforcement infrastructure. Source: Wikimedia Commons / Public Domain</figcaption>
+          </figure>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- METHODOLOGY -->
+        <section class="prose-section">
+          <p class="section-kicker">Methodology</p>
+          <h2>What Did the Researchers Do?</h2>
+
+          <h3>Riskscape Analysis at Two Scales</h3>
+          <p>
+            The researchers pursued multi-scalar empirical analysis using the riskscape framework. Riskscapes encompass different viewpoints on the threat of loss across space, time, individuals, and collectives — highlighting how defining and responding to one set of perceived risks can exacerbate others. The analysis operated at two spatial scales: the specific contained space of ICE facilities, and the broader landscape of surrounding communities and counties.
+          </p>
+
+          <h3>Quantitative Analysis</h3>
+          <p>
+            Using county-level COVID-19 data compiled by the <em>New York Times</em> and ICE detention population data from spring 2020, the researchers addressed two complementary empirical questions:
+          </p>
+          <ul class="impact-list">
+            <li>Did ICE detention facilities bring COVID-19 sooner and more severely to their counties in the spring of 2020?</li>
+            <li>Did ICE detention facilities contribute to higher COVID-19 caseloads over the summer of 2020?</li>
+          </ul>
+          <p>
+            For the spring analysis, <strong>logistic regression</strong> modeled whether the presence of ICE detention increased the likelihood of COVID-19 milestones — from first case detected to major outbreak exceeding 2,500 cases — across 3,139 counties. For summer caseload growth, the researchers employed <strong>generalized spatial two-stage least-squares regression</strong> (using a queen's weight matrix) to account for spatial autocorrelation in the spread of a highly transmissible virus.
+          </p>
+          <p>
+            Critically, the analysis also examined transmission at the scale of multicounty Bureau of Economic Analysis (BEA) economic areas — capturing how staff, contractors, and visitors commuting to and from ICE facilities across county boundaries spread infection throughout broader regional economies.
+          </p>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- FINDINGS 1: INSIDE ICE -->
+        <section class="prose-section">
+          <p class="section-kicker">Findings — Inside ICE Facilities</p>
+          <h2>Ideal Conditions for Infection</h2>
+          <p>
+            The COVID-19 case rate among ICE detainees reached <strong>6,683 per 100,000 as of August 2020</strong> — a mean monthly case rate ratio 13.4 times higher than the U.S. general population. This is almost certainly an undercount given documented testing deficiencies in ICE facilities.
+          </p>
+          <p>
+            The overlapping risks confronting ICE detainees made this outcome not just likely but inevitable:
+          </p>
+
+          <div class="risk-table-wrap">
+            <table class="risk-table">
+              <thead>
+                <tr>
+                  <th>Civil &amp; Human Rights</th>
+                  <th>Abusive Treatment</th>
+                  <th>Facility Conditions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Facilities located to maximize isolation from legal counsel; detainees more likely to lose their cases</td>
+                  <td>Coercive treatment including physical force, tear gas, pepper spray; solitary confinement widely used</td>
+                  <td>Children forced to sleep on floors in overcrowded facilities without adequate food or healthcare (UN Commissioner for Human Rights)</td>
+                </tr>
+                <tr>
+                  <td>Denied adequate access to health facilities and treatment</td>
+                  <td>Women subjected to sexual assault and forced sterilization</td>
+                  <td>Sharp increase in people detained, exacerbating overcrowding and understaffing</td>
+                </tr>
+                <tr>
+                  <td>No suitable mental health services; ICE impeded access to legal counsel</td>
+                  <td>People with disabilities subject to "cruel treatment and neglect"</td>
+                  <td>Food quality routinely poor and too often unsafe; wage theft widespread in for-profit facilities</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            ICE personnel did not merely neglect these conditions — they actively weaponized them. As the pandemic emerged, guards punished detainees who protested. More disturbing still, <strong>ICE personnel threatened to expose detainees to COVID-19 as a punitive measure.</strong> One detainee suspected the callous disregard for health was based on a calculation that "burials are cheaper than deportations."
+          </p>
+
+          <div class="pull-quote">
+            <p>"The question is not why ICE officials failed to anticipate these effects — but why, given the foreseen risks, they chose to go ahead anyway."</p>
+          </div>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- FINDINGS 2: COMMUNITY TRANSMISSION -->
+        <section class="prose-section">
+          <p class="section-kicker">Findings — Community Transmission</p>
+          <h2>The Blow Back: COVID-19 Beyond the Fence</h2>
+          <p>
+            The quantitative analyses provide clear, county-level evidence that ICE detention facilities elevated COVID-19 risk throughout surrounding communities — both sooner and more severely.
+          </p>
+
+          <h3>Spring 2020: Did COVID-19 Arrive Earlier?</h3>
+          <p>
+            Net of controls for race, workforce composition, limited English proficiency, and urbanicity, counties with ICE detention were significantly more likely to experience COVID-19 milestones earlier. A county with two or more ICE detainees was <strong>129.3% more likely</strong> to have at least one confirmed COVID-19 case by April 1. The effect held across multiple severity thresholds — through "serious outbreak" (250+ cases) and "major outbreak" (2,500+ cases) levels.
+          </p>
+          <p>
+            The BEA-level analysis revealed that the spread extended well beyond the counties housing ICE facilities. Counties in BEA economic areas with high levels of ICE detention (26 or more people detained across the area) faced consistently elevated risk of every COVID-19 milestone.
+          </p>
+
+          <h3>Summer 2020: Did Caseloads Grow Higher?</h3>
+          <p>
+            The spatially weighted regression analysis of COVID-19 case growth from May 1 to August 1, 2020 confirmed the pattern. From a baseline of 493.5 cases per 100,000 in counties with minimal detention, the expected caseload reached 542.8 per 100,000 where 100 people were detained — and exceeded 550 cases per 100,000 at the highest detention levels (roughly <strong>10% higher than baseline</strong>). At the BEA economic area level, the effect was larger still: counties in BEA areas with 1,000 or more ICE detainees faced an estimated <strong>29% higher caseload</strong> relative to the baseline.
+          </p>
+
+          <figure class="prose-figure data-fig">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/United_States_COVID-19_county-level_map.svg/1280px-United_States_COVID-19_county-level_map.svg.png"
+              alt="US county-level COVID-19 spread map"
+              loading="lazy"
+            >
+            <figcaption><strong>County-level spread of COVID-19 across the United States.</strong> The spatial pattern of COVID-19 transmission — concentrated in counties with ICE facilities and their surrounding economic areas — is consistent with the riskscape framework's prediction of community blow back from carceral settings. Source: Wikimedia Commons / Public Domain</figcaption>
+          </figure>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- IMPLICATIONS -->
+        <section class="prose-section">
+          <p class="section-kicker">Implications</p>
+          <h2>How Can You Use This Research?</h2>
+          <p>
+            Enforcement-first immigration policies are justified on racist and nativist grounds — to protect and insulate "the larger society" from the threat posed by nonwhite immigrants. The nativist logic suggests that risks, like the people detained, are confined by the walls and fences surrounding ICE facilities. <strong>The COVID-19 pandemic proved this was a fantasy.</strong>
+          </p>
+          <p>
+            This research demonstrates that carceral space cannot be treated as hermetically sealed from surrounding communities. Staff, contractors, and visitors enter and exit ICE facilities across multiple shifts daily — carrying infection in and out. The community transmission of COVID-19 from ICE facilities was not only predictable; it was <em>predicted</em> — by the people detained, by public health officials, and by immigration advocacy organizations whose calls to reduce the detainee population went unheeded.
+          </p>
+          <p>
+            Public health advocates and policymakers can use this research to demonstrate that immigration enforcement regimes carry measurable public health costs that extend well beyond immigrant populations. Environmental justice scholars and practitioners can use the riskscape framework developed here to examine other carceral settings — including prisons, jails, and juvenile detention facilities — where overlapping risks create conditions for disease transmission that inevitably escape institutional boundaries.
+          </p>
+          <p>
+            More broadly, this research is a case study in what de Zwart calls "unintended but unanticipated" consequences — situations where <strong>those in power know the truth, yet let bad things happen anyway.</strong> Understanding why and how this occurs, and who bears the cost, is essential to building governance systems that protect rather than endanger public health.
+          </p>
+
+          <figure class="prose-figure">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Families_Belong_Together_march_in_San_Francisco%2C_30_June_2018_%2842730563335%29.jpg/1280px-Families_Belong_Together_march_in_San_Francisco%2C_30_June_2018_%2842730563335%29.jpg"
+              alt="Families Belong Together march, San Francisco, June 2018"
+              loading="lazy"
+            >
+            <figcaption><strong>Families Belong Together march, San Francisco, June 2018.</strong> Community advocates, immigration lawyers, and public health officials all warned before COVID-19 emerged that ICE detention policies were generating foreseeable harms — within facilities and in surrounding communities. Source: Pax Ahimsa Gethen / Wikimedia Commons / CC BY-SA 4.0</figcaption>
+          </figure>
+        </section>
+
+      </article>
+
+      <!-- ─── SIDEBAR ──────────────────────────────── -->
+      <aside class="sidebar">
+
+        <div class="sidebar-card">
+          <p class="sidebar-card-title">Citation</p>
+          <p class="citation-text">
+            Hooks, Gregory, and Michael Lengefeld. (2022). "Callous Cruelty and Blow Back: Immigration and Customs Enforcement Facilities, Riskscapes, and Community Transmission of COVID-19." <em>Environmental Justice,</em> 15(1), 39–57.
+          </p>
+          <a href="https://doi.org/10.1089/env.2021.0040"
+             target="_blank" rel="noopener" class="citation-doi">Read Article ↗</a>
+        </div>
+
+        <div class="stat-card">
+          <p class="stat-card-label">Key Numbers</p>
+          <div class="stat-rows">
+            <div>
+              <p class="stat-row-num">13.4×</p>
+              <p class="stat-row-desc">Higher COVID-19 case rate among ICE detainees vs. U.S. population</p>
+            </div>
+            <hr class="stat-divider">
+            <div>
+              <p class="stat-row-num">6,683</p>
+              <p class="stat-row-desc">COVID-19 cases per 100,000 ICE detainees as of August 2020</p>
+            </div>
+            <hr class="stat-divider">
+            <div>
+              <p class="stat-row-num">3,139</p>
+              <p class="stat-row-desc">US counties in the quantitative analysis</p>
+            </div>
+            <hr class="stat-divider">
+            <div>
+              <p class="stat-row-num">+29%</p>
+              <p class="stat-row-desc">Higher estimated caseload in counties within high-detention BEA areas</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <p class="sidebar-card-title">Study Details</p>
+          <ul class="detail-list">
+            <li>
+              <p class="detail-label">Methods</p>
+              <p class="detail-value">Logistic Regression &amp; Spatially Weighted Regression</p>
+            </li>
+            <li>
+              <p class="detail-label">Spatial Units</p>
+              <p class="detail-value">US Counties &amp; BEA Economic Areas</p>
+            </li>
+            <li>
+              <p class="detail-label">Time Period</p>
+              <p class="detail-value">Spring–Summer 2020 (April 1 – August 1)</p>
+            </li>
+            <li>
+              <p class="detail-label">Data Sources</p>
+              <p class="detail-value">ICE Facility Data · New York Times COVID-19 Data · US Census ACS 2014–2018</p>
+            </li>
+            <li>
+              <p class="detail-label">Framework</p>
+              <p class="detail-value">Critical Environmental Justice &amp; Riskscape Theory</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <p class="sidebar-card-title">Related Research</p>
+          <ul class="related-links">
+            <li class="related-link-item">
+              <a href="zoonotic.html">
+                <span class="link-tag">Global Health</span>
+                Zoonotic Spillover &amp; Social-Ecological Systems
+              </a>
+            </li>
+            <li class="related-link-item">
+              <a href="pfas.html">
+                <span class="link-tag">Environmental Health</span>
+                PFAS Contamination in the United States
+              </a>
+            </li>
+            <li class="related-link-item">
+              <a href="afsarticle.html">
+                <span class="link-tag">Military &amp; Society</span>
+                Asymmetric Warfare &amp; Carbon Emissions
+              </a>
+            </li>
+            <li class="related-link-item">
+              <a href="nuclear_production.html">
+                <span class="link-tag">Environmental Justice</span>
+                Nuclear Weapons &amp; the Anthropocene
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </aside>
+    </div><!-- /.article-body -->
+
+    <!-- ─── GALLERY ───────────────────────────────────── -->
+    <section class="gallery-section">
+      <div class="gallery-inner">
+        <p class="gallery-label">Photography</p>
+        <div class="gallery-grid">
+          <div class="gallery-item gallery-item-wide">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Adelanto_ICE_Processing_Center%2C_California.jpg/1280px-Adelanto_ICE_Processing_Center%2C_California.jpg"
+              alt="Adelanto ICE Processing Center" loading="lazy">
+            <div class="gallery-caption">Adelanto ICE Processing Center, California — originally built as a jail, now one of the largest ICE detention facilities in the country. Source: U.S. ICE / Public Domain</div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Black_Lives_Matter_protest_in_Washington%2C_D.C.%2C_June_2020.jpg/1280px-Black_Lives_Matter_protest_in_Washington%2C_D.C.%2C_June_2020.jpg"
+              alt="Black Lives Matter protest Washington DC June 2020" loading="lazy">
+            <div class="gallery-caption">Black Lives Matter protest, Washington D.C., June 2020 — the movement's analysis of institutionalized racism directly informs this research. Source: Wikimedia Commons / Public Domain</div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Families_Belong_Together_march_in_San_Francisco%2C_30_June_2018_%2842730563335%29.jpg/1280px-Families_Belong_Together_march_in_San_Francisco%2C_30_June_2018_%2842730563335%29.jpg"
+              alt="Families Belong Together march San Francisco 2018" loading="lazy">
+            <div class="gallery-caption">Families Belong Together march, San Francisco, June 2018. Advocates consistently warned that ICE detention conditions posed foreseeable public health risks. Source: Pax Ahimsa Gethen / CC BY-SA 4.0</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── BOTTOM NAV ─────────────────────────────── -->
+    <div class="article-footer-nav">
+      <a href="../research/index.html" class="back-link">
+        <span>←</span> All Research
+      </a>
+      <a href="../about/index.html" class="bio-link">
+        About Dr. Lengefeld →
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ─── FOOTER ─────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-brand-sm">Michael Lengefeld, PhD · Goucher College</p>
+      <div class="footer-ext">
+        <a href="https://scholar.google.com/citations?hl=en&user=zWWml-4AAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+        <a href="https://orcid.org/0000-0002-8063-0808" target="_blank" rel="noopener">ORCiD ↗</a>
+      </div>
+      <p class="footer-copy">© 2026 Michael Lengefeld</p>
+    </div>
+  </footer>
+
+</body>
+</html>
