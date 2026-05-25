@@ -747,6 +747,91 @@
       .article-meta-row { gap: 24px; }
       .health-effects-grid { grid-template-columns: 1fr; }
     }
+
+    /* ─── OVERVIEW MAP ──────────────────────────────────── */
+    .overview-map-section {
+      background: var(--cream);
+      border-bottom: 1px solid var(--warm);
+    }
+    .overview-map-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 72px 48px 80px;
+    }
+    .overview-map-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: start;
+      margin-bottom: 40px;
+    }
+    .overview-map-kicker {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 12px;
+    }
+    .overview-map-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+      font-weight: 300;
+      line-height: 1.25;
+      color: var(--ink);
+      max-width: 540px;
+    }
+    .overview-map-legend {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding-top: 6px;
+      flex-shrink: 0;
+    }
+    .overview-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .overview-legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .overview-legend-text {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .overview-legend-text strong { color: var(--ink); font-weight: 700; }
+    .overview-map-figure {
+      border: 1px solid var(--warm);
+      overflow: hidden;
+      background: white;
+    }
+    .overview-map-img {
+      width: 100%;
+      display: block;
+    }
+    .overview-map-caption {
+      padding: 18px 24px;
+      background: var(--cream);
+      border-top: 1px solid var(--warm);
+      font-size: 0.78rem;
+      line-height: 1.7;
+      color: var(--faint);
+      font-style: italic;
+    }
+    .overview-map-caption strong {
+      font-style: normal;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .overview-map-caption em { color: var(--faint); }
+    @media (max-width: 768px) {
+      .overview-map-inner { padding: 56px 24px 64px; }
+      .overview-map-header { grid-template-columns: 1fr; gap: 24px; }
+    }
   </style>
 </head>
 <body>
@@ -828,6 +913,41 @@
             <p class="finding-desc">Of industrial contamination sites in the presumptive data set are metal plating facilities — the largest industrial category</p>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- ─── OVERVIEW MAP ────────────────────────────────── -->
+    <div class="overview-map-section">
+      <div class="overview-map-inner">
+        <div class="overview-map-header">
+          <div>
+            <p class="overview-map-kicker">Known vs. Presumptive Sites</p>
+            <h2 class="overview-map-title">Two Pictures of PFAS Contamination Across the United States</h2>
+          </div>
+          <div class="overview-map-legend">
+            <div class="overview-legend-item">
+              <span class="overview-legend-dot" style="background:#e07a2e;"></span>
+              <span class="overview-legend-text"><strong>2,219</strong> Known contamination sites — confirmed detections</span>
+            </div>
+            <div class="overview-legend-item">
+              <span class="overview-legend-dot" style="background:#3a6fa8;"></span>
+              <span class="overview-legend-text"><strong>79,891</strong> Presumptive contamination sites — likely sources</span>
+            </div>
+          </div>
+        </div>
+        <figure class="overview-map-figure">
+          <img
+            src="/img/pfas_overview_map.png"
+            alt="Side-by-side maps of the United States. Left map shows 2,219 known PFAS contamination sites as sparse orange dots concentrated in the Northeast and coastal states. Right map shows 79,891 presumptive PFAS contamination sites as dense blue dots blanketing most of the country, especially the East and Midwest — roughly 36 times as many sites."
+            class="overview-map-img"
+            loading="lazy"
+          >
+          <figcaption class="overview-map-caption">
+            <strong>Known PFAS Contamination Sites (orange) vs. Presumptive PFAS Contamination Sites (blue).</strong>
+            The contrast is the paper's central visual argument: confirmed detections (left) represent a small fraction of what almost certainly exists. The presumptive model is deliberately conservative — mapping only sites where contamination is <em>probable</em>, not merely possible — yet it reveals a national contamination landscape roughly 36× larger than testing has confirmed.
+            Source: Garrett et al. (2025), <em>Environmental Science &amp; Technology.</em>
+          </figcaption>
+        </figure>
       </div>
     </div>
 
