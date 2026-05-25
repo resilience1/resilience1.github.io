@@ -1,314 +1,941 @@
----
-layout: research
-title: Asymmetric Warfare | Michael Lengefeld
----
-<html>
-	<head>
-<style>
-	div.transbox {margin: 40px;
-  	background-color: #ffffff;
-  	border: 2px solid black;
-  	opacity: 0.7;
-	padding: 30px 0;
-	text-align: center;}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asymmetric Warfare &amp; Carbon Emissions | Michael Lengefeld</title>
+  <meta name="description" content="Smith &amp; Lengefeld (2020). The Environmental Consequences of Asymmetric War: A Panel Study of Militarism and Carbon Emissions, 2000–2010. Armed Forces &amp; Society.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-	div.transbox p {
-  	margin: 5%;
-  	font-weight: bold;
-  	color: #000000;}
-	
-	div.item {
-    	vertical-align: top;
-    	display: inline-block;
-    	text-align: center;
-    	width: 120px;
-	}
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-	figure {
-   	border: thin #c0c0c0 solid;
-    	display: flex;
-    	flex-flow: column;
-    	padding: 1px;
-    	max-width: 100%;
-    	max-height: 100%;
-    	margin: auto;
-	}
+    :root {
+      --ink:        #16120d;
+      --cream:      #f3ede0;
+      --warm:       #e6dcc8;
+      --tan:        #cfc0a4;
+      --rust:       #7c3120;
+      --rust-light: #a3452e;
+      --gold:       #9e7a2e;
+      --gold-light: #c4a050;
+      --muted:      #5e4e38;
+      --faint:      #9c8b74;
+      --dark:       #16120d;
+    }
 
-	div.background {
-	margin: 5px;
-	}
+    html { scroll-behavior: smooth; }
 
-	figcaption {
-    	background-color: #222;
-    	color: #fff;
-    	font: bold sans-serif;
-	font-size: 1em;
-    	padding: 3px;
-    	text-align: center;
-	}	
-	
-	img.displayed {
-   	display: block;
-    	margin-left: auto;
-    	margin-right: auto; 
-	}
-	
-	h1{
-    	font-size: 1.8em;
-	font-style: bold;
-    	margin: 3px;
-    	padding: 3px;
-	}
-	
-	h2 {
-    	font-size: 1.2em;
-	font-style: bold;
-    	margin: 3px;
-    	padding: 3px;
-	}
+    body {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-	p {font-size: 2vw;
-		margin: 3px;
-    	padding: 3px;
-	}
-	h3 {
-		font-size:1.2em;
-	text-align:center;
-	color: #fff;
-	}
-	
-	#myImg {
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
-}
+    /* grain */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
 
-#myImg:hover {opacity: 0.7;}
+    a { color: inherit; text-decoration: none; }
 
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-}
+    /* ─── NAV ─────────────────────────────────── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--cream);
+      border-bottom: 1px solid var(--warm);
+    }
 
-/* Modal Content (image) */
-.modal-content {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 700px;
-}
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-/* Caption of Modal Image */
-#caption {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 700px;
-  text-align: center;
-  color: #ccc;
-  padding: 10px 0;
-  height: 150px;
-}
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
 
-/* Add Animation */
-.modal-content, #caption {  
-  -webkit-animation-name: zoom;
-  -webkit-animation-duration: 0.6s;
-  animation-name: zoom;
-  animation-duration: 0.6s;
-}
+    .nav-brand span {
+      font-weight: 300;
+      font-style: italic;
+      color: var(--muted);
+    }
 
-@-webkit-keyframes zoom {
-  from {-webkit-transform:scale(0)} 
-  to {-webkit-transform:scale(1)}
-}
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
 
-@keyframes zoom {
-  from {transform:scale(0)} 
-  to {transform:scale(1)}
-}
+    .nav-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
 
-/* The Close Button */
-.close {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #f1f1f1;
-  font-size: 40px;
-  font-weight: bold;
-  transition: 0.3s;
-}
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--rust); }
 
-.close:hover,
-.close:focus {
-  color: #bbb;
-  text-decoration: none;
-  cursor: pointer;
-}
+    .nav-cv {
+      border: 1px solid var(--tan);
+      padding: 6px 16px !important;
+      color: var(--ink) !important;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .nav-cv:hover { border-color: var(--rust) !important; color: var(--rust) !important; }
 
-/* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px){
-  .modal-content {
-    width: 100%;
-  }
-</style>
+    /* ─── HERO BANNER ─────────────────────────── */
+    .article-hero {
+      background: var(--dark);
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* full-bleed tinted image */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://www.mlengefeld.com/img/aircraftcarrier.jpg');
+      background-size: cover;
+      background-position: center 40%;
+      opacity: 0.18;
+    }
+
+    .hero-inner {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 96px 48px 80px;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 36px;
+    }
+
+    .breadcrumb a {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(243,237,224,0.45);
+      transition: color 0.2s;
+    }
+
+    .breadcrumb a:hover { color: var(--gold-light); }
+
+    .breadcrumb-sep {
+      font-size: 0.65rem;
+      color: rgba(243,237,224,0.25);
+    }
+
+    .breadcrumb-cur {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+
+    .article-tag {
+      display: inline-block;
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      border: 1px solid rgba(196,160,80,0.4);
+      padding: 4px 12px;
+      margin-bottom: 24px;
+    }
+
+    .article-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 300;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      max-width: 820px;
+      margin-bottom: 32px;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .article-title em { font-style: italic; font-weight: 300; }
+
+    .article-meta-row {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+
+    .meta-block {}
+    .meta-block-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(243,237,224,0.4);
+      margin-bottom: 4px;
+    }
+    .meta-block-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--cream);
+    }
+
+    /* ─── KEY FINDINGS STRIP ──────────────────── */
+    .findings-strip {
+      background: var(--rust);
+      color: var(--cream);
+    }
+
+    .findings-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 48px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .findings-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.3;
+      color: rgba(243,237,224,0.7);
+      border-right: 1px solid rgba(255,255,255,0.2);
+      padding-right: 48px;
+    }
+
+    .findings-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .finding-card {}
+    .finding-stat {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+    .finding-desc {
+      font-size: 0.82rem;
+      line-height: 1.65;
+      color: rgba(243,237,224,0.75);
+    }
+
+    /* ─── ARTICLE BODY ────────────────────────── */
+    .article-body {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 96px 48px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 96px;
+      align-items: start;
+    }
+
+    /* prose */
+    .prose {}
+
+    .prose-section {
+      margin-bottom: 72px;
+    }
+
+    .prose-section:last-child { margin-bottom: 0; }
+
+    .section-kicker {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 16px;
+    }
+
+    .prose-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      color: var(--ink);
+    }
+
+    .prose-section p {
+      font-size: 1.0rem;
+      line-height: 1.9;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .prose-section p:last-child { margin-bottom: 0; }
+
+    .prose-section strong { font-weight: 700; }
+    .prose-section em { font-style: italic; color: var(--muted); }
+
+    /* pull quote */
+    .pull-quote {
+      border-left: 3px solid var(--rust);
+      padding: 8px 0 8px 28px;
+      margin: 40px 0;
+    }
+
+    .pull-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem !important;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.45 !important;
+      color: var(--muted) !important;
+      margin: 0 !important;
+    }
+
+    /* inline figure inside prose */
+    .prose-figure {
+      margin: 44px 0;
+    }
+
+    .prose-figure img {
+      width: 100%;
+      display: block;
+      filter: sepia(0.1) contrast(1.02);
+    }
+
+    .prose-figure figcaption {
+      padding-top: 12px;
+      font-size: 0.75rem;
+      line-height: 1.6;
+      color: var(--faint);
+      font-style: italic;
+      border-top: 1px solid var(--warm);
+    }
+
+    .prose-figure figcaption strong {
+      font-style: normal;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    /* divider */
+    .prose-rule {
+      border: none;
+      border-top: 1px solid var(--warm);
+      margin: 64px 0;
+    }
+
+    /* ─── SIDEBAR ─────────────────────────────── */
+    .sidebar {
+      position: sticky;
+      top: 88px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .sidebar-card {
+      border: 1px solid var(--warm);
+      padding: 28px;
+    }
+
+    .sidebar-card-title {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--warm);
+    }
+
+    /* citation card */
+    .citation-text {
+      font-size: 0.82rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .citation-text em { font-style: italic; }
+
+    .citation-doi {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--rust);
+      border-bottom: 1px solid var(--tan);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+
+    .citation-doi:hover { border-color: var(--rust); }
+
+    /* details list */
+    .detail-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .detail-item {}
+    .detail-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 3px;
+    }
+    .detail-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.0rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    /* related links */
+    .related-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      background: var(--warm);
+    }
+
+    .related-link-item a {
+      display: block;
+      background: var(--cream);
+      padding: 14px 16px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      transition: background 0.2s, color 0.2s;
+      line-height: 1.4;
+    }
+
+    .related-link-item a:hover {
+      background: white;
+      color: var(--rust);
+    }
+
+    .related-link-item .link-tag {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--faint);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    /* ─── IMAGE GALLERY ───────────────────────── */
+    .gallery-section {
+      background: var(--warm);
+      border-top: 1px solid var(--tan);
+      border-bottom: 1px solid var(--tan);
+    }
+
+    .gallery-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 64px 48px;
+    }
+
+    .gallery-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: var(--tan);
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--tan);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: sepia(0.1) contrast(1.02);
+      transition: transform 0.5s ease, filter 0.4s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.04);
+      filter: sepia(0) contrast(1.05);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 28px 14px 14px;
+      background: linear-gradient(transparent, rgba(22,18,13,0.75));
+      font-size: 0.68rem;
+      line-height: 1.45;
+      color: rgba(243,237,224,0.85);
+      font-style: italic;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-item:hover .gallery-caption { opacity: 1; }
+
+    /* ─── BOTTOM NAV ──────────────────────────── */
+    .article-footer-nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 48px 96px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--warm);
+    }
+
+    .back-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--rust); }
+    .back-arrow { font-size: 1rem; }
+
+    .bio-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .bio-link:hover { color: var(--rust); }
+
+    /* ─── SITE FOOTER ─────────────────────────── */
+    footer {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 40px 48px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-brand-sm {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--cream);
+    }
+
+    .footer-copy {
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      color: rgba(243,237,224,0.3);
+    }
+
+    .footer-ext {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-ext a {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      transition: opacity 0.2s;
+    }
+
+    .footer-ext a:hover { opacity: 0.7; }
+
+    /* ─── ANIMATION ───────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────── */
+    @media (max-width: 960px) {
+      nav { padding: 0 24px; }
+      .nav-links { gap: 20px; }
+
+      .hero-inner { padding: 64px 24px 56px; }
+
+      .findings-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .findings-label { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding-right: 0; padding-bottom: 24px; }
+      .findings-cards { grid-template-columns: 1fr 1fr; }
+
+      .article-body {
+        grid-template-columns: 1fr;
+        padding: 64px 24px;
+        gap: 56px;
+      }
+
+      .sidebar { position: static; }
+
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .article-footer-nav { padding: 40px 24px 64px; }
+
+      footer { padding: 32px 24px; }
+    }
+
+    @media (max-width: 600px) {
+      .findings-cards { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .article-meta-row { gap: 24px; }
+    }
+  </style>
 </head>
-	
-	<header class="w3-container w3-center w3-black" id="home">
-    	<h1 class="w3-xxlarge"><span class="w3-hide-small">Michael Lengefeld | </span>Asymmetric Warfare</h1>
-	</header>
-	
 <body>
-	<div class="example w3-row">
-	<div class="w3-half w3-container">
-	<h1>What you need to know</h1>
-		<h2>War and preparation for war entail harmful environmental impacts. There has been a dramatic historical shift 
-			in the way contemporary wars are fought, and the environmental consequences have also changed. 
-			Many nations of the Global North have pursued "asymmetric warfare" which relies on high-tech and 
-			resource-intensive warfare. Parallel to this shift is the national security threat of climate 
-			change - an issue which must be addressed by the global community. This warmaking strategy 
-			minimizes risks in the Global North and disproportionately shifts the attendant risks of war 
-			such as casualties, forced displacement, and environmental damage in the Global South. 
-		</h2>
-	</div>
-	<div class="w3-half w3-container">
-		<br>
-		<figure class="item">
-    		<img src="/img/predatordrone.jpg" alt="American Reaper Drone" style="width:100%; height: 100%; border:1px solid black">
-   		<figcaption class="caption">American Reaper Drone<br>
-			Source: Lt. Col. Leslie Pratt/U.S. Air Force
-		</figcaption>
-		</figure>
-	</div>
-	</div>
-	<hr>
-	
-	<div class="example w3-row">
-		<div class="w3-half w3-container">
-			<figure class="item">
-				<img src="/img/aircraftcarrier.jpg" alt="U.S.S Abraham Lincoln " 
-			    	style="width:100%; height: 100%; border:1px solid black">
-				<figcaption class="caption">Flight Deck of U.S.S. Abraham Lincoln.<br>
-					Source: Public Domain/U.S. Navy
-				</figcaption>
-			</figure>
-		</div>
-		
-		<div class="w3-half w3-container">
-			<h1>What is this research about?</h1>
-				<h2>Military strategies change to accommodate existing technologies. During the 1990s the 
-					United States underwent a "Revolution in Military Affairs" and battle-tested its first 
-					"smart" weapons in the 1991 Gulf War. These innovative technogies were accompanied by new
-					operational tactics that relied on shifting risks away from the homeland and its soldiers.
-					Competing national militaries were compelled to match the strategy of asymmetric warfare 
-					pursued by the United States, driving a high-tech and resource-intensive arms race
-					across the world. By the year 2000 many national militaries were undergoing their 
-					own revolution in military affairs, while over the next decade the world
-					grappled with the terrorist attacks on 9/11, two global economic recessions, and two 
-					decadelong wars in Iraq and Afghanistan. 
-				</h2>
-		</div>
-	</div>
-	<hr>
-	
-	<div class="example w3-row">
-		<div class="w3-half w3-container">
-			<h1>What did the researcher do?</h1>
-				<h2>The researchers located and analyzed academic, government, and non-governmental data to understand 
-					the impact of national military characteristics on carbon emissions. They performed a
-					longitudinal and socio-spatial analysis by regression that included 126 countries from 2000 to 2010.  
-				</h2>
-		</div>
-		
-		<div class="w3-half w3-container">
-			<figure class="item">
-			<img src="/img/laserbomb2.jpg" alt="A laser guided bomb before it strikes a small boat during a training exercise" 
-			     style="width:100%; height: 100%; border:1px solid black">
-				<figcaption class="caption">A laser guided bomb before it strikes a small boat during a training exercise<br>
-					Source: Public Domain/ U.S. Air Force
-				</figcaption>
-			</figure>
-		</div>
-		
-	</div>
-	<hr>
-	
-	<div class="example w3-row">
-		<div class="w3-third w3-container">
-			<figure class="item">
-			<img class="displayed" src="/img/airshipfleet.jpg" alt="U.S.S. George Washington Carrier Strike Group." 
-			     style="width:100%; height: 100%; border:1px solid black; align:middle">
-				<figcaption class="caption">U.S.S. George Washington Carrier Strike Group.
-				Source: Public Domain/U.S. Navy
-				</figcaption>
-			</figure><br>
-			<figure class="item">
-				<img class="displayed" src="/img/tankapache.jpg" alt="U.K. Apache and Tank formation during a readiness exercise" style="width:100%;height:100%">
-				<figcaption class="caption">United Kingdom Apache and Tank formation during a readiness exercise<br>
-				</figcaption>
-			</figure><br>
-			<figure class="item">
-			<img class="displayed" src="/img/indonesianarmy.jpg" alt="Indonesian Army Infantry Battalion" 
-			     style="width:100%; height: 100%; border:1px solid black; align:middle">
-				<figcaption class="caption">Indonesian Army Infantry Battalion
-				</figcaption>
-			</figure>									   
-		</div>
-		<div class="w3-twothird w3-container">
-			<h1>What did the researcher find?</h1>
-				<h2>Warmaking drives carbon emissions even in times of global 
-					Recession - when the slow-down of the global economy is reducing the impact of gross domestic product on carbon emissions.
-					Risk-tranfer militarism in the Global North shifts the attendant risks of war to the peoples and the environments of the 
-					Global South. While the Global North is pursuing a strategy that relies on carbon-intensive advanced weaponry,
-					the Global South is investing in more boots on the ground. In addition to bearing the brundt of impacts from the Global North's
-					asymmetric warfare, the Global South will also be the most impacted by global climate change driven by CO2 emissions.
-				</h2><br><br>
-					   
-				<h2>The manufacturing, maintenance, and distribution of weapons of war has many harmful environmental impacts.
-					Many advanced weapons rely on precious metals, toxic production processes, and require large amounts of energy.
-					The use of fossil fuels in this process contributes significantly to the environmental footprint of 
-					the military - and much of this energy is expended before the weapons are (if ever) deployed in war. 
-					National militaries are compelled to keep up with their rivals. Depending on the geopolitical and social context,
-					this could mean competing in an arms race, or ramping up military participation to raise a standing army
-					to match enemy "manpower".
-				</h2>
-		</div>
-		
-	</div>
-	<hr>
-	<div class="example w3-row">
-		<div class="w3-container">
-			<h1>How can you use this research?</h1>
-			<h2>Governments can be reminded that military competition can undermine national security through its impacts
-				on global climate change via increased carbon emissions. The effect is significant even during two global recessions, when the global economy
-				experienced contractions and a reduced carbon footprint. Understanding the effects that asymmetric
-				warfare has on global carbon emissions can help governments craft less environmentally destructive 
-				strategies to protect national security interests. Environmental organizations may use this research
-				to inform their stategies for applying pressure on governments who - while simultaneously acknowledging the national security
-				threat of global climate change - are pursuing asymmetric warfare that significantly contributes
-				to the carbon emissions driving global climate change. 
-			</h2>
-		</div>
-	</div>
-	<hr>
 
-	<div class="example w3-container">
-		<h1>Citation</h1>
-		<h2>Smith, Chad, and Michael Lengefeld. (2020). "The Environmental Consequences of Asymmetric War: A Panel Study 		of Militarism and Carbon Emissions, 2000–2010". <i>Armed Forces & Society</i> 2020, Vol. 46(2) 214-237. 
-			Available online at: 
-			<a href="https://journals.sagepub.com/doi/full/10.1177/0095327X19832615">https://journals.sagepub.com/doi/full/10.1177/0095327X19832615
-			</a>
-		</h2>
-	</div>
-	<hr>
+  <!-- ─── NAV ──────────────────────────────────────── -->
+  <header>
+    <nav>
+      <a href="../index.html" class="nav-brand">Lengefeld <span>PhD</span></a>
+      <ul class="nav-links">
+        <li><a href="../research/index.html" class="active">Research</a></li>
+        <li><a href="../teaching/index.html">Teaching</a></li>
+        <li><a href="../civic/index.html">Service</a></li>
+        <li><a href="../about/index.html">Bio</a></li>
+        <li><a href="/img/CV_3.16.26_no references.pdf" class="nav-cv">CV ↓</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ─── HERO BANNER ──────────────────────────── -->
+    <section class="article-hero">
+      <div class="hero-bg"></div>
+      <div class="hero-inner">
+        <div class="breadcrumb">
+          <a href="../index.html">Home</a>
+          <span class="breadcrumb-sep">›</span>
+          <a href="../research/index.html">Research</a>
+          <span class="breadcrumb-sep">›</span>
+          <span class="breadcrumb-cur">Asymmetric Warfare</span>
+        </div>
+
+        <span class="article-tag">Military &amp; Environment</span>
+
+        <h1 class="article-title">
+          The Environmental Consequences<br>of <em>Asymmetric War</em>
+        </h1>
+
+        <div class="article-meta-row">
+          <div class="meta-block">
+            <p class="meta-block-label">Authors</p>
+            <p class="meta-block-value">Chad Smith &amp; Michael Lengefeld</p>
+          </div>
+          <div class="meta-block">
+            <p class="meta-block-label">Journal</p>
+            <p class="meta-block-value">Armed Forces &amp; Society</p>
+          </div>
+          <div class="meta-block">
+            <p class="meta-block-label">Published</p>
+            <p class="meta-block-value">2020 · Vol. 46(2)</p>
+          </div>
+          <div class="meta-block">
+            <p class="meta-block-label">Pages</p>
+            <p class="meta-block-value">214–237</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── KEY FINDINGS ──────────────────────────── -->
+    <div class="findings-strip">
+      <div class="findings-inner">
+        <p class="findings-label">Key Findings</p>
+        <div class="findings-cards">
+          <div class="finding-card">
+            <p class="finding-stat">126</p>
+            <p class="finding-desc">Countries analyzed in longitudinal panel study, 2000–2010</p>
+          </div>
+          <div class="finding-card">
+            <p class="finding-stat">↑ CO₂</p>
+            <p class="finding-desc">Warmaking drives carbon emissions even during global economic recessions</p>
+          </div>
+          <div class="finding-card">
+            <p class="finding-stat">Global<br>South</p>
+            <p class="finding-desc">Bears disproportionate share of environmental costs from Global North's warfare strategy</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── ARTICLE BODY + SIDEBAR ────────────────── -->
+    <div class="article-body">
+
+      <!-- PROSE -->
+      <article class="prose">
+
+        <section class="prose-section">
+          <p class="section-kicker">Background</p>
+          <h2>What You Need to Know</h2>
+          <p>
+            War and preparation for war entail harmful environmental impacts. There has been a dramatic historical shift in the way contemporary wars are fought — and the environmental consequences have changed alongside it. Many nations of the <strong>Global North</strong> have pursued "asymmetric warfare," which relies on high-tech and resource-intensive military strategies.
+          </p>
+          <p>
+            Parallel to this shift is the national security threat of climate change — an issue which must be addressed by the global community. This warmaking strategy <strong>minimizes risks in the Global North</strong> and disproportionately shifts the attendant risks of war — casualties, forced displacement, and environmental damage — onto the peoples and environments of the Global South.
+          </p>
+
+          <figure class="prose-figure">
+            <img src="https://www.mlengefeld.com/img/predatordrone.jpg" alt="American Reaper Drone in flight" loading="lazy">
+            <figcaption><strong>American Reaper Drone.</strong> Source: Lt. Col. Leslie Pratt / U.S. Air Force (Public Domain)</figcaption>
+          </figure>
+        </section>
+
+        <hr class="prose-rule">
+
+        <section class="prose-section">
+          <p class="section-kicker">Context</p>
+          <h2>What Is This Research About?</h2>
+          <p>
+            Military strategies change to accommodate existing technologies. During the 1990s the United States underwent a "Revolution in Military Affairs" and battle-tested its first "smart" weapons in the 1991 Gulf War. These innovative technologies were accompanied by new operational tactics that relied on shifting risks away from the homeland and its soldiers.
+          </p>
+          <p>
+            Competing national militaries were compelled to match the strategy of asymmetric warfare pursued by the United States, driving a high-tech and resource-intensive arms race across the world. By the year 2000, many national militaries were undergoing their own revolution in military affairs — while over the next decade the world grappled with the 9/11 attacks, two global economic recessions, and two decade-long wars in Iraq and Afghanistan.
+          </p>
+
+          <div class="pull-quote">
+            <p>"Risk-transfer militarism in the Global North shifts the attendant risks of war to the peoples and the environments of the Global South."</p>
+          </div>
+
+          <figure class="prose-figure">
+            <img src="https://www.mlengefeld.com/img/aircraftcarrier.jpg" alt="Flight Deck of U.S.S. Abraham Lincoln" loading="lazy">
+            <figcaption><strong>Flight Deck of U.S.S. Abraham Lincoln.</strong> Source: Public Domain / U.S. Navy</figcaption>
+          </figure>
+        </section>
+
+        <hr class="prose-rule">
+
+        <section class="prose-section">
+          <p class="section-kicker">Methodology</p>
+          <h2>What Did the Researchers Do?</h2>
+          <p>
+            The researchers located and analyzed academic, government, and non-governmental data to understand the impact of national military characteristics on carbon emissions. They performed a <strong>longitudinal and socio-spatial regression analysis</strong> that included 126 countries from 2000 to 2010.
+          </p>
+          <p>
+            The manufacturing, maintenance, and distribution of weapons of war carries many harmful environmental consequences. Many advanced weapons rely on precious metals, toxic production processes, and large energy inputs — much of which is expended before weapons are ever deployed in combat.
+          </p>
+
+          <figure class="prose-figure">
+            <img src="https://www.mlengefeld.com/img/laserbomb2.jpg" alt="A laser guided bomb before it strikes a small boat during a training exercise" loading="lazy">
+            <figcaption><strong>Laser-guided munition during a training exercise.</strong> Source: Public Domain / U.S. Air Force</figcaption>
+          </figure>
+        </section>
+
+        <hr class="prose-rule">
+
+        <section class="prose-section">
+          <p class="section-kicker">Findings</p>
+          <h2>What Did the Researchers Find?</h2>
+          <p>
+            <strong>Warmaking drives carbon emissions even in times of global recession</strong> — when the slowdown of the global economy reduces the impact of gross domestic product on carbon output. Risk-transfer militarism in the Global North shifts the attendant costs of war to the peoples and environments of the Global South.
+          </p>
+          <p>
+            While the Global North pursues a strategy that relies on carbon-intensive advanced weaponry, the Global South is investing in more conventional ground forces. In addition to bearing the brunt of the Global North's asymmetric warfare, the Global South will also be most impacted by global climate change driven by these same CO₂ emissions.
+          </p>
+          <p>
+            National militaries are compelled to keep up with their rivals. Depending on the geopolitical context, this means competing in an arms race or ramping up military participation to raise a standing army — either path carries significant environmental costs that fall unevenly across the world.
+          </p>
+        </section>
+
+        <hr class="prose-rule">
+
+        <section class="prose-section">
+          <p class="section-kicker">Implications</p>
+          <h2>How Can You Use This Research?</h2>
+          <p>
+            Governments can be reminded that military competition can <strong>undermine national security</strong> through its impacts on global climate change via increased carbon emissions. This effect holds even during global recessions, when the broader economy contracts and reduces its environmental footprint.
+          </p>
+          <p>
+            Understanding how asymmetric warfare affects global carbon emissions can help policymakers craft less environmentally destructive strategies to protect national security interests. Environmental organizations may use this research to inform their strategies for applying pressure on governments who — while simultaneously acknowledging the national security threat of climate change — continue pursuing asymmetric warfare that significantly contributes to the emissions driving it.
+          </p>
+        </section>
+
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+
+        <div class="sidebar-card">
+          <p class="sidebar-card-title">Citation</p>
+          <p class="citation-text">
+            Smith, Chad, and Michael Lengefeld. (2020). "The Environmental Consequences of Asymmetric War: A Panel Study of Militarism and Carbon Emissions, 2000–2010." <em>Armed Forces &amp; Society,</em> Vol. 46(2), 214–237.
+          </p>
+          <a href="https://journals.sagepub.com/doi/full/10.1177/0095327X19832615" target="_blank" rel="noopener" class="citation-doi">Read Article ↗</a>
+        </div>
+
+        <div class="sidebar-card">
+          <p class="sidebar-card-title">Study Details</p>
+          <ul class="detail-list">
+            <li class="detail-item">
+              <p class="detail-label">Method</p>
+              <p class="detail-value">Longitudinal Panel Regression</p>
+            </li>
+            <li class="detail-item">
+              <p class="detail-label">Countries</p>
+              <p class="detail-value">126 Nations</p>
+            </li>
+            <li class="detail-item">
+              <p class="detail-label">Time Period</p>
+              <p class="detail-value">2000–2010</p>
+            </li>
+            <li class="detail-item">
+              <p class="detail-label">Data Sources</p>
+              <p class="detail-value">Academic, Government &amp; NGO</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <p class="sidebar-card-title">Related Research</p>
+          <ul class="related-links">
+            <li class="related-link-item">
+              <a href="colombia.html">
+                <span class="link-tag">Drug Policy</span>
+                Coca Eradication in Colombia
+              </a>
+            </li>
+            <li class="related-link-item">
+              <a href="nuclear_production.html">
+                <span class="link-tag">Cold War Legacies</span>
+                Nuclear Weapons Production
+              </a>
+            </li>
+            <li class="related-link-item">
+              <a href="nucleartech.html">
+                <span class="link-tag">Energy &amp; Climate</span>
+                CO₂ Emissions &amp; Nuclear Technologies
+              </a>
+            </li>
+            <li class="related-link-item">
+              <a href="envsoc.html">
+                <span class="link-tag">Environmental Sociology</span>
+                Environmental Sociology
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </aside>
+    </div><!-- /.article-body -->
+
+    <!-- ─── PHOTO GALLERY ──────────────────────────── -->
+    <section class="gallery-section">
+      <div class="gallery-inner">
+        <p class="gallery-label">Photography</p>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="https://www.mlengefeld.com/img/airshipfleet.jpg" alt="U.S.S. George Washington Carrier Strike Group" loading="lazy">
+            <div class="gallery-caption">U.S.S. George Washington Carrier Strike Group — Public Domain / U.S. Navy</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://www.mlengefeld.com/img/tankapache.jpg" alt="U.K. Apache and Tank formation during a readiness exercise" loading="lazy">
+            <div class="gallery-caption">United Kingdom Apache and Tank formation during a readiness exercise</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://www.mlengefeld.com/img/laserbomb2.jpg" alt="Laser-guided munition training" loading="lazy">
+            <div class="gallery-caption">Laser-guided bomb released during a naval training exercise — Public Domain / U.S. Air Force</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://www.mlengefeld.com/img/indonesianarmy.jpg" alt="Indonesian Army Infantry Battalion" loading="lazy">
+            <div class="gallery-caption">Indonesian Army Infantry Battalion — conventional ground forces contrast sharply with high-tech asymmetric warfare</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── BOTTOM NAV ─────────────────────────────── -->
+    <div class="article-footer-nav">
+      <a href="../research/index.html" class="back-link">
+        <span class="back-arrow">←</span> All Research
+      </a>
+      <a href="../about/index.html" class="bio-link">
+        About Dr. Lengefeld →
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ─── FOOTER ────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-brand-sm">Michael Lengefeld, PhD · Goucher College</p>
+      <div class="footer-ext">
+        <a href="https://scholar.google.com/citations?hl=en&user=zWWml-4AAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+        <a href="https://orcid.org/0000-0002-8063-0808" target="_blank" rel="noopener">ORCiD ↗</a>
+      </div>
+      <p class="footer-copy">© 2026 Michael Lengefeld</p>
+    </div>
+  </footer>
+
+</body>
 </html>
