@@ -1,310 +1,1176 @@
----
-layout: research
-title: Concussions & Youth Sports | Michael Lengefeld
----
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<style>
-	div.transbox {margin: 40px;
-  	background-color: #e6e1e1;
-  	border: 2px solid black;
-  	opacity: 0.7;
-	padding: 30px 0;
-	text-align: center;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concussions &amp; Youth Sports | Michael Lengefeld</title>
+  <meta name="description" content="Lengefeld &amp; Rotolo (2025) and Rotolo &amp; Lengefeld (2020). NFL counterframing, media, and the timing of youth sports concussion legislation across U.S. states. Sport in Society and Social Science &amp; Medicine.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-	div.transbox p {
-  	margin: 5%;
-  	font-weight: bold;
-  	color: #000000;}
-	
-	div.item {
-    	vertical-align: top;
-    	display: inline-block;
-    	text-align: center;
-    	width: 120px;
-	}
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-	figure {
-   	border: thin #c0c0c0 solid;
-    	display: flex;
-    	flex-flow: column;
-    	padding: 1px;
-    	max-width: 100%;
-    	max-height: 100%;
-    	margin: auto;
-	}
+    :root {
+      --ink:        #16120d;
+      --cream:      #f3ede0;
+      --warm:       #e6dcc8;
+      --tan:        #cfc0a4;
+      --rust:       #7c3120;
+      --rust-light: #a3452e;
+      --gold:       #9e7a2e;
+      --gold-light: #c4a050;
+      --muted:      #5e4e38;
+      --faint:      #9c8b74;
+      --dark:       #16120d;
+    }
 
-	div.background {
-	margin: 5px;
-	background-color:#e6e1e1
-	}
+    html { scroll-behavior: smooth; }
 
-	figcaption {
-    	background-color: #222;
-    	color: #fff;
-    	font: bold sans-serif;
-	font-size: .9em;
-    	padding: 3px;
-    	text-align: center;
-	}	
-	
-	h1{
-		font: bold;
-	}
-	
-	h2 {
-		font-size: x-large;
-	}
-	
-	img.displayed {
-   	display: block;
-    	margin-left: auto;
-    	margin-right: auto; 
-	}
-	
-	#myImg {
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
-}
+    body {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-#myImg:hover {opacity: 0.7;}
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
 
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-}
+    a { color: inherit; text-decoration: none; }
 
-/* Modal Content (image) */
-.modal-content {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 700px;
-}
+    /* ─── NAV ───────────────────────────────────── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--cream);
+      border-bottom: 1px solid var(--warm);
+    }
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+    }
+    .nav-brand span { font-weight: 300; font-style: italic; color: var(--muted); }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--rust); }
+    .nav-cv {
+      border: 1px solid var(--tan);
+      padding: 6px 16px !important;
+      color: var(--ink) !important;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .nav-cv:hover { border-color: var(--rust) !important; color: var(--rust) !important; }
 
-/* Caption of Modal Image */
-#caption {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 700px;
-  text-align: center;
-  color: #ccc;
-  padding: 10px 0;
-  height: 150px;
-}
+    /* ─── HERO ──────────────────────────────────── */
+    .article-hero {
+      background: var(--dark);
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://www.mlengefeld.com/img/concussion.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      opacity: 0.22;
+    }
+    .hero-inner {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 96px 48px 80px;
+    }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 36px;
+    }
+    .breadcrumb a {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(243,237,224,0.45);
+      transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: var(--gold-light); }
+    .breadcrumb-sep { font-size: 0.65rem; color: rgba(243,237,224,0.25); }
+    .breadcrumb-cur {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .article-tag {
+      display: inline-block;
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      border: 1px solid rgba(196,160,80,0.4);
+      padding: 4px 12px;
+      margin-bottom: 24px;
+    }
+    .article-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 300;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      max-width: 820px;
+      margin-bottom: 32px;
+      animation: fadeUp 0.8s ease both;
+    }
+    .article-title em { font-style: italic; font-weight: 300; }
+    .article-meta-row {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+    .meta-block-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(243,237,224,0.4);
+      margin-bottom: 4px;
+    }
+    .meta-block-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--cream);
+    }
 
-/* Add Animation */
-.modal-content, #caption {  
-  -webkit-animation-name: zoom;
-  -webkit-animation-duration: 0.6s;
-  animation-name: zoom;
-  animation-duration: 0.6s;
-}
+    /* ─── TWO-PAPER BAND ────────────────────────── */
+    .papers-band {
+      background: var(--dark);
+      color: var(--cream);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .papers-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 56px 48px;
+    }
+    .papers-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 24px;
+    }
+    .papers-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: rgba(255,255,255,0.07);
+    }
+    .paper-card {
+      background: var(--dark);
+      padding: 32px 36px;
+      transition: background 0.2s;
+      position: relative;
+    }
+    .paper-card:hover { background: #1e1810; }
+    .paper-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--rust);
+    }
+    .paper-year {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 10px;
+    }
+    .paper-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--cream);
+      margin-bottom: 12px;
+    }
+    .paper-journal {
+      font-size: 0.8rem;
+      font-style: italic;
+      color: rgba(243,237,224,0.5);
+      margin-bottom: 16px;
+    }
+    .paper-desc {
+      font-size: 0.84rem;
+      line-height: 1.7;
+      color: rgba(243,237,224,0.6);
+    }
+    .paper-doi {
+      display: inline-block;
+      margin-top: 18px;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      border-bottom: 1px solid rgba(196,160,80,0.3);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .paper-doi:hover { border-color: var(--gold-light); }
 
-@-webkit-keyframes zoom {
-  from {-webkit-transform:scale(0)} 
-  to {-webkit-transform:scale(1)}
-}
+    /* ─── FINDINGS STRIP ────────────────────────── */
+    .findings-strip {
+      background: var(--rust);
+      color: var(--cream);
+    }
+    .findings-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .findings-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.3;
+      color: rgba(243,237,224,0.7);
+      border-right: 1px solid rgba(255,255,255,0.2);
+      padding-right: 48px;
+    }
+    .findings-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+    .finding-stat {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+    .finding-desc {
+      font-size: 0.8rem;
+      line-height: 1.65;
+      color: rgba(243,237,224,0.75);
+    }
 
-@keyframes zoom {
-  from {transform:scale(0)} 
-  to {transform:scale(1)}
-}
+    /* ─── ARTICLE BODY ──────────────────────────── */
+    .article-body {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 96px 48px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 96px;
+      align-items: start;
+    }
 
-/* The Close Button */
-.close {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #f1f1f1;
-  font-size: 40px;
-  font-weight: bold;
-  transition: 0.3s;
-}
+    .prose-section { margin-bottom: 72px; }
+    .prose-section:last-child { margin-bottom: 0; }
+    .section-kicker {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 16px;
+    }
+    .prose-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      color: var(--ink);
+    }
+    .prose-section h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      line-height: 1.3;
+      margin: 36px 0 14px;
+      color: var(--ink);
+    }
+    .prose-section p {
+      font-size: 1.0rem;
+      line-height: 1.9;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .prose-section p:last-child { margin-bottom: 0; }
+    .prose-section strong { font-weight: 700; }
+    .prose-section em { font-style: italic; color: var(--muted); }
 
-.close:hover,
-.close:focus {
-  color: #bbb;
-  text-decoration: none;
-  cursor: pointer;
-}
+    .pull-quote {
+      border-left: 3px solid var(--rust);
+      padding: 8px 0 8px 28px;
+      margin: 40px 0;
+    }
+    .pull-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem !important;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.45 !important;
+      color: var(--muted) !important;
+      margin: 0 !important;
+    }
 
-/* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px){
-  .modal-content {
-    width: 100%;
-  }
-	
-</style>
+    .prose-figure { margin: 44px 0; }
+    .prose-figure img {
+      width: 100%;
+      display: block;
+      filter: sepia(0.06) contrast(1.02);
+    }
+    /* data figures should not be sepia-tinted */
+    .prose-figure.data-fig img {
+      filter: none;
+      border: 1px solid var(--warm);
+      background: white;
+      padding: 8px;
+    }
+    .prose-figure figcaption {
+      padding-top: 12px;
+      font-size: 0.75rem;
+      line-height: 1.6;
+      color: var(--faint);
+      font-style: italic;
+      border-top: 1px solid var(--warm);
+    }
+    .prose-figure figcaption strong {
+      font-style: normal;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    /* hypothesis comparison */
+    .hypothesis-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin: 36px 0;
+      background: var(--warm);
+    }
+    .hyp-card {
+      background: var(--cream);
+      padding: 28px 30px;
+      transition: background 0.2s;
+    }
+    .hyp-card:hover { background: white; }
+    .hyp-card-tag {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .hyp-card-tag.constituency { color: var(--gold); }
+    .hyp-card-tag.resistance   { color: var(--rust); }
+    .hyp-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .hyp-card-body {
+      font-size: 0.86rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+    .hyp-card-verdict {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--warm);
+      font-size: 0.75rem;
+      font-style: italic;
+      color: var(--faint);
+    }
+    .hyp-card-verdict strong { font-style: normal; }
+    .hyp-card-verdict.supported strong { color: var(--rust); }
+    .hyp-card-verdict.rejected  strong { color: var(--faint); }
+
+    /* themes list */
+    .themes-list {
+      list-style: none;
+      margin: 24px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      background: var(--warm);
+    }
+    .theme-item {
+      background: var(--cream);
+      padding: 16px 20px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: background 0.2s;
+    }
+    .theme-item:hover { background: white; }
+    .theme-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--rust);
+      opacity: 0.5;
+      flex-shrink: 0;
+      width: 28px;
+      line-height: 1.2;
+    }
+    .theme-text {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--ink);
+    }
+    .theme-text strong { font-weight: 700; }
+
+    /* impact list */
+    .impact-list {
+      list-style: none;
+      margin: 24px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .impact-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-size: 1.0rem;
+      line-height: 1.75;
+      color: var(--ink);
+    }
+    .impact-list li::before {
+      content: '—';
+      color: var(--rust);
+      flex-shrink: 0;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    /* dark callout */
+    .callout-box {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 32px 36px;
+      margin: 44px 0;
+    }
+    .callout-box-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+    }
+    .callout-box p {
+      font-size: 0.92rem !important;
+      line-height: 1.8 !important;
+      color: rgba(243,237,224,0.75) !important;
+      margin-bottom: 0 !important;
+    }
+    .callout-box strong { color: var(--cream) !important; }
+
+    .prose-rule {
+      border: none;
+      border-top: 1px solid var(--warm);
+      margin: 64px 0;
+    }
+
+    /* ─── SIDEBAR ───────────────────────────────── */
+    .sidebar {
+      position: sticky;
+      top: 88px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .sidebar-card {
+      border: 1px solid var(--warm);
+      padding: 28px;
+    }
+    .sidebar-card-title {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--warm);
+    }
+    .citation-text {
+      font-size: 0.82rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+    .citation-text em { font-style: italic; }
+    .citation-doi {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--rust);
+      border-bottom: 1px solid var(--tan);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .citation-doi:hover { border-color: var(--rust); }
+    .citation-block + .citation-block {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--warm);
+    }
+    .detail-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .detail-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 3px;
+    }
+    .detail-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.0rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .related-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      background: var(--warm);
+    }
+    .related-link-item a {
+      display: block;
+      background: var(--cream);
+      padding: 14px 16px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      transition: background 0.2s, color 0.2s;
+      line-height: 1.4;
+    }
+    .related-link-item a:hover { background: white; color: var(--rust); }
+    .link-tag {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--faint);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    /* ─── GALLERY ───────────────────────────────── */
+    .gallery-section {
+      background: var(--warm);
+      border-top: 1px solid var(--tan);
+      border-bottom: 1px solid var(--tan);
+    }
+    .gallery-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 64px 48px;
+    }
+    .gallery-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--tan);
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--tan);
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: sepia(0.08) contrast(1.02);
+      transition: transform 0.5s ease, filter 0.4s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.04); filter: sepia(0) contrast(1.05); }
+    .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px 14px 14px;
+      background: linear-gradient(transparent, rgba(22,18,13,0.78));
+      font-size: 0.68rem;
+      line-height: 1.45;
+      color: rgba(243,237,224,0.85);
+      font-style: italic;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover .gallery-caption { opacity: 1; }
+
+    /* ─── BOTTOM NAV ────────────────────────────── */
+    .article-footer-nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 48px 96px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--warm);
+    }
+    .back-link, .bio-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .back-link:hover, .bio-link:hover { color: var(--rust); }
+
+    /* ─── FOOTER ────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 40px 48px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-brand-sm {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 300;
+    }
+    .footer-ext { display: flex; gap: 24px; }
+    .footer-ext a {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      transition: opacity 0.2s;
+    }
+    .footer-ext a:hover { opacity: 0.7; }
+    .footer-copy {
+      font-size: 0.65rem;
+      color: rgba(243,237,224,0.25);
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── ANIMATION ─────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── RESPONSIVE ────────────────────────────── */
+    @media (max-width: 960px) {
+      nav { padding: 0 24px; }
+      .nav-links { gap: 20px; }
+      .hero-inner { padding: 64px 24px 56px; }
+      .papers-inner { padding: 48px 24px; }
+      .papers-grid { grid-template-columns: 1fr; }
+      .findings-inner { grid-template-columns: 1fr; gap: 32px; }
+      .findings-label {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        padding-right: 0; padding-bottom: 24px;
+      }
+      .findings-cards { grid-template-columns: 1fr 1fr; }
+      .article-body { grid-template-columns: 1fr; padding: 64px 24px; gap: 56px; }
+      .sidebar { position: static; }
+      .hypothesis-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .article-footer-nav { padding: 40px 24px 64px; }
+      footer { padding: 32px 24px; }
+    }
+    @media (max-width: 600px) {
+      .findings-cards { grid-template-columns: 1fr; }
+      .article-meta-row { gap: 24px; }
+    }
+  </style>
 </head>
-	<header class="w3-container w3-center w3-black" id="home">
-    	<h1 class="w3-xxlarge"><span class="w3-hide-small">Concussions & Youth Sports | </span>Michael Lengefeld</h1>
-	</header>
-<body style="background-color:#e6e1e1;">
-	<br>
-	<div class="example w3-row">
-		<div class="w3-half w3-container">
-			<br><br><br>
-			<figure class="item">
-			<img class="displayed" src="/img/concussion.jpg" alt="youth football concussion" style="width:100%; height: 100%; border:1px solid black; align:middle">
-			</figure>
-		</div>
-		<div class="w3-half w3-container">
-			<h1>What is this research about?</h1>
-				<h2>Participation in youth sports is considered a rite of passage in American society. 
-					While all youth sports involve concussion risk, numerous studies find that the
-					highest rates of concussion occur in youth football. Between 2007 and 2014, all 
-					U.S. states passed concussion legislation regulating youth sports participation. 
-					Why were some U.S. states slower than others to pass concussion laws with return 
-					to play restrictions? When states passed laws, why did some print media identify 
-					youth football as the justification for enacting legislation, while others did not – 
-					what explains this variation and how did the stories differ? <br>			
-				</h2>
-		</div>
-	</div>
-	<hr>
-	
-	<div class="example w3-row">
-		<div class="w3-half w3-container">
-			<h1>What did the researchers do?</h1>
-				<h2>The researchers first used an event history regression model to test two competing hypotheses 
-					regarding youth sport participation and the timing of concussion legislation: constituency 
-					vs. resistance. Discourse around concussions has focused on youth athletes as a population 
-					at risk, which require risk-reduction medical policies to protect them. The amount of youth 
-					sport participation in a state identifies a key group of at-risk individuals. If a disease 
-					only affects a few individuals, it is less likely that medically informed laws will be passed. 
-					
-					<br><br>Constituency hypothesis: States with higher levels of youth sport participation will adopt concussion 
-					legislation earlier. If legislation affects a large, at-risk population, organizations 
-					are more likely to enact regulations quickly.<br><br>
-						 
-				Resistance hypothesis: States with higher levels of youth sport participation will adopt concussion 
-					legislation later. Sport is an important activity with entrenched interests that are unlikely 
-					to change quickly, and states with more youth athletes could be slower to pass concussion laws. <br><br>
-				
-				Next, researchers collected newspaper coverage of the passage of youth sports concussion laws in each state. 
-					The framing of these laws involved different interest groups who attempted to shape laws and public 
-					discourse. The NFL, scientists, public health officials, youth sports organizations, and parents 
-					attempted to shape this framing and public discourse. This type of analysis reveals sources of cultural 
-					and organized interest group power.<br>
-				
-				</h2>
-		</div>
-		
-		<div class="w3-half w3-container"><br><br><br>
-			<figure class="item">
-			<img height="300" class="displayed" src="/img/concussionfootball.jpg" alt="Source: YMCA of North Carolina". 
-			Source: YMCA of North Carolina" style="border:1px solid black; align:middle">
-				<figcaption class="caption">Youth athletes are especially susceptible to concussions<br>
-					Source: YMCA of North Carolina
-				</figcaption>
-			</figure><br><br><br><br>
-		</div>
-		
-		<div class="w3-half w3-container">				  
-			<figure class="item">
-			<img class="displayed" src="/img/cdcconc_infographic.jpg" alt="CDC Infographic" 
-			     style="width:100%; border:1px solid black; align:middle">
-				<figcaption class="caption">The NFL and U.S. CDC Partnered to Sponsor the "Heads Up"
-				Campaign
-				</figcaption>
-			</figure><br><br><br><br>
-		</div>
-							   
-		<div class="w3-half w3-container">
-			<figure class="item">
-			<img height="400" class="displayed" src="/img/Goodell_AJC.jpg" alt="concussion themes" 
-			     style="border:1px solid black; align:middle">
-				<figcaption class="caption">NFL Commissioner Goodell repeatedly downplayed 
-					the risk and severity of football concussions to the public.
-				</figcaption>
-			</figure>
-		</div>
-	</div>
-	<hr>
-	
-	<div class="example w3-row">
-		<div class="w3-half w3-container"><br><br><br>
-			<figure class="item">
-			<img height="400" class="displayed" src="/img/concreg.jpg" alt="cox event history regression" 
-			     style="border:1px solid black; align:middle">
-				<figcaption class="caption">Image source: Rotolo and Lengefeld 2020.
-				</figcaption>
-			</figure> <br><br><br><br><br>
-			<figure class="item">
-			<img height="400" class="displayed" src="/img/concthemes.jpg" style="width:85%; height: 85%; 
-				border:1px solid black; align:middle" alt="concussion themes">
-				<figcaption class="caption">Image source: Lengefeld and Rotolo 2025.
-				</figcaption>
-			</figure> <br><br><br><br><br><br>
-			<figure class="item">
-				<img class="displayed" id="myImg" src="/img/concthemes2.jpg" alt="concussion themes by group and timing" 
-					style="width:95%; height: 95%; border:1px solid black; align:middle">
-				<figcaption class="caption">Image Source: Lengefeld and Rotolo 2025. 
-				</figcaption>
-			</figure>
-		</div>
-		<div class="w3-half w3-container">
-			<h1>What did the researchers find?</h1>
-				<h2>In the first analysis, the results support the resistance hypothesis - actors who support high school football 
-					resisted efforts to medicalize youth concussions at the institutional level.<br>
-					
-					<ul><li>Social context helps determine why states pass medically informed legislation at different times.</li> 
-					
-						<li>States with more high school football participation passed concussion laws later.</li> 
-						
-						<li> States with a strong college football presence (SEC Conference membership) passed concussion laws later.</li>
-						<li>States with more gender egalitarian views passed concussion laws earlier.</li>
-					</ul>
-				In the second analysis, researchers identified seven distinct themes in the newspaper reports of youth concussion legislation. 
-					Only ten state newspaper accounts presented a critical perspective on the risk of youth football, and the vast majority 
-					were hospitable to the NFL’s preferred framing that “all sports carry risk.” The findings point to contested processes. 
-					Corporations (driven by profit) attempt to influence media behavior (driven by organizational preferences and journalistic practices). 
-					<br><br>
-				The NFL’s position was that all states needed to protect vulnerable youth athletes from concussions in every sport. 
-					Most of the coverage emphasized a narrative that diluted the risks in youth football, directing positive attention 
-					to the NFL’s youth sports advocacy. Simultaneously, coverage diverted focus from the scandal over the NFL’s handling of 
-					concussions at the professional level. The NFL responded to highly publicized Congressional hearings by sending letters 
-					to 44 states (National Football League, 2016), broadly advocating for changes that did not harm the NFL. This is a 
-					prime example of the contested process of counterframing.
-					<br>
-				</h2>
-		</div>
-		
-	</div>
-	<hr>
-	<div class="example">
-		<div class="w3-container">
-			<h1>How can you use this research?</h1>
-			<h2>Policy makers and public health advocates can use this research to help craft public health strategies that address unique 
-				social and cultural dynamics influencing the passage of public health law at the state level. Understanding these 
-				unique processes can help legislators formulate more comprehensive strategies to address public health crises. 
-				Public health organizations and health social movements can use this research to inform their strategies for targeting 
-				public health problems in regions with greater resistance to these changes, and for identifying corporate strategies 
-				of resistance and counterframing. 
-			</h2>
-		</div>
-	</div><hr>
-		<div class= example">
-			<div class="w3-container">
-				<h1>Citations</h1>
-					 <h2>Lengefeld, M., & Rotolo, T. 2025. "‘All sports carry risks’: NFL, media, and the framing of the youth 
-						 sports concussion crisis." <i>Sport in Society</i>, 1–23. https://doi.org/10.1080/17430437.2025.2470159 <br><br>
-					Rotolo T, Lengefeld M. 2020. "Clearing the cobwebs: An analysis of the timing of youth concussion legislation in 
-					 U.S. states." <i>Soc Sci Med.</i> Nov 2:113491. doi: 10.1016/j.socscimed.2020.113491. PMID: 33162197.<br>
-					 </h2>
-			</div>
-		</div>
+<body>
+
+  <!-- ─── NAV ──────────────────────────────────────────── -->
+  <header>
+    <nav>
+      <a href="../index.html" class="nav-brand">Lengefeld <span>PhD</span></a>
+      <ul class="nav-links">
+        <li><a href="../research/index.html" class="active">Research</a></li>
+        <li><a href="../teaching/index.html">Teaching</a></li>
+        <li><a href="../civic/index.html">Service</a></li>
+        <li><a href="../about/index.html">Bio</a></li>
+        <li><a href="/img/CV_3.16.26_no references.pdf" class="nav-cv">CV ↓</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ─── HERO ─────────────────────────────────────── -->
+    <section class="article-hero">
+      <div class="hero-bg"></div>
+      <div class="hero-inner">
+        <div class="breadcrumb">
+          <a href="../index.html">Home</a>
+          <span class="breadcrumb-sep">›</span>
+          <a href="../research/index.html">Research</a>
+          <span class="breadcrumb-sep">›</span>
+          <span class="breadcrumb-cur">Concussions &amp; Youth Sports</span>
+        </div>
+
+        <span class="article-tag">Health &amp; Society · Media Framing</span>
+
+        <h1 class="article-title">
+          Concussions,<br><em>Youth Sports,</em><br>&amp; the NFL
+        </h1>
+
+        <div class="article-meta-row">
+          <div>
+            <p class="meta-block-label">Authors</p>
+            <p class="meta-block-value">Lengefeld &amp; Rotolo</p>
+          </div>
+          <div>
+            <p class="meta-block-label">Journals</p>
+            <p class="meta-block-value">Sport in Society · Social Science &amp; Medicine</p>
+          </div>
+          <div>
+            <p class="meta-block-label">Published</p>
+            <p class="meta-block-value">2025 &amp; 2020</p>
+          </div>
+          <div>
+            <p class="meta-block-label">Studies</p>
+            <p class="meta-block-value">2 Articles · Legislation timing &amp; media framing</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── TWO PAPERS BAND ────────────────────────────── -->
+    <div class="papers-band">
+      <div class="papers-inner">
+        <p class="papers-label">Two Related Publications</p>
+        <div class="papers-grid">
+          <div class="paper-card">
+            <p class="paper-year">2020 · Social Science &amp; Medicine</p>
+            <h2 class="paper-title">Clearing the Cobwebs: Timing of Youth Concussion Legislation in U.S. States</h2>
+            <p class="paper-journal">Rotolo &amp; Lengefeld</p>
+            <p class="paper-desc">Uses event history regression to test why some U.S. states were slower than others to pass youth sports concussion laws. Finds support for the resistance hypothesis: states with higher levels of high school football participation passed concussion legislation significantly later.</p>
+            <a href="https://doi.org/10.1016/j.socscimed.2020.113491" target="_blank" rel="noopener" class="paper-doi">Read Article ↗</a>
+          </div>
+          <div class="paper-card">
+            <p class="paper-year">2025 · Sport in Society</p>
+            <h2 class="paper-title">"All Sports Carry Risks": NFL, Media, and the Framing of the Youth Sports Concussion Crisis</h2>
+            <p class="paper-journal">Lengefeld &amp; Rotolo</p>
+            <p class="paper-desc">Analyzes newspaper coverage of youth sports concussion legislation across all 50 states. Identifies seven distinct themes and finds that the vast majority of coverage was hospitable to the NFL's preferred framing — diluting the specific risks of football while directing scrutiny away from the NFL's own concussion crisis.</p>
+            <a href="https://doi.org/10.1080/17430437.2025.2470159" target="_blank" rel="noopener" class="paper-doi">Read Article ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── KEY FINDINGS ──────────────────────────────── -->
+    <div class="findings-strip">
+      <div class="findings-inner">
+        <p class="findings-label">Key Findings</p>
+        <div class="findings-cards">
+          <div>
+            <p class="finding-stat">Later</p>
+            <p class="finding-desc">States with more high school football participation passed concussion laws <em>later</em> — supporting the resistance hypothesis over constituency</p>
+          </div>
+          <div>
+            <p class="finding-stat">7</p>
+            <p class="finding-desc">Distinct themes identified in newspaper coverage of youth concussion legislation across all 50 states</p>
+          </div>
+          <div>
+            <p class="finding-stat">10</p>
+            <p class="finding-desc">State newspaper accounts that presented a critical perspective on the specific risks of youth football — out of 50</p>
+          </div>
+          <div>
+            <p class="finding-stat">44</p>
+            <p class="finding-desc">States that received NFL lobbying letters advocating for concussion law changes that did not harm the NFL</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── ARTICLE BODY ──────────────────────────────── -->
+    <div class="article-body">
+
+      <article class="prose">
+
+        <!-- BACKGROUND -->
+        <section class="prose-section">
+          <p class="section-kicker">Background</p>
+          <h2>What You Need to Know</h2>
+          <p>
+            Participation in youth sports is considered a rite of passage in American society. While all youth sports involve some concussion risk, numerous studies find that the highest rates of concussion occur in <strong>youth football</strong>. Between 2007 and 2014, all U.S. states passed concussion legislation regulating youth sports participation — but the timing and framing of those laws varied dramatically.
+          </p>
+          <p>
+            This research asks two questions: Why were some states slower than others to pass concussion laws? And when states did act, why did some print media identify youth football as the justification — while others did not?
+          </p>
+
+          <figure class="prose-figure">
+            <img src="https://www.mlengefeld.com/img/concussion.jpg"
+                 alt="Youth football player — concussion risk in youth sports" loading="lazy">
+            <figcaption><strong>Youth football carries the highest rates of concussion among all youth sports.</strong> The social and institutional forces that delayed protective legislation are the subject of this research.</figcaption>
+          </figure>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- STUDY 1: METHODOLOGY -->
+        <section class="prose-section">
+          <p class="section-kicker">Study One — Legislation Timing</p>
+          <h2>Testing Two Competing Hypotheses</h2>
+          <p>
+            The researchers used an <strong>event history regression model</strong> to test two competing explanations for why states passed concussion laws at different times. Both hypotheses focused on the level of youth sport participation in each state — but predicted opposite directions of effect.
+          </p>
+
+          <div class="hypothesis-grid">
+            <div class="hyp-card">
+              <p class="hyp-card-tag constituency">Constituency Hypothesis</p>
+              <h3 class="hyp-card-title">More Athletes → Faster Laws</h3>
+              <p class="hyp-card-body">States with higher levels of youth sport participation will adopt concussion legislation earlier. A larger at-risk population creates political pressure for protective regulation — organizations are more likely to act quickly when laws affect many people.</p>
+              <p class="hyp-card-verdict rejected"><strong>Not supported</strong> by the data</p>
+            </div>
+            <div class="hyp-card">
+              <p class="hyp-card-tag resistance">Resistance Hypothesis</p>
+              <h3 class="hyp-card-title">More Athletes → Slower Laws</h3>
+              <p class="hyp-card-body">States with higher levels of youth sport participation will adopt concussion legislation later. Sport carries entrenched cultural and institutional interests that are unlikely to change quickly — states with more youth athletes may face greater resistance to medically informed regulation.</p>
+              <p class="hyp-card-verdict supported"><strong>Supported</strong> by the data</p>
+            </div>
+          </div>
+
+          <figure class="prose-figure data-fig">
+            <img src="https://www.mlengefeld.com/img/concreg.jpg"
+                 alt="Cox event history regression results showing predictors of concussion legislation timing" loading="lazy">
+            <figcaption><strong>Cox event history regression results.</strong> Predictors of the timing of youth concussion legislation across U.S. states. Source: Rotolo and Lengefeld (2020), <em>Social Science &amp; Medicine.</em></figcaption>
+          </figure>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- STUDY 1: FINDINGS -->
+        <section class="prose-section">
+          <p class="section-kicker">Study One — Findings</p>
+          <h2>Social Context Shapes Medical Policy</h2>
+          <p>
+            The results support the resistance hypothesis: <strong>actors who support high school football resisted efforts to medicalize youth concussions</strong> at the institutional level. Social context helps determine why states pass medically informed legislation at different times.
+          </p>
+
+          <ul class="impact-list">
+            <li><strong>States with more high school football participation</strong> passed concussion laws significantly later — the more entrenched football culture, the slower the legislative response</li>
+            <li><strong>States with strong college football presence</strong> — specifically SEC Conference membership — also passed concussion laws later</li>
+            <li><strong>States with more gender-egalitarian views</strong> passed concussion laws earlier, suggesting that cultural openness to health-protective norms accelerates medical policy adoption</li>
+          </ul>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- STUDY 2: METHODOLOGY -->
+        <section class="prose-section">
+          <p class="section-kicker">Study Two — Media Framing</p>
+          <h2>How the NFL Shaped Public Discourse</h2>
+          <p>
+            The second study collected and analyzed <strong>newspaper coverage of the passage of youth sports concussion laws in every state</strong>. The framing of these laws involved different interest groups — the NFL, scientists, public health officials, youth sports organizations, and parents — each attempting to shape legislation and public discourse.
+          </p>
+          <p>
+            This type of analysis reveals sources of <em>cultural and organized interest group power</em>: who gets to define a public health problem, on whose terms, and with what consequences for policy.
+          </p>
+
+          <div class="callout-box">
+            <p class="callout-box-label">The NFL's Strategy</p>
+            <p>The NFL responded to Congressional hearings about its handling of professional player concussions by sending letters to <strong>44 states</strong>, broadly advocating for concussion laws that protected youth athletes — framed in a way that did not harm the NFL. This is a textbook example of <strong>corporate counterframing</strong>: redirecting a scandal by becoming the public advocate for the very issue at the center of the scandal.</p>
+          </div>
+
+          <figure class="prose-figure">
+            <img src="https://www.mlengefeld.com/img/Goodell_AJC.jpg"
+                 alt="NFL Commissioner Goodell repeatedly downplayed the risk of football concussions" loading="lazy">
+            <figcaption><strong>NFL Commissioner Roger Goodell</strong> repeatedly downplayed the risk and severity of football concussions to the public — even as the league lobbied states to pass youth concussion legislation framed to protect the NFL's interests. Source: Atlanta Journal-Constitution</figcaption>
+          </figure>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- STUDY 2: FINDINGS -->
+        <section class="prose-section">
+          <p class="section-kicker">Study Two — Findings</p>
+          <h2>Seven Themes, One Dominant Narrative</h2>
+          <p>
+            The researchers identified <strong>seven distinct themes</strong> in newspaper reporting on youth sports concussion legislation. Only ten state newspaper accounts presented a critical perspective on the specific risks of youth football. The vast majority of coverage was hospitable to the NFL's preferred framing.
+          </p>
+
+          <ul class="themes-list">
+            <li class="theme-item">
+              <span class="theme-num">1</span>
+              <span class="theme-text"><strong>"All sports carry risk"</strong> — the dominant theme, which diluted the specific concussion danger of football by treating it as equivalent to all other youth sports</span>
+            </li>
+            <li class="theme-item">
+              <span class="theme-num">2</span>
+              <span class="theme-text"><strong>Youth athlete protection</strong> — framing legislation as a universal safeguard for all young athletes, regardless of sport</span>
+            </li>
+            <li class="theme-item">
+              <span class="theme-num">3</span>
+              <span class="theme-text"><strong>NFL advocacy</strong> — coverage presenting the NFL as a responsible public health actor and advocate for youth safety</span>
+            </li>
+            <li class="theme-item">
+              <span class="theme-num">4</span>
+              <span class="theme-text"><strong>Medical/scientific authority</strong> — citing medical organizations and research to legitimize concussion laws without specifying football's unique risk profile</span>
+            </li>
+            <li class="theme-item">
+              <span class="theme-num">5</span>
+              <span class="theme-text"><strong>Return-to-play protocols</strong> — focusing on technical procedures rather than the question of whether football is uniquely dangerous</span>
+            </li>
+            <li class="theme-item">
+              <span class="theme-num">6</span>
+              <span class="theme-text"><strong>Coach and parent education</strong> — emphasizing awareness and training as solutions, deflecting from structural questions about the sport itself</span>
+            </li>
+            <li class="theme-item">
+              <span class="theme-num">7</span>
+              <span class="theme-text"><strong>Football-specific risk</strong> — the only critical theme, present in only 10 of 50 states' coverage, directly naming football as carrying unique and elevated concussion danger</span>
+            </li>
+          </ul>
+
+          <div class="pull-quote">
+            <p>"Corporations driven by profit attempt to influence media behavior driven by organizational preferences — shaping the terms of public health discourse."</p>
+          </div>
+
+          <figure class="prose-figure data-fig">
+            <img src="https://www.mlengefeld.com/img/concthemes.jpg"
+                 alt="Chart of concussion media framing themes across states" loading="lazy">
+            <figcaption><strong>Concussion media framing themes across states.</strong> Source: Lengefeld and Rotolo (2025), <em>Sport in Society.</em></figcaption>
+          </figure>
+
+          <figure class="prose-figure data-fig">
+            <img src="https://www.mlengefeld.com/img/concthemes2.jpg"
+                 alt="Concussion framing themes by interest group and legislative timing" loading="lazy">
+            <figcaption><strong>Concussion framing themes by interest group and legislative timing.</strong> Source: Lengefeld and Rotolo (2025), <em>Sport in Society.</em></figcaption>
+          </figure>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- IMPLICATIONS -->
+        <section class="prose-section">
+          <p class="section-kicker">Implications</p>
+          <h2>How Can You Use This Research?</h2>
+          <p>
+            Policy makers and public health advocates can use this research to craft strategies that account for the <strong>unique social and cultural dynamics</strong> influencing the passage of public health law at the state level. Understanding these dynamics — particularly the role of organized resistance from entrenched interests — can help legislators formulate more comprehensive approaches to public health crises.
+          </p>
+          <p>
+            Public health organizations and health social movements can use this research to identify how <strong>corporate counterframing operates</strong> — and how to anticipate and counter it. The NFL's strategy of redirecting attention from professional player safety to universal youth athlete protection is a template that other industries facing regulatory pressure have used and will use again.
+          </p>
+          <p>
+            Researchers in environmental and health sociology may use this work to connect the study of media framing with institutional resistance to medical regulation — a pattern visible across many public health crises, from tobacco to opioids to climate change.
+          </p>
+
+          <figure class="prose-figure">
+            <img src="https://www.mlengefeld.com/img/cdcconc_infographic.jpg"
+                 alt="CDC Heads Up campaign infographic co-sponsored by the NFL" loading="lazy">
+            <figcaption><strong>The NFL and U.S. CDC partnered to sponsor the "Heads Up" campaign.</strong> The partnership allowed the NFL to associate itself with public health authority while the dominant media narrative diluted football's specific risk. Source: CDC / NFL</figcaption>
+          </figure>
+        </section>
+
+      </article>
+
+      <!-- ─── SIDEBAR ──────────────────────────────── -->
+      <aside class="sidebar">
+
+        <div class="sidebar-card">
+          <p class="sidebar-card-title">Citations</p>
+          <div class="citation-block">
+            <p class="citation-text">
+              Lengefeld, M., &amp; Rotolo, T. (2025). "'All sports carry risks': NFL, media, and the framing of the youth sports concussion crisis." <em>Sport in Society,</em> 1–23.
+            </p>
+            <a href="https://doi.org/10.1080/17430437.2025.2470159"
+               target="_blank" rel="noopener" class="citation-doi">Read Article ↗</a>
+          </div>
+          <div class="citation-block">
+            <p class="citation-text">
+              Rotolo, T., &amp; Lengefeld, M. (2020). "Clearing the cobwebs: An analysis of the timing of youth concussion legislation in U.S. states." <em>Social Science &amp; Medicine,</em> 113491.
+            </p>
+            <a href="https://doi.org/10.1016/j.socscimed.2020.113491"
+               target="_blank" rel="noopener" class="citation-doi">Read Article ↗</a>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <p class="sidebar-card-title">Study Details</p>
+          <ul class="detail-list">
+            <li>
+              <p class="detail-label">Study 1 — Method</p>
+              <p class="detail-value">Event History (Cox) Regression</p>
+            </li>
+            <li>
+              <p class="detail-label">Study 1 — Unit</p>
+              <p class="detail-value">All 50 U.S. States · 2007–2014</p>
+            </li>
+            <li>
+              <p class="detail-label">Study 2 — Method</p>
+              <p class="detail-value">Newspaper Frame Analysis</p>
+            </li>
+            <li>
+              <p class="detail-label">Study 2 — Data</p>
+              <p class="detail-value">State-level newspaper coverage of concussion legislation</p>
+            </li>
+            <li>
+              <p class="detail-label">Themes Identified</p>
+              <p class="detail-value">7 Distinct Framing Themes</p>
+            </li>
+            <li>
+              <p class="detail-label">NFL Letters Sent</p>
+              <p class="detail-value">44 States</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <p class="sidebar-card-title">Related Research</p>
+          <ul class="related-links">
+            <li class="related-link-item">
+              <a href="zoonotic.html">
+                <span class="link-tag">Global Health</span>
+                Zoonotic Spillover &amp; Disease Risk
+              </a>
+            </li>
+            <li class="related-link-item">
+              <a href="pfas.html">
+                <span class="link-tag">Environmental Health</span>
+                PFAS Contamination in the United States
+              </a>
+            </li>
+            <li class="related-link-item">
+              <a href="afsarticle.html">
+                <span class="link-tag">Military &amp; Society</span>
+                Asymmetric Warfare &amp; Carbon Emissions
+              </a>
+            </li>
+            <li class="related-link-item">
+              <a href="envsoc.html">
+                <span class="link-tag">Environmental Sociology</span>
+                Environmental Sociology
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </aside>
+    </div><!-- /.article-body -->
+
+    <!-- ─── PHOTO GALLERY ───────────────────────────── -->
+    <section class="gallery-section">
+      <div class="gallery-inner">
+        <p class="gallery-label">Photography</p>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="https://www.mlengefeld.com/img/concussion.jpg"
+                 alt="Youth football — concussion risk" loading="lazy">
+            <div class="gallery-caption">Youth football carries the highest concussion rates among all youth sports — but legislation protecting players was delayed in states with the strongest football culture</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://www.mlengefeld.com/img/concussionfootball.jpg"
+                 alt="Youth athletes especially susceptible to concussions" loading="lazy">
+            <div class="gallery-caption">Youth athletes are especially susceptible to concussions — their developing brains are more vulnerable to repeated impact. Source: YMCA of North Carolina</div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://www.mlengefeld.com/img/Goodell_AJC.jpg"
+                 alt="NFL Commissioner Goodell downplayed concussion risks" loading="lazy">
+            <div class="gallery-caption">NFL Commissioner Roger Goodell repeatedly downplayed the risk and severity of football concussions in public testimony and media appearances. Source: Atlanta Journal-Constitution</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── BOTTOM NAV ─────────────────────────────── -->
+    <div class="article-footer-nav">
+      <a href="../research/index.html" class="back-link">
+        <span>←</span> All Research
+      </a>
+      <a href="../about/index.html" class="bio-link">
+        About Dr. Lengefeld →
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ─── FOOTER ─────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-brand-sm">Michael Lengefeld, PhD · Goucher College</p>
+      <div class="footer-ext">
+        <a href="https://scholar.google.com/citations?hl=en&user=zWWml-4AAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+        <a href="https://orcid.org/0000-0002-8063-0808" target="_blank" rel="noopener">ORCiD ↗</a>
+      </div>
+      <p class="footer-copy">© 2026 Michael Lengefeld</p>
+    </div>
+  </footer>
+
+</body>
 </html>
