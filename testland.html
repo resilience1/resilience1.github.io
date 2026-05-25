@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Michael Lengefeld, PhD | Sociology &amp; Environmental Studies</title>
+  <meta name="description" content="Michael Lengefeld is a sociologist whose research examines violence, environmental degradation, and globalization. Published in Journal of World-Systems Research, Human Ecology Review, and Armed Forces and Society.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #16120d;
+      --cream:      #f3ede0;
+      --warm:       #e6dcc8;
+      --tan:        #cfc0a4;
+      --rust:       #7c3120;
+      --rust-light: #a3452e;
+      --gold:       #9e7a2e;
+      --gold-light: #c4a050;
+      --muted:      #5e4e38;
+      --faint:      #9c8b74;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── GRAIN OVERLAY ─────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.028;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    /* ─── UTILITY ───────────────────────────────────────── */
+    .eyebrow {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rust);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── NAV ───────────────────────────────────────────── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--cream);
+      border-bottom: 1px solid var(--warm);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+    }
+
+    .nav-brand span {
+      font-weight: 300;
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--rust); }
+
+    .nav-links .nav-cv {
+      border: 1px solid var(--tan);
+      padding: 6px 16px;
+      color: var(--ink);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .nav-links .nav-cv:hover {
+      border-color: var(--rust);
+      color: var(--rust);
+    }
+
+    /* ─── HERO ──────────────────────────────────────────── */
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px;
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 0;
+      min-height: calc(100vh - 64px);
+      align-items: center;
+      border-bottom: 1px solid var(--warm);
+      position: relative;
+    }
+
+    /* vertical rule between columns */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 10%;
+      bottom: 10%;
+      left: calc(100% - 400px - 48px);
+      width: 1px;
+      background: var(--warm);
+    }
+
+    .hero-content {
+      padding: 80px 80px 80px 0;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .hero-eyebrow {
+      margin-bottom: 24px;
+    }
+
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 6vw, 6rem);
+      font-weight: 300;
+      line-height: 1.0;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .hero-name strong {
+      font-weight: 700;
+      display: block;
+    }
+
+    .hero-credential {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--muted);
+      margin-bottom: 40px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--rust);
+      margin-bottom: 32px;
+    }
+
+    .hero-bio {
+      font-size: 1.0rem;
+      line-height: 1.85;
+      color: var(--ink);
+      max-width: 520px;
+      margin-bottom: 48px;
+      font-weight: 400;
+    }
+
+    .hero-bio em {
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: 'Libre Baskerville', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 13px 28px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-filled {
+      background: var(--rust);
+      color: var(--cream);
+      border: 1px solid var(--rust);
+    }
+
+    .btn-filled:hover {
+      background: var(--rust-light);
+      border-color: var(--rust-light);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--tan);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--muted);
+      color: var(--muted);
+    }
+
+    /* ─── HERO SIDEBAR ──────────────────────────────────── */
+    .hero-sidebar {
+      padding: 80px 0 80px 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      animation: fadeUp 0.8s 0.15s ease both;
+    }
+
+    .photo-wrap {
+      position: relative;
+      align-self: flex-start;
+    }
+
+    .photo-img {
+      width: 220px;
+      height: 270px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      filter: sepia(0.12) contrast(1.02);
+    }
+
+    .photo-placeholder {
+      width: 220px;
+      height: 270px;
+      background: linear-gradient(160deg, var(--warm) 0%, var(--tan) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .photo-placeholder svg {
+      opacity: 0.4;
+    }
+
+    .photo-placeholder-text {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      opacity: 0.7;
+    }
+
+    /* offset gold border */
+    .photo-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      right: -10px;
+      width: 100%;
+      height: 100%;
+      border: 1px solid var(--gold-light);
+      z-index: -1;
+    }
+
+    .sidebar-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .meta-item {}
+    .meta-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 3px;
+    }
+    .meta-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .sidebar-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .sidebar-link {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rust);
+      border-bottom: 1px solid var(--tan);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+
+    .sidebar-link:hover {
+      border-color: var(--rust);
+    }
+
+    /* ─── MARQUEE ───────────────────────────────────────── */
+    .marquee-bar {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 11px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee-track {
+      display: inline-flex;
+      animation: marquee 30s linear infinite;
+    }
+
+    .marquee-track:hover { animation-play-state: paused; }
+
+    .marquee-item {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0 36px;
+    }
+
+    .marquee-dot {
+      color: var(--gold-light);
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ─── SECTION SCAFFOLDING ───────────────────────────── */
+    .section-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 96px 48px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid var(--warm);
+      padding-bottom: 20px;
+      margin-bottom: 56px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 300;
+      letter-spacing: 0.01em;
+    }
+
+    .section-more {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rust);
+      transition: opacity 0.2s;
+    }
+
+    .section-more:hover { opacity: 0.7; }
+
+    /* ─── RESEARCH GRID ─────────────────────────────────── */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--warm);
+    }
+
+    .research-card {
+      background: var(--cream);
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: background 0.25s;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .research-card:hover { background: #faf6ee; }
+
+    .research-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 0;
+      background: var(--rust);
+      transition: height 0.3s ease;
+    }
+
+    .research-card:hover::before { height: 100%; }
+
+    .card-tag {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rust);
+    }
+
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--ink);
+    }
+
+    .card-desc {
+      font-size: 0.88rem;
+      line-height: 1.75;
+      color: var(--muted);
+      flex-grow: 1;
+    }
+
+    .card-pub {
+      font-size: 0.75rem;
+      font-style: italic;
+      color: var(--faint);
+      padding-top: 8px;
+      border-top: 1px solid var(--warm);
+    }
+
+    /* ─── TEACHING STRIP ────────────────────────────────── */
+    .teaching-section {
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    .teaching-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 96px 48px;
+    }
+
+    .teaching-section .section-title { color: var(--cream); }
+    .teaching-section .section-more  { color: var(--gold-light); }
+    .teaching-section .section-header { border-bottom-color: rgba(255,255,255,0.12); }
+
+    .courses-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .course-item {
+      background: var(--ink);
+      padding: 36px 40px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      transition: background 0.2s;
+    }
+
+    .course-item:hover { background: #1e1810; }
+
+    .course-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--gold-light);
+      opacity: 0.4;
+      line-height: 1;
+      flex-shrink: 0;
+      width: 44px;
+    }
+
+    .course-body {}
+
+    .course-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--cream);
+    }
+
+    .course-desc {
+      font-size: 0.84rem;
+      line-height: 1.7;
+      color: rgba(243,237,224,0.55);
+    }
+
+    /* ─── SERVICE + AFFILIATIONS ────────────────────────── */
+    .service-section {
+      border-bottom: 1px solid var(--warm);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    .service-card {
+      padding: 40px;
+      border: 1px solid var(--warm);
+      position: relative;
+    }
+
+    .service-card-eyebrow {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .service-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    .service-card-desc {
+      font-size: 0.88rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .service-card-link {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--rust);
+      border-bottom: 1px solid var(--tan);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+
+    .service-card-link:hover { border-color: var(--rust); }
+
+    /* ─── PUBLICATIONS BAND ─────────────────────────────── */
+    .pub-band {
+      background: var(--warm);
+      padding: 40px 0;
+      overflow: hidden;
+    }
+
+    .pub-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .pub-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--faint);
+      flex-shrink: 0;
+    }
+
+    .pub-journals {
+      display: flex;
+      gap: 36px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .pub-journal {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      font-weight: 600;
+      color: var(--ink);
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .pub-journal:hover { opacity: 1; }
+
+    .pub-sep {
+      color: var(--tan);
+      font-size: 0.8rem;
+    }
+
+    /* ─── FOOTER ────────────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 56px 48px 40px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 64px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      margin-bottom: 16px;
+      color: var(--cream);
+    }
+
+    .footer-tagline {
+      font-size: 0.85rem;
+      line-height: 1.75;
+      color: rgba(243,237,224,0.5);
+      max-width: 280px;
+    }
+
+    .footer-col-title {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 20px;
+    }
+
+    .footer-nav {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-nav a {
+      font-size: 0.88rem;
+      color: rgba(243,237,224,0.6);
+      transition: color 0.2s;
+    }
+
+    .footer-nav a:hover { color: var(--cream); }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 28px auto 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      color: rgba(243,237,224,0.3);
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── ANIMATIONS ────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── RESPONSIVE ────────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .nav-links { gap: 24px; }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 0 24px;
+        min-height: auto;
+      }
+      .hero::after { display: none; }
+      .hero-content { padding: 60px 0 32px; }
+      .hero-sidebar { padding: 0 0 60px; flex-direction: row; flex-wrap: wrap; gap: 36px; align-items: flex-start; }
+
+      .research-grid { grid-template-columns: 1fr; }
+      .courses-list { grid-template-columns: 1fr; }
+      .service-grid { grid-template-columns: 1fr; gap: 24px; }
+
+      .section-wrap { padding: 64px 24px; }
+      .teaching-wrap { padding: 64px 24px; }
+
+      .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+
+      .pub-inner { gap: 24px; }
+      .pub-journals { gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── HEADER / NAV ─────────────────────────────────── -->
+  <header>
+    <nav>
+      <a href="index.html" class="nav-brand">Lengefeld <span>PhD</span></a>
+      <ul class="nav-links">
+        <li><a href="research/index.html">Research</a></li>
+        <li><a href="teaching/index.html">Teaching</a></li>
+        <li><a href="civic/index.html">Service</a></li>
+        <li><a href="about/index.html">Bio</a></li>
+        <li><a href="/img/CV_3.16.26_no references.pdf" class="nav-cv">CV ↓</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ─── HERO ─────────────────────────────────────────── -->
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow hero-eyebrow">Sociology &amp; Environmental Studies · Goucher College</p>
+        <h1 class="hero-name">
+          Michael
+          <strong>Lengefeld</strong>
+        </h1>
+        <p class="hero-credential">Doctor of Philosophy · Professor &amp; Public Scholar</p>
+        <div class="hero-divider"></div>
+        <p class="hero-bio">
+          Research at the intersection of <strong>war, environmental politics, and globalization.</strong>
+          Comparative-historical work on Cold War nuclear weapons production and the U.S. War on Drugs
+          in Latin America, published in <em>Journal of World-Systems Research,</em>
+          <em>Human Ecology Review,</em> and <em>Armed Forces and Society.</em>
+        </p>
+        <div class="hero-actions">
+          <a href="research/index.html" class="btn btn-filled">View Research</a>
+          <a href="/img/CV_3.16.26_no references.pdf" class="btn btn-outline">Download CV</a>
+        </div>
+      </div>
+
+      <aside class="hero-sidebar">
+        <div class="photo-wrap">
+          <!-- Replace src with the actual photo path: img/Lengefeld_Bio_Pic.png -->
+          <img
+            src="/img/Lengefeld_Bio_Pic.png"
+            alt="Michael Lengefeld"
+            class="photo-img"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <div class="photo-placeholder" style="display:none">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="28" cy="22" r="12" stroke="#5e4e38" stroke-width="1.5"/>
+              <path d="M6 50c0-12.15 9.85-22 22-22s22 9.85 22 22" stroke="#5e4e38" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span class="photo-placeholder-text">Photo</span>
+          </div>
+        </div>
+
+        <div class="sidebar-meta">
+          <div class="meta-item">
+            <p class="meta-label">Institution</p>
+            <p class="meta-value">Goucher College</p>
+          </div>
+          <div class="meta-item">
+            <p class="meta-label">Departments</p>
+            <p class="meta-value">Sociology &amp; Environmental Studies</p>
+          </div>
+          <div class="meta-item">
+            <p class="meta-label">Research Focus</p>
+            <p class="meta-value">War · Environment · Globalization</p>
+          </div>
+        </div>
+
+        <div class="sidebar-links">
+          <a href="https://scholar.google.com/citations?hl=en&user=zWWml-4AAAAJ" target="_blank" rel="noopener" class="sidebar-link">Google Scholar ↗</a>
+          <a href="https://orcid.org/0000-0002-8063-0808" target="_blank" rel="noopener" class="sidebar-link">ORCiD ↗</a>
+        </div>
+      </aside>
+    </section>
+
+    <!-- ─── MARQUEE ─────────────────────────────────────── -->
+    <div class="marquee-bar" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item">War &amp; Environment</span><span class="marquee-dot marquee-item">✦</span>
+        <span class="marquee-item">Nuclear Weapons Production</span><span class="marquee-dot marquee-item">✦</span>
+        <span class="marquee-item">War on Drugs in Colombia</span><span class="marquee-dot marquee-item">✦</span>
+        <span class="marquee-item">Zoonotic Spillover</span><span class="marquee-dot marquee-item">✦</span>
+        <span class="marquee-item">Environmental Sociology</span><span class="marquee-dot marquee-item">✦</span>
+        <span class="marquee-item">Cold War Legacies</span><span class="marquee-dot marquee-item">✦</span>
+        <span class="marquee-item">Globalization &amp; Violence</span><span class="marquee-dot marquee-item">✦</span>
+        <span class="marquee-item">Youth Sports &amp; Concussions</span><span class="marquee-dot marquee-item">✦</span>
+        <span class="marquee-item">Civil War &amp; Coca Production</span><span class="marquee-dot marquee-item">✦</span>
+        <!-- duplicate for seamless loop -->
+        <span class="marquee-item">War &amp; Environment</span><span class="marquee-dot marquee-item">✦</span>
+        <span class="marquee-item">Nuclear Weapons Production</span><span class="marquee-dot marquee-item">✦</span>
+        <span class="marquee-item">War on Drugs in Colombia</span><span class="marquee-dot marquee-item">✦</span>
+        <span class="marquee-item">Zoonotic Spillover</span><span class="marquee-dot marquee-item">✦</span>
+        <span class="marquee-item">Environmental Sociology</span><span class="marquee-dot marquee-item">✦</span>
+        <span class="marquee-item">Cold War Legacies</span><span class="marquee-dot marquee-item">✦</span>
+        <span class="marquee-item">Globalization &amp; Violence</span><span class="marquee-dot marquee-item">✦</span>
+        <span class="marquee-item">Youth Sports &amp; Concussions</span><span class="marquee-dot marquee-item">✦</span>
+        <span class="marquee-item">Civil War &amp; Coca Production</span><span class="marquee-dot marquee-item">✦</span>
+      </div>
+    </div>
+
+    <!-- ─── RESEARCH ────────────────────────────────────── -->
+    <section>
+      <div class="section-wrap">
+        <div class="section-header">
+          <h2 class="section-title">Selected Research</h2>
+          <a href="research/index.html" class="section-more">All Projects →</a>
+        </div>
+
+        <div class="research-grid">
+          <article class="research-card" onclick="location.href='research/afsarticle.html'">
+            <p class="card-tag">Military &amp; Environment</p>
+            <h3 class="card-title">Asymmetric Warfare &amp; Environmental Destruction</h3>
+            <p class="card-desc">Examines the ecological consequences of asymmetric military conflict — from the Kuwaiti oil fires to contemporary air campaigns — and how military power asymmetries shape environmental outcomes.</p>
+            <p class="card-pub">Armed Forces and Society</p>
+          </article>
+
+          <article class="research-card" onclick="location.href='research/colombia.html'">
+            <p class="card-tag">Drug Policy</p>
+            <h3 class="card-title">Coca Eradication in Colombia</h3>
+            <p class="card-desc">How U.S.-backed aerial fumigation campaigns during the War on Drugs devastated Andean ecosystems, displaced rural communities, and reshaped social and political dynamics in Colombia.</p>
+            <p class="card-pub">Journal of World-Systems Research</p>
+          </article>
+
+          <article class="research-card" onclick="location.href='research/nuclear_production.html'">
+            <p class="card-tag">Cold War Legacies</p>
+            <h3 class="card-title">Nuclear Weapons Production &amp; Environmental Contamination</h3>
+            <p class="card-desc">Comparative-historical analysis of the environmental costs of Cold War nuclear weapons facilities — including the Mayak complex — and the long-term burden on surrounding communities.</p>
+            <p class="card-pub">Human Ecology Review</p>
+          </article>
+
+          <article class="research-card" onclick="location.href='research/nucleartech.html'">
+            <p class="card-tag">Energy &amp; Climate</p>
+            <h3 class="card-title">CO₂ Emissions &amp; Nuclear Technologies</h3>
+            <p class="card-desc">Investigates the relationship between nuclear energy adoption and carbon dioxide emissions, contributing to debates about nuclear power's role in climate mitigation strategies.</p>
+            <p class="card-pub">Research Article</p>
+          </article>
+
+          <article class="research-card" onclick="location.href='research/zoonotic.html'">
+            <p class="card-tag">Global Health</p>
+            <h3 class="card-title">Zoonotic Spillover &amp; Social-Ecological Systems</h3>
+            <p class="card-desc">Explores how environmental disruption, bushmeat trade, and biodiversity loss increase the risk of zoonotic disease spillover from animals to human populations.</p>
+            <p class="card-pub">Research Article</p>
+          </article>
+
+          <article class="research-card" onclick="location.href='research/colombiancivilwar.html'">
+            <p class="card-tag">Conflict &amp; Resources</p>
+            <h3 class="card-title">Civil War, Coca &amp; Gold in Colombia</h3>
+            <p class="card-desc">Examines how the Colombian civil war has shaped the coca and gold economies, with implications for resource extraction, violence, and environmental governance in conflict zones.</p>
+            <p class="card-pub">Research Article</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── PUBLICATIONS BAND ───────────────────────────── -->
+    <div class="pub-band">
+      <div class="pub-inner">
+        <span class="pub-label">Published in</span>
+        <div class="pub-journals">
+          <a href="https://jwsr.pitt.edu/" target="_blank" rel="noopener" class="pub-journal">Journal of World-Systems Research</a>
+          <span class="pub-sep">·</span>
+          <a href="https://humanecologyreview.org/" target="_blank" rel="noopener" class="pub-journal">Human Ecology Review</a>
+          <span class="pub-sep">·</span>
+          <a href="https://journals.sagepub.com/home/afs" target="_blank" rel="noopener" class="pub-journal">Armed Forces and Society</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── TEACHING ────────────────────────────────────── -->
+    <section class="teaching-section">
+      <div class="teaching-wrap">
+        <div class="section-header">
+          <h2 class="section-title">Teaching</h2>
+          <a href="teaching/index.html" class="section-more">Course Descriptions →</a>
+        </div>
+
+        <div class="courses-list">
+          <div class="course-item">
+            <div class="course-num">01</div>
+            <div class="course-body">
+              <h3 class="course-name">Environmental Sociology</h3>
+              <p class="course-desc">Power, inequality, and the human-environment relationship. From the "individualization of responsibility" to contemporary ecological politics, students develop theoretical tools for analyzing social-environmental dynamics.</p>
+            </div>
+          </div>
+
+          <div class="course-item">
+            <div class="course-num">02</div>
+            <div class="course-body">
+              <h3 class="course-name">Development, Justice &amp; Social Change</h3>
+              <p class="course-desc">Major approaches to societal development and the dynamics of power that shape individuals, societies, and the natural world — including theories of justice and human rights in the contemporary era.</p>
+            </div>
+          </div>
+
+          <div class="course-item">
+            <div class="course-num">03</div>
+            <div class="course-body">
+              <h3 class="course-name">Introduction to Environmental Studies</h3>
+              <p class="course-desc">The relationship between nature and society through the lens of social and environmental science — examining how communities construct and respond to environmental problems.</p>
+            </div>
+          </div>
+
+          <div class="course-item">
+            <div class="course-num">04</div>
+            <div class="course-body">
+              <h3 class="course-name">Statistics &amp; Probability</h3>
+              <p class="course-desc">Foundations of statistical reasoning: graphical and numerical methods, probability, sampling distributions, and statistical inference — preparing students for advanced quantitative coursework.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SERVICE ─────────────────────────────────────── -->
+    <section class="service-section">
+      <div class="section-wrap">
+        <div class="section-header">
+          <h2 class="section-title">Community &amp; Service</h2>
+          <a href="civic/index.html" class="section-more">Full Service Record →</a>
+        </div>
+
+        <div class="service-grid">
+          <div class="service-card">
+            <p class="service-card-eyebrow">Prison Education</p>
+            <h3 class="service-card-title">Goucher Prison Education Project</h3>
+            <p class="service-card-desc">Working to expand access to higher education for incarcerated individuals, as featured in the <em>New York Times</em> and the <em>PBS NewsHour.</em> The project exemplifies Goucher's commitment to education as a tool for social transformation.</p>
+            <a href="https://www.nytimes.com/2019/07/08/us/politics/criminal-justice-education.html" target="_blank" rel="noopener" class="service-card-link">NYT Coverage ↗</a>
+          </div>
+
+          <div class="service-card">
+            <p class="service-card-eyebrow">Food Justice</p>
+            <h3 class="service-card-title">Food Recovery Network — WSU President &amp; Founding Member</h3>
+            <p class="service-card-desc">Co-founded the Washington State University chapter of the Food Recovery Network, redirecting surplus food from campus dining to the Pullman Community Action Center and surrounding communities.</p>
+            <a href="https://magazine.wsu.edu/2017/01/27/waste-not/" target="_blank" rel="noopener" class="service-card-link">Read More ↗</a>
+          </div>
+
+          <div class="service-card">
+            <p class="service-card-eyebrow">Peer Review</p>
+            <h3 class="service-card-title">Invited &amp; Ad-Hoc Journal Referee</h3>
+            <p class="service-card-desc">Reviewer for <em>Social Forces, Sociology of Development, Society for Human Ecology,</em> and <em>Energy Research and Social Science</em> — contributing to the quality and integrity of peer-reviewed scholarship.</p>
+          </div>
+
+          <div class="service-card">
+            <p class="service-card-eyebrow">Food Policy</p>
+            <h3 class="service-card-title">Palouse-Clearwater Food Coalition Food Summit</h3>
+            <p class="service-card-desc">Participation in regional food policy work through the Palouse-Clearwater Food Coalition, connecting academic research to community-level food security initiatives in the Pacific Northwest.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ─── FOOTER ───────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <p class="footer-brand">Michael Lengefeld</p>
+        <p class="footer-tagline">Scholarship and commentary on war, environmental politics, and globalization. Professor of Sociology and Environmental Studies at Goucher College.</p>
+      </div>
+
+      <div>
+        <p class="footer-col-title">Navigate</p>
+        <ul class="footer-nav">
+          <li><a href="research/index.html">Research</a></li>
+          <li><a href="teaching/index.html">Teaching</a></li>
+          <li><a href="civic/index.html">Service</a></li>
+          <li><a href="about/index.html">Bio</a></li>
+          <li><a href="/img/CV_3.16.26_no references.pdf">Curriculum Vitae</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer-col-title">External Profiles</p>
+        <ul class="footer-nav">
+          <li><a href="https://scholar.google.com/citations?hl=en&user=zWWml-4AAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a></li>
+          <li><a href="https://orcid.org/0000-0002-8063-0808" target="_blank" rel="noopener">ORCiD ↗</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Michael Lengefeld, PhD · Goucher College</span>
+      <span>Sociology &amp; Environmental Studies</span>
+    </div>
+  </footer>
+
+</body>
+</html>
