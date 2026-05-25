@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burning Down the EPA | Michael Lengefeld</title>
+  <meta name="description" content="Sellers, Blum, Kohl, Sullivan, Fredrickson, Stoll, Lengefeld, Barrett, Levy &amp; EDGI (2025). Burning Down the EPA: Documenting the Second Trump Administration's Historic Assault. Environmental Data &amp; Governance Initiative.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #16120d;
+      --cream:      #f3ede0;
+      --warm:       #e6dcc8;
+      --tan:        #cfc0a4;
+      --rust:       #7c3120;
+      --rust-light: #a3452e;
+      --gold:       #9e7a2e;
+      --gold-light: #c4a050;
+      --muted:      #5e4e38;
+      --faint:      #9c8b74;
+      --dark:       #16120d;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── NAV ───────────────────────────────────── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--cream);
+      border-bottom: 1px solid var(--warm);
+    }
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+    }
+    .nav-brand span { font-weight: 300; font-style: italic; color: var(--muted); }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--rust); }
+    .nav-cv {
+      border: 1px solid var(--tan);
+      padding: 6px 16px !important;
+      color: var(--ink) !important;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .nav-cv:hover { border-color: var(--rust) !important; color: var(--rust) !important; }
+
+    /* ─── HERO ──────────────────────────────────── */
+    .article-hero {
+      background: var(--dark);
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    /* fire/smoke abstract gradient */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 10% 80%, rgba(180,60,20,0.35) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 20%, rgba(120,40,10,0.25) 0%, transparent 45%),
+        radial-gradient(ellipse at 45% 55%, rgba(40,20,10,0.3) 0%, transparent 55%);
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(196,160,80,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(196,160,80,0.03) 1px, transparent 1px);
+      background-size: 52px 52px;
+    }
+    .hero-inner {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 96px 48px 80px;
+    }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 36px;
+    }
+    .breadcrumb a {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(243,237,224,0.45);
+      transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: var(--gold-light); }
+    .breadcrumb-sep { font-size: 0.65rem; color: rgba(243,237,224,0.25); }
+    .breadcrumb-cur {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .article-tag {
+      display: inline-block;
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      border: 1px solid rgba(196,160,80,0.4);
+      padding: 4px 12px;
+      margin-bottom: 24px;
+    }
+    .article-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 300;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      max-width: 820px;
+      margin-bottom: 32px;
+      animation: fadeUp 0.8s ease both;
+    }
+    .article-title em { font-style: italic; font-weight: 300; }
+    .article-meta-row {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+    .meta-block-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(243,237,224,0.4);
+      margin-bottom: 4px;
+    }
+    .meta-block-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--cream);
+    }
+    .meta-block-value.small {
+      font-size: 0.88rem;
+      font-family: 'Libre Baskerville', serif;
+      font-weight: 400;
+    }
+
+    /* ─── FINDINGS STRIP ────────────────────────── */
+    .findings-strip {
+      background: var(--rust);
+      color: var(--cream);
+    }
+    .findings-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .findings-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.3;
+      color: rgba(243,237,224,0.7);
+      border-right: 1px solid rgba(255,255,255,0.2);
+      padding-right: 48px;
+    }
+    .findings-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+    .finding-stat {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+    .finding-desc {
+      font-size: 0.8rem;
+      line-height: 1.65;
+      color: rgba(243,237,224,0.75);
+    }
+
+    /* ─── FIVE TACTICS BAND ─────────────────────── */
+    .tactics-band {
+      background: var(--dark);
+      color: var(--cream);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .tactics-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 64px 48px;
+    }
+    .tactics-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 18px;
+    }
+    .tactics-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 300;
+      line-height: 1.3;
+      color: var(--cream);
+      margin-bottom: 36px;
+      max-width: 680px;
+    }
+    .tactics-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2px;
+      background: rgba(255,255,255,0.07);
+    }
+    .tactic-card {
+      background: var(--dark);
+      padding: 28px 24px;
+      transition: background 0.2s;
+    }
+    .tactic-card:hover { background: #1e1810; }
+    .tactic-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--rust);
+      opacity: 0.5;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .tactic-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .tactic-desc {
+      font-size: 0.8rem;
+      line-height: 1.7;
+      color: rgba(243,237,224,0.55);
+    }
+
+    /* ─── ARTICLE BODY ──────────────────────────── */
+    .article-body {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 96px 48px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 96px;
+      align-items: start;
+    }
+
+    .prose-section { margin-bottom: 72px; }
+    .prose-section:last-child { margin-bottom: 0; }
+    .section-kicker {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 16px;
+    }
+    .prose-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      color: var(--ink);
+    }
+    .prose-section h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      line-height: 1.3;
+      margin: 36px 0 14px;
+      color: var(--ink);
+    }
+    .prose-section p {
+      font-size: 1.0rem;
+      line-height: 1.9;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .prose-section p:last-child { margin-bottom: 0; }
+    .prose-section strong { font-weight: 700; }
+    .prose-section em { font-style: italic; color: var(--muted); }
+
+    .pull-quote {
+      border-left: 3px solid var(--rust);
+      padding: 8px 0 8px 28px;
+      margin: 40px 0;
+    }
+    .pull-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem !important;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.45 !important;
+      color: var(--muted) !important;
+      margin: 0 !important;
+    }
+
+    /* impact list */
+    .impact-list {
+      list-style: none;
+      margin: 24px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .impact-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-size: 1.0rem;
+      line-height: 1.75;
+      color: var(--ink);
+    }
+    .impact-list li::before {
+      content: '—';
+      color: var(--rust);
+      flex-shrink: 0;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    /* dark callout */
+    .callout-box {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 32px 36px;
+      margin: 44px 0;
+    }
+    .callout-box-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+    }
+    .callout-box p {
+      font-size: 0.92rem !important;
+      line-height: 1.8 !important;
+      color: rgba(243,237,224,0.75) !important;
+      margin-bottom: 0 !important;
+    }
+    .callout-box strong { color: var(--cream) !important; }
+
+    /* historical comparison grid */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin: 36px 0;
+      background: var(--warm);
+    }
+    .comparison-card {
+      background: var(--cream);
+      padding: 28px 26px;
+      transition: background 0.2s;
+    }
+    .comparison-card:hover { background: white; }
+    .comparison-card.current { background: rgba(124,49,32,0.06); }
+    .comparison-card.current:hover { background: rgba(124,49,32,0.1); }
+    .comparison-era {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 8px;
+    }
+    .comparison-era.current-era { color: var(--rust); }
+    .comparison-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+    .comparison-desc {
+      font-size: 0.83rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .prose-rule {
+      border: none;
+      border-top: 1px solid var(--warm);
+      margin: 64px 0;
+    }
+
+    /* ─── SIDEBAR ───────────────────────────────── */
+    .sidebar {
+      position: sticky;
+      top: 88px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .sidebar-card {
+      border: 1px solid var(--warm);
+      padding: 28px;
+    }
+    .sidebar-card-title {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--warm);
+    }
+    .citation-text {
+      font-size: 0.82rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+    .citation-text em { font-style: italic; }
+    .citation-doi {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--rust);
+      border-bottom: 1px solid var(--tan);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .citation-doi:hover { border-color: var(--rust); }
+    .detail-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .detail-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 3px;
+    }
+    .detail-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .related-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      background: var(--warm);
+    }
+    .related-link-item a {
+      display: block;
+      background: var(--cream);
+      padding: 14px 16px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      transition: background 0.2s, color 0.2s;
+      line-height: 1.4;
+    }
+    .related-link-item a:hover { background: white; color: var(--rust); }
+    .link-tag {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--faint);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    /* ─── EDGI BAND ─────────────────────────────── */
+    .edgi-band {
+      background: var(--warm);
+      border-top: 1px solid var(--tan);
+      border-bottom: 1px solid var(--tan);
+    }
+    .edgi-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 64px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .edgi-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 16px;
+    }
+    .edgi-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      font-weight: 300;
+      color: var(--ink);
+      margin-bottom: 18px;
+      line-height: 1.25;
+    }
+    .edgi-desc {
+      font-size: 0.92rem;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .edgi-link {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--rust);
+      border-bottom: 1px solid rgba(124,49,32,0.3);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .edgi-link:hover { border-color: var(--rust); }
+    .authors-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      background: var(--tan);
+    }
+    .author-item {
+      background: var(--cream);
+      padding: 14px 18px;
+      font-size: 0.87rem;
+      color: var(--muted);
+      line-height: 1.4;
+      transition: background 0.2s;
+    }
+    .author-item:hover { background: white; }
+    .author-item.highlight {
+      background: rgba(124,49,32,0.06);
+      color: var(--ink);
+      font-weight: 700;
+    }
+    .author-item.highlight:hover { background: rgba(124,49,32,0.1); }
+    .author-affil {
+      font-size: 0.72rem;
+      color: var(--faint);
+      font-weight: 400;
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* ─── BOTTOM NAV ────────────────────────────── */
+    .article-footer-nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 48px 96px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--warm);
+    }
+    .back-link, .bio-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .back-link:hover, .bio-link:hover { color: var(--rust); }
+
+    /* ─── FOOTER ────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 40px 48px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-brand-sm {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 300;
+    }
+    .footer-ext { display: flex; gap: 24px; }
+    .footer-ext a {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      transition: opacity 0.2s;
+    }
+    .footer-ext a:hover { opacity: 0.7; }
+    .footer-copy {
+      font-size: 0.65rem;
+      color: rgba(243,237,224,0.25);
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── ANIMATION ─────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── RESPONSIVE ────────────────────────────── */
+    @media (max-width: 960px) {
+      nav { padding: 0 24px; }
+      .nav-links { gap: 20px; }
+      .hero-inner { padding: 64px 24px 56px; }
+      .findings-inner { grid-template-columns: 1fr; gap: 32px; }
+      .findings-label {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        padding-right: 0; padding-bottom: 24px;
+      }
+      .findings-cards { grid-template-columns: 1fr 1fr; }
+      .tactics-inner { padding: 48px 24px; }
+      .tactics-grid { grid-template-columns: 1fr 1fr; }
+      .article-body { grid-template-columns: 1fr; padding: 64px 24px; gap: 56px; }
+      .sidebar { position: static; }
+      .comparison-grid { grid-template-columns: 1fr; }
+      .edgi-inner { grid-template-columns: 1fr; padding: 48px 24px; gap: 40px; }
+      .article-footer-nav { padding: 40px 24px 64px; }
+      footer { padding: 32px 24px; }
+    }
+    @media (max-width: 600px) {
+      .findings-cards { grid-template-columns: 1fr; }
+      .article-meta-row { gap: 24px; }
+      .tactics-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ──────────────────────────────────────── -->
+  <header>
+    <nav>
+      <a href="../index.html" class="nav-brand">Michael Lengefeld <span>PhD</span></a>
+      <ul class="nav-links">
+        <li><a href="../research/index.html" class="active">Research</a></li>
+        <li><a href="../teaching/index.html">Teaching</a></li>
+        <li><a href="../civic/index.html">Service</a></li>
+        <li><a href="../about/index.html">Bio</a></li>
+        <li><a href="/img/CV_5.25.26_noref.pdf" class="nav-cv">CV ↓</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ─── HERO ─────────────────────────────────── -->
+    <section class="article-hero">
+      <div class="hero-bg"></div>
+      <div class="hero-inner">
+        <div class="breadcrumb">
+          <a href="../index.html">Home</a>
+          <span class="breadcrumb-sep">›</span>
+          <a href="../research/index.html">Research</a>
+          <span class="breadcrumb-sep">›</span>
+          <span class="breadcrumb-cur">Burning Down the EPA</span>
+        </div>
+
+        <span class="article-tag">Environmental Governance · Science Policy · EDGI Report</span>
+
+        <h1 class="article-title">
+          Burning Down the EPA:<br><em>Documenting the Second Trump<br>Administration's Historic Assault</em>
+        </h1>
+
+        <div class="article-meta-row">
+          <div>
+            <p class="meta-block-label">Authors</p>
+            <p class="meta-block-value small">Sellers, Blum, Kohl, Sullivan, Fredrickson, Stoll, Lengefeld, Barrett, Levy &amp; EDGI</p>
+          </div>
+          <div>
+            <p class="meta-block-label">Publisher</p>
+            <p class="meta-block-value">Environmental Data &amp; Governance Initiative</p>
+          </div>
+          <div>
+            <p class="meta-block-label">Published</p>
+            <p class="meta-block-value">September 3, 2025</p>
+          </div>
+          <div>
+            <p class="meta-block-label">License</p>
+            <p class="meta-block-value">CC BY-NC-SA 4.0</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── KEY FINDINGS ──────────────────────────── -->
+    <div class="findings-strip">
+      <div class="findings-inner">
+        <p class="findings-label">Key Findings</p>
+        <div class="findings-cards">
+          <div>
+            <p class="finding-stat">54.4%</p>
+            <p class="finding-desc">Proposed cut to EPA's FY2026 budget — the largest ever proposed for the agency, surpassing the high-water mark of the first Trump administration</p>
+          </div>
+          <div>
+            <p class="finding-stat">$25B+</p>
+            <p class="finding-desc">In congressionally appropriated funds frozen or cancelled by the Zeldin EPA without congressional approval, most from the Inflation Reduction Act</p>
+          </div>
+          <div>
+            <p class="finding-stat">25–33%</p>
+            <p class="finding-desc">EDGI's estimated reduction in total EPA staff by end of FY2025 — two to three times the historic reduction under Reagan in the early 1980s</p>
+          </div>
+          <div>
+            <p class="finding-stat">Historic<br>Lows</p>
+            <p class="finding-desc">EPA rules submitted to OIRA for review and rules proposed or finalized in the Federal Register both hit record lows under Zeldin's first six months</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── FIVE TACTICS BAND ─────────────────────── -->
+    <div class="tactics-band">
+      <div class="tactics-inner">
+        <p class="tactics-label">Five Strategies of Administrative Assault</p>
+        <h2 class="tactics-title">How the Zeldin EPA Is Dismantling America's Foremost Environmental Agency</h2>
+        <div class="tactics-grid">
+          <div class="tactic-card">
+            <p class="tactic-num">01</p>
+            <p class="tactic-name">Deregulating</p>
+            <p class="tactic-desc">Announcing "historic" deregulation while actual rule proposals and finalizations hit all-time lows. Flagship move: a proposed revocation of EPA's 2009 endangerment finding for greenhouse gases.</p>
+          </div>
+          <div class="tactic-card">
+            <p class="tactic-num">02</p>
+            <p class="tactic-name">Defunding</p>
+            <p class="tactic-desc">A 54.4% proposed budget cut for FY2026, plus $25 billion in already-appropriated IRA funds frozen or cancelled without congressional authorization — challenging Article I spending authority.</p>
+          </div>
+          <div class="tactic-card">
+            <p class="tactic-num">03</p>
+            <p class="tactic-name">Downsizing</p>
+            <p class="tactic-desc">Staff cuts of 25–33% by end of FY2025 — reaching or surpassing the lowest staffing level in 40 years — without congressional approval, two to three times the agency's own FY2026 budget proposal.</p>
+          </div>
+          <div class="tactic-card">
+            <p class="tactic-num">04</p>
+            <p class="tactic-name">Sidelining Science</p>
+            <p class="tactic-desc">Breaking up EPA's Office of Research and Development with plans to fire two thirds of its 1,500 employees, against bipartisan Senate protest — going further than any predecessor administration.</p>
+          </div>
+          <div class="tactic-card">
+            <p class="tactic-num">05</p>
+            <p class="tactic-name">Tying Staff's Hands</p>
+            <p class="tactic-desc">Career staff describe "intentional inefficiencies" and "malignant neglect" by political appointees — mirroring Reagan-era "hit lists" and a "paranoia that brought work to a standstill."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── ARTICLE BODY ──────────────────────────── -->
+    <div class="article-body">
+
+      <article class="prose">
+
+        <!-- BACKGROUND -->
+        <section class="prose-section">
+          <p class="section-kicker">Background</p>
+          <h2>What You Need to Know</h2>
+          <p>
+            Under Administrator Lee Zeldin, the EPA has begun incinerating many of the environmental
+            and health protections this agency has provided for over five decades. Since being sworn in
+            in late January 2025, the Zeldin-led EPA has pledged to <strong>unshackle industries from
+            environmental rules and oversight</strong>, proposed a record-breaking 54.4% budget cut,
+            and pre-emptively enacted drastic cuts without consulting Congress.
+          </p>
+          <p>
+            The report <em>Burning Down the EPA</em> — produced by the Environmental Data &amp;
+            Governance Initiative (EDGI), a North American network of academics, nonprofits, and
+            community organizations — breaks down the five tactics employed under Zeldin's leadership
+            and places them in their full historical context. The conclusion is unambiguous:
+            <strong>the Zeldin-led EPA has launched the most damaging assault in the agency's
+            54-year history.</strong>
+          </p>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- HISTORICAL CONTEXT -->
+        <section class="prose-section">
+          <p class="section-kicker">Historical Context</p>
+          <h2>Zeldin and His Precursors</h2>
+          <p>
+            The current assault did not arise in a vacuum. The Zeldin EPA joins the historical ranks
+            of three predecessor administrations that aggressively assaulted the EPA's protective
+            mission — but it intensifies every tactic to unprecedented levels.
+          </p>
+
+          <div class="comparison-grid">
+            <div class="comparison-card">
+              <p class="comparison-era">Reagan EPA · 1981–1983</p>
+              <p class="comparison-name">Anne Gorsuch</p>
+              <p class="comparison-desc">Proposed a 17% reduction in EPA operating funds. Cut staff, attacked regulatory work, and broke up the enforcement office. Forced out in 1983 following congressional backlash, followed by six years of EPA growth under Reagan.</p>
+            </div>
+            <div class="comparison-card">
+              <p class="comparison-era">Trump I EPA · 2017–2021</p>
+              <p class="comparison-name">Scott Pruitt &amp; Andrew Wheeler</p>
+              <p class="comparison-desc">Revived Gorsuch's confrontational tactics. Rolled back over 100 major environmental rules, marginalized agency scientists, scrubbed climate information from websites, and torpedoed environmental enforcement.</p>
+            </div>
+            <div class="comparison-card current">
+              <p class="comparison-era current-era">Trump II EPA · 2025–Present</p>
+              <p class="comparison-name">Lee Zeldin</p>
+              <p class="comparison-desc">Combines and intensifies all prior tactics. Proposed budget cuts of 54.4%. Staff reductions of 25–33% without congressional approval. Dismantling the Office of Research and Development. Regulatory activity at historic lows.</p>
+            </div>
+          </div>
+
+          <p>
+            This growing polarization is not accidental. Over three decades, party politics have become
+            more partisan on environmental protection, corporate funding of anti-environmental
+            politicians has surged, and trust in science — particularly among Republicans — has
+            eroded sharply since the COVID-19 pandemic. The fossil fuel industry spent hundreds of
+            millions of dollars to elect the current administration and Congress. These structural
+            shifts set the stage for an intensification of attacks on the EPA that would have been
+            politically impossible in earlier eras.
+          </p>
+
+          <div class="callout-box">
+            <p class="callout-box-label">Project 2025 Blueprint</p>
+            <p>
+              Zeldin's leadership closely follows the Heritage Foundation's <em>Project 2025</em> blueprint,
+              including a chapter on the EPA written by Trump I's EPA chief of staff Mandy Gunasekara.
+              That document called for <strong>cutting EPA's "size and scope,"</strong> shearing back
+              research, enforcement, and environmental justice programs, and abandoning what it termed
+              EPA's "assault on the energy sector." The report's analysis demonstrates that Zeldin has
+              systematically implemented this blueprint.
+            </p>
+          </div>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- DEREGULATING -->
+        <section class="prose-section">
+          <p class="section-kicker">Tactic 1</p>
+          <h2>Deregulating — A Paradox of Claims and Data</h2>
+          <p>
+            Zeldin's press office has boasted of "historic" deregulation. The data tell a different
+            story. Six months into Pruitt's tenure under Trump I, EPA had announced 200 proposed rules
+            and 253 finalized rules in the Federal Register. In the first six months of Zeldin's
+            leadership, <strong>only three EPA rules had been proposed, and none finalized</strong>.
+            By August 25, 111 additional rule proposals and 114 final rules suddenly appeared —
+            almost all post-dated to the six months before they were formally published.
+          </p>
+          <p>
+            The flagship initiative behind the "historic deregulation" claims is a proposed revocation
+            of EPA's 2009 endangerment finding — the scientific determination that greenhouse gases
+            endanger public health and welfare, which provides the legal basis for EPA to regulate
+            carbon emissions under the Clean Air Act. If successful, this would indeed be a historic
+            rollback, incinerating over a decade of climate protection built on that foundation.
+          </p>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- DEFUNDING -->
+        <section class="prose-section">
+          <p class="section-kicker">Tactic 2</p>
+          <h2>Defunding — Bypassing Congress</h2>
+          <p>
+            The FY2026 proposed budget cut of 54.4% far surpasses any previous administration's
+            proposal for this agency. But the budget proposal is only part of the picture.
+            Aided by the Department of Government Efficiency (DOGE), the Zeldin EPA has enacted
+            many of these cuts <strong>without congressional approval</strong>, internally freezing
+            or cancelling spending that Congress had already appropriated:
+          </p>
+          <ul class="impact-list">
+            <li>Over <strong>$25 billion</strong> in congressionally appropriated funds frozen or cancelled, most from the Inflation Reduction Act</li>
+            <li>Contracts and grant programs in <strong>Environmental Justice, DEI, and climate change</strong> paid for through EPA's own congressionally approved budget appropriations</li>
+            <li>This approach challenges Congress's constitutional spending authority under Article I, Section 9 of the U.S. Constitution</li>
+          </ul>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- DOWNSIZING -->
+        <section class="prose-section">
+          <p class="section-kicker">Tactic 3</p>
+          <h2>Downsizing — Cutting Deeper Than Reagan</h2>
+          <p>
+            Zeldin's office and DOGE have already cut EPA staff by thousands — to at or below its
+            lowest point since the early 1980s — without congressional approval. EDGI estimates the
+            total number of EPA staff reductions by the end of FY2025 to be <strong>between 25–33%
+            of total staff</strong>. The only historical precedent is the 17% reduction under
+            Gorsuch in the early 1980s — which ended with her dismissal and six years of growth.
+          </p>
+          <p>
+            The scale of the current cuts is two to three times what the agency itself proposed to
+            Congress in its FY2026 budget request. Through retirement incentives and large
+            reductions in force, Zeldin's office has enacted staffing cuts that Congress has not
+            authorized, approved, or even fully been consulted on.
+          </p>
+
+          <div class="pull-quote">
+            <p>"The only historical precedent for such a cut was the 17% reduction under Gorsuch — an act that culminated in Reagan firing her and six years of EPA growth."</p>
+          </div>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- SCIENCE + STAFF -->
+        <section class="prose-section">
+          <p class="section-kicker">Tactics 4 &amp; 5</p>
+          <h2>Sidelining Science &amp; Tying the Hands of Staff</h2>
+
+          <h3>Eliminating the Office of Research and Development</h3>
+          <p>
+            EPA's press office has announced the breakup of the agency's Office of Research and
+            Development (ORD). Internal documents suggest this will involve <strong>firing two thirds
+            of ORD's 1,500 employees</strong> — against bipartisan Senate protest. This goes further
+            than any predecessor administration in directly dismantling the agency's capacity for
+            independent scientific research.
+          </p>
+          <p>
+            Earlier EPA-hostile administrations — from the G.W. Bush era onward — increasingly
+            targeted EPA science by curbing its use in policy-making, scrubbing websites, and stacking
+            advisory committees with political appointees. Zeldin's elimination of the ORD itself,
+            without congressional consultation, represents a qualitative escalation.
+          </p>
+
+          <h3>A Workplace at a Standstill</h3>
+          <p>
+            EPA career staff interviewed by EDGI describe a workplace riddled with
+            <strong>"intentional inefficiencies"</strong> and <strong>"malignant neglect"</strong>
+            of career-staff leadership by political appointees. This mirrors the historical record of
+            the first Reagan EPA: a "hit list" of targeted employees, "a paranoia that virtually brought
+            work to a standstill," and mass staff departure.
+          </p>
+          <p>
+            Among the probable early consequences: EPA's regulatory plans for Spring 2025 remain
+            unpublished on the OIRA website, and the agency has hit historic lows in both rules sent
+            to OMB for review and proposed or finalized rules published in the Federal Register.
+          </p>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- IMPLICATIONS -->
+        <section class="prose-section">
+          <p class="section-kicker">Implications</p>
+          <h2>What This Means for Environmental and Public Health</h2>
+          <p>
+            The EPA was created in December 1970 under Republican President Richard Nixon in
+            response to a bipartisan consensus that forceful federal action was needed to curb
+            pollution where private industry and piecemeal state-level controls had failed. Its
+            first administrator (a Republican) declared: the agency has <em>"no obligation to promote
+            agriculture or commerce; only the critical obligation to protect and enhance
+            the environment."</em>
+          </p>
+          <p>
+            The Zeldin EPA has redefined this mission to encompass "tamping down on extreme climate
+            alarmism," "lowering cost of living," and "unshackling industries from environmental
+            obligations." The report's documentation demonstrates that the second Trump administration
+            appears on track to cause greater damage to the EPA and its essential mission than any
+            of its predecessors — at a moment when federal environmental and public health protections
+            are most urgently needed.
+          </p>
+          <p>
+            For researchers in environmental sociology, science and technology studies, and public
+            health, this report provides an empirically grounded foundation for analyzing the
+            political, institutional, and structural dynamics driving the dismantling of federal
+            environmental governance. The historical comparative framework — tracing continuities
+            and escalations from Gorsuch through Zeldin — offers a model for sociological analysis
+            of state capacity, regulatory rollback, and the politics of environmental protection.
+          </p>
+        </section>
+
+      </article>
+
+      <!-- ─── SIDEBAR ──────────────────────────────── -->
+      <aside class="sidebar">
+
+        <div class="sidebar-card">
+          <p class="sidebar-card-title">Citation</p>
+          <p class="citation-text">
+            Sellers, C., Blum, S., Kohl, E., Sullivan, M., Fredrickson, L., Stoll, S.L., Lengefeld, M., Barrett, K., Levy, A., and EDGI. (2025). <em>Burning Down the EPA: Documenting the Second Trump Administration's Historic Assault.</em> Environmental Data &amp; Governance Initiative, September 3, 2025.
+          </p>
+          <a href="https://envirodatagov.org/publication/burning-down-the-epa-documenting-the-second-trump-administrations-historic-assault/"
+             target="_blank" rel="noopener" class="citation-doi">Read Full Report ↗</a>
+        </div>
+
+        <div class="sidebar-card">
+          <p class="sidebar-card-title">Report Details</p>
+          <ul class="detail-list">
+            <li>
+              <p class="detail-label">Type</p>
+              <p class="detail-value">EDGI Report</p>
+            </li>
+            <li>
+              <p class="detail-label">Publisher</p>
+              <p class="detail-value">Environmental Data &amp; Governance Initiative</p>
+            </li>
+            <li>
+              <p class="detail-label">Date</p>
+              <p class="detail-value">September 3, 2025</p>
+            </li>
+            <li>
+              <p class="detail-label">License</p>
+              <p class="detail-value">CC BY-NC-SA 4.0</p>
+            </li>
+            <li>
+              <p class="detail-label">Framework</p>
+              <p class="detail-value">Comparative-Historical · Science &amp; Technology Studies · Environmental Governance</p>
+            </li>
+            <li>
+              <p class="detail-label">Data</p>
+              <p class="detail-value">EPA Budget Justifications · OIRA Records · Federal Register · Staff Data</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <p class="sidebar-card-title">Related Research</p>
+          <ul class="related-links">
+            <li class="related-link-item">
+              <a href="pfas.html">
+                <span class="link-tag">Environmental Health</span>
+                PFAS Contamination in the United States
+              </a>
+            </li>
+            <li class="related-link-item">
+              <a href="PFASmapping.html">
+                <span class="link-tag">Spatial Analysis</span>
+                PFAS Contamination Maps &amp; Figures
+              </a>
+            </li>
+            <li class="related-link-item">
+              <a href="nuclear_production.html">
+                <span class="link-tag">Environmental Contamination</span>
+                Nuclear Weapons &amp; the Anthropocene
+              </a>
+            </li>
+            <li class="related-link-item">
+              <a href="ice_covid.html">
+                <span class="link-tag">Environmental Justice</span>
+                ICE Facilities, Riskscapes &amp; COVID-19
+              </a>
+            </li>
+            <li class="related-link-item">
+              <a href="afsarticle.html">
+                <span class="link-tag">Military &amp; Environment</span>
+                Asymmetric Warfare &amp; Carbon Emissions
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </aside>
+    </div><!-- /.article-body -->
+
+    <!-- ─── EDGI + AUTHORS BAND ───────────────────── -->
+    <div class="edgi-band">
+      <div class="edgi-inner">
+        <div>
+          <p class="edgi-label">About EDGI</p>
+          <h2 class="edgi-title">Environmental Data &amp; Governance Initiative</h2>
+          <p class="edgi-desc">
+            EDGI is a North American network with members from numerous academic institutions and
+            nonprofit or grassroots organizations, as well as committed volunteers and employees from
+            a broad spectrum of work and life backgrounds. EDGI promotes open and accessible
+            government data and information along with evidence-based policymaking.
+          </p>
+          <p class="edgi-desc">
+            This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+            International License and is freely available for educational and advocacy use.
+          </p>
+          <a href="https://envirodatagov.org" target="_blank" rel="noopener" class="edgi-link">Visit EDGI ↗</a>
+        </div>
+        <div>
+          <p class="edgi-label" style="margin-bottom:16px;">Report Authors</p>
+          <div class="authors-list">
+            <div class="author-item">Chris Sellers</div>
+            <div class="author-item">Scout Blum</div>
+            <div class="author-item">Ellen Kohl</div>
+            <div class="author-item">Marianne Sullivan</div>
+            <div class="author-item">Leif Fredrickson</div>
+            <div class="author-item">Shannan Lenke Stoll</div>
+            <div class="author-item highlight">
+              Michael Lengefeld
+              <span class="author-affil">Northeastern University · Department of Sociology &amp; Environmental Health Research Institute</span>
+            </div>
+            <div class="author-item">Kim Barrett</div>
+            <div class="author-item">Anna Levy</div>
+            <div class="author-item">EDGI</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── BOTTOM NAV ────────────────────────────── -->
+    <div class="article-footer-nav">
+      <a href="../research/index.html" class="back-link">
+        <span>←</span> All Research
+      </a>
+      <a href="../about/index.html" class="bio-link">
+        About Dr. Lengefeld →
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ─── FOOTER ──────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-brand-sm">Michael Lengefeld, PhD · Northeastern University</p>
+      <div class="footer-ext">
+        <a href="https://scholar.google.com/citations?hl=en&user=zWWml-4AAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+        <a href="https://orcid.org/0000-0002-8063-0808" target="_blank" rel="noopener">ORCiD ↗</a>
+      </div>
+      <p class="footer-copy">© 2026 Michael Lengefeld, PhD · Northeastern University</p>
+    </div>
+  </footer>
+
+</body>
+</html>
