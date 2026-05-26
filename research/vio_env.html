@@ -1,60 +1,879 @@
----
-layout: research
-title: Violence and the Environment | Michael Lengefeld
----
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<style>
-	div.transbox {margin: 40px;
-  	background-color: #ffffff;
-  	border: 2px solid black;
-  	opacity: 0.7;
-	padding: 30px 0;
-	text-align: center;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>War and the Environment | Michael Lengefeld</title>
+  <meta name="description" content="Lengefeld, Hooks &amp; Smith (2021). War and the Environment. Chapter 18 in Handbook of Environmental Sociology. Springer. DOI: 10.1007/978-3-030-77712-8_18">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-	div.transbox p {
-  	margin: 5%;
-  	font-weight: bold;
-  	color: #000000;}
-	
-	div.item {
-    	vertical-align: top;
-    	display: inline-block;
-    	text-align: center;
-    	width: 120px;
-	}
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-	figure {
-   	border: thin #c0c0c0 solid;
-    	display: flex;
-    	flex-flow: column;
-    	padding: 1px;
-    	max-width: 100%;
-    	max-height: 100%;
-    	margin: auto;
-	}
+    :root {
+      --ink:        #16120d;
+      --cream:      #f3ede0;
+      --warm:       #e6dcc8;
+      --tan:        #cfc0a4;
+      --rust:       #7c3120;
+      --rust-light: #a3452e;
+      --gold:       #9e7a2e;
+      --gold-light: #c4a050;
+      --muted:      #5e4e38;
+      --faint:      #9c8b74;
+      --dark:       #16120d;
+    }
 
-	div.background {
-	margin: 5px;
-	}
+    html { scroll-behavior: smooth; }
 
-	figcaption {
-    	background-color: #222;
-    	color: #fff;
-    	font: bold sans-serif;
-	font-size: 1.2em;
-    	padding: 3px;
-    	text-align: center;
-	}	
-</style>
+    body {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── NAV ───────────────────────────────────── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--cream);
+      border-bottom: 1px solid var(--warm);
+    }
+    nav {
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 48px; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem; font-weight: 600;
+      letter-spacing: 0.04em; color: var(--ink);
+    }
+    .nav-brand span { font-weight: 300; font-style: italic; color: var(--muted); }
+    .nav-links { list-style: none; display: flex; gap: 40px; align-items: center; }
+    .nav-links a {
+      font-size: 0.72rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--muted); transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--rust); }
+    .nav-cv {
+      border: 1px solid var(--tan); padding: 6px 16px !important;
+      color: var(--ink) !important; transition: border-color 0.2s, color 0.2s;
+    }
+    .nav-cv:hover { border-color: var(--rust) !important; color: var(--rust) !important; }
+
+    /* ─── HERO ──────────────────────────────────── */
+    .article-hero {
+      background: var(--dark); color: var(--cream);
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Bikini_Atoll_nuclear_test_-_1946.jpg/1280px-Bikini_Atoll_nuclear_test_-_1946.jpg');
+      background-size: cover; background-position: center 35%;
+      opacity: 0.18;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(22,18,13,0.55) 0%, rgba(22,18,13,0.82) 100%);
+    }
+    .hero-inner {
+      position: relative; max-width: 1200px; margin: 0 auto;
+      padding: 96px 48px 80px;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 8px; margin-bottom: 36px;
+    }
+    .breadcrumb a {
+      font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(243,237,224,0.45); transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: var(--gold-light); }
+    .breadcrumb-sep { font-size: 0.65rem; color: rgba(243,237,224,0.25); }
+    .breadcrumb-cur {
+      font-size: 0.68rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--gold-light);
+    }
+    .article-tag {
+      display: inline-block; font-size: 0.62rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold-light); border: 1px solid rgba(196,160,80,0.4);
+      padding: 4px 12px; margin-bottom: 24px;
+    }
+    .article-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+      font-weight: 300; line-height: 1.05;
+      letter-spacing: -0.01em; max-width: 820px;
+      margin-bottom: 32px; animation: fadeUp 0.8s ease both;
+    }
+    .article-title em { font-style: italic; font-weight: 300; }
+    .article-meta-row {
+      display: flex; gap: 48px; flex-wrap: wrap;
+      padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1);
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+    .meta-block-label {
+      font-size: 0.6rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: rgba(243,237,224,0.4); margin-bottom: 4px;
+    }
+    .meta-block-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; font-weight: 600; color: var(--cream);
+    }
+
+    /* ─── FINDINGS STRIP ────────────────────────── */
+    .findings-strip { background: var(--rust); color: var(--cream); }
+    .findings-inner {
+      max-width: 1200px; margin: 0 auto; padding: 48px;
+      display: grid; grid-template-columns: 200px 1fr;
+      gap: 48px; align-items: center;
+    }
+    .findings-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-style: italic; font-weight: 300;
+      line-height: 1.3; color: rgba(243,237,224,0.7);
+      border-right: 1px solid rgba(255,255,255,0.2); padding-right: 48px;
+    }
+    .findings-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+    .finding-stat {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem; font-weight: 700; line-height: 1;
+      color: var(--gold-light); margin-bottom: 8px;
+    }
+    .finding-desc { font-size: 0.8rem; line-height: 1.65; color: rgba(243,237,224,0.75); }
+
+    /* ─── FRAMEWORK BAND ────────────────────────── */
+    .framework-band {
+      background: var(--dark); color: var(--cream);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .framework-inner {
+      max-width: 1200px; margin: 0 auto; padding: 64px 48px;
+    }
+    .framework-label {
+      font-size: 0.62rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--gold-light); margin-bottom: 18px;
+    }
+    .framework-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem; font-weight: 300;
+      line-height: 1.3; color: var(--cream);
+      margin-bottom: 36px; max-width: 680px;
+    }
+    .framework-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2px; background: rgba(255,255,255,0.07);
+    }
+    .framework-card {
+      background: var(--dark); padding: 32px 36px;
+      transition: background 0.2s; position: relative;
+    }
+    .framework-card:hover { background: #1e1810; }
+    .framework-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: var(--rust);
+    }
+    .framework-card-tag {
+      font-size: 0.6rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--gold-light); margin-bottom: 12px;
+    }
+    .framework-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem; font-weight: 700;
+      color: var(--cream); margin-bottom: 14px; line-height: 1.3;
+    }
+    .framework-card-body {
+      font-size: 0.86rem; line-height: 1.75;
+      color: rgba(243,237,224,0.6);
+    }
+
+    /* ─── ARTICLE BODY ──────────────────────────── */
+    .article-body {
+      max-width: 1200px; margin: 0 auto;
+      padding: 96px 48px;
+      display: grid; grid-template-columns: 1fr 320px;
+      gap: 96px; align-items: start;
+    }
+
+    .prose-section { margin-bottom: 72px; }
+    .prose-section:last-child { margin-bottom: 0; }
+    .section-kicker {
+      font-size: 0.62rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--rust); margin-bottom: 16px;
+    }
+    .prose-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem; font-weight: 600;
+      line-height: 1.2; margin-bottom: 24px; color: var(--ink);
+    }
+    .prose-section h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 600;
+      line-height: 1.3; margin: 36px 0 14px; color: var(--ink);
+    }
+    .prose-section p {
+      font-size: 1.0rem; line-height: 1.9;
+      color: var(--ink); margin-bottom: 20px;
+    }
+    .prose-section p:last-child { margin-bottom: 0; }
+    .prose-section strong { font-weight: 700; }
+    .prose-section em { font-style: italic; color: var(--muted); }
+
+    .pull-quote {
+      border-left: 3px solid var(--rust);
+      padding: 8px 0 8px 28px; margin: 40px 0;
+    }
+    .pull-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem !important; font-style: italic;
+      font-weight: 300; line-height: 1.45 !important;
+      color: var(--muted) !important; margin: 0 !important;
+    }
+
+    .prose-figure { margin: 44px 0; }
+    .prose-figure img {
+      width: 100%; display: block;
+      filter: sepia(0.1) contrast(1.02);
+    }
+    .prose-figure figcaption {
+      padding-top: 12px; font-size: 0.75rem;
+      line-height: 1.6; color: var(--faint);
+      font-style: italic; border-top: 1px solid var(--warm);
+    }
+    .prose-figure figcaption strong {
+      font-style: normal; font-weight: 700; color: var(--muted);
+    }
+
+    /* figure pair */
+    .figure-pair {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2px; margin: 44px 0; background: var(--warm);
+    }
+    .figure-pair .prose-figure { margin: 0; background: var(--cream); }
+    .figure-pair .prose-figure img { height: 240px; object-fit: cover; }
+    .figure-pair .prose-figure figcaption { padding: 12px 14px; }
+
+    /* impact list */
+    .impact-list {
+      list-style: none; margin: 24px 0;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .impact-list li {
+      display: flex; gap: 14px; align-items: flex-start;
+      font-size: 1.0rem; line-height: 1.75; color: var(--ink);
+    }
+    .impact-list li::before {
+      content: '—'; color: var(--rust);
+      flex-shrink: 0; font-weight: 700; margin-top: 2px;
+    }
+
+    /* dark callout */
+    .callout-box {
+      background: var(--ink); color: var(--cream);
+      padding: 32px 36px; margin: 44px 0;
+    }
+    .callout-box-label {
+      font-size: 0.6rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--gold-light); margin-bottom: 12px;
+    }
+    .callout-box p {
+      font-size: 0.92rem !important; line-height: 1.8 !important;
+      color: rgba(243,237,224,0.75) !important; margin-bottom: 0 !important;
+    }
+    .callout-box strong { color: var(--cream) !important; }
+
+    /* treadmill comparison */
+    .treadmill-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2px; margin: 36px 0; background: var(--warm);
+    }
+    .treadmill-card {
+      background: var(--cream); padding: 28px 26px; transition: background 0.2s;
+    }
+    .treadmill-card:hover { background: white; }
+    .treadmill-tag {
+      font-size: 0.6rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--rust); margin-bottom: 10px;
+    }
+    .treadmill-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 12px;
+    }
+    .treadmill-desc {
+      font-size: 0.86rem; line-height: 1.75; color: var(--muted);
+    }
+
+    .prose-rule { border: none; border-top: 1px solid var(--warm); margin: 64px 0; }
+
+    /* ─── SIDEBAR ───────────────────────────────── */
+    .sidebar {
+      position: sticky; top: 88px;
+      display: flex; flex-direction: column; gap: 32px;
+    }
+    .sidebar-card { border: 1px solid var(--warm); padding: 28px; }
+    .sidebar-card-title {
+      font-size: 0.6rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--faint);
+      margin-bottom: 16px; padding-bottom: 12px;
+      border-bottom: 1px solid var(--warm);
+    }
+    .citation-text { font-size: 0.82rem; line-height: 1.75; color: var(--muted); }
+    .citation-text em { font-style: italic; }
+    .citation-doi {
+      display: inline-block; margin-top: 16px;
+      font-size: 0.7rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--rust);
+      border-bottom: 1px solid var(--tan); padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .citation-doi:hover { border-color: var(--rust); }
+    .detail-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .detail-label {
+      font-size: 0.6rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--faint); margin-bottom: 3px;
+    }
+    .detail-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.0rem; font-weight: 600; color: var(--ink);
+    }
+    .related-links {
+      list-style: none; display: flex; flex-direction: column;
+      gap: 2px; background: var(--warm);
+    }
+    .related-link-item a {
+      display: block; background: var(--cream); padding: 14px 16px;
+      font-size: 0.82rem; color: var(--muted);
+      transition: background 0.2s, color 0.2s; line-height: 1.4;
+    }
+    .related-link-item a:hover { background: white; color: var(--rust); }
+    .link-tag {
+      font-size: 0.6rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--faint);
+      display: block; margin-bottom: 3px;
+    }
+
+    /* ─── GALLERY ───────────────────────────────── */
+    .gallery-section {
+      background: var(--warm);
+      border-top: 1px solid var(--tan);
+      border-bottom: 1px solid var(--tan);
+    }
+    .gallery-inner { max-width: 1200px; margin: 0 auto; padding: 64px 48px; }
+    .gallery-label {
+      font-size: 0.62rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 32px;
+    }
+    .gallery-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 2px; background: var(--tan);
+    }
+    .gallery-item {
+      position: relative; overflow: hidden;
+      aspect-ratio: 4/3; background: var(--tan);
+    }
+    .gallery-item.wide { grid-column: span 2; aspect-ratio: 8/3; }
+    .gallery-item img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      filter: sepia(0.1) contrast(1.02);
+      transition: transform 0.5s ease, filter 0.4s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.04); filter: sepia(0) contrast(1.05); }
+    .gallery-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 28px 14px 14px;
+      background: linear-gradient(transparent, rgba(22,18,13,0.8));
+      font-size: 0.68rem; line-height: 1.45;
+      color: rgba(243,237,224,0.85); font-style: italic;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .gallery-item:hover .gallery-caption { opacity: 1; }
+
+    /* ─── BOTTOM NAV ────────────────────────────── */
+    .article-footer-nav {
+      max-width: 1200px; margin: 0 auto;
+      padding: 48px 48px 96px;
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 1px solid var(--warm);
+    }
+    .back-link, .bio-link {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.72rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--muted); transition: color 0.2s;
+    }
+    .back-link:hover, .bio-link:hover { color: var(--rust); }
+
+    /* ─── FOOTER ────────────────────────────────── */
+    footer {
+      background: var(--ink); color: var(--cream); padding: 40px 48px;
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 20px;
+    }
+    .footer-brand-sm { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 300; }
+    .footer-ext { display: flex; gap: 24px; }
+    .footer-ext a {
+      font-size: 0.68rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--gold-light); transition: opacity 0.2s;
+    }
+    .footer-ext a:hover { opacity: 0.7; }
+    .footer-copy { font-size: 0.65rem; color: rgba(243,237,224,0.25); letter-spacing: 0.06em; }
+
+    /* ─── ANIMATION ─────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── RESPONSIVE ────────────────────────────── */
+    @media (max-width: 960px) {
+      nav { padding: 0 24px; }
+      .nav-links { gap: 20px; }
+      .hero-inner { padding: 64px 24px 56px; }
+      .findings-inner { grid-template-columns: 1fr; gap: 32px; }
+      .findings-label { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding-right: 0; padding-bottom: 24px; }
+      .findings-cards { grid-template-columns: 1fr 1fr; }
+      .framework-inner { padding: 48px 24px; }
+      .framework-grid { grid-template-columns: 1fr; }
+      .article-body { grid-template-columns: 1fr; padding: 64px 24px; gap: 56px; }
+      .sidebar { position: static; }
+      .figure-pair { grid-template-columns: 1fr; }
+      .treadmill-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item.wide { grid-column: span 2; aspect-ratio: 16/9; }
+      .article-footer-nav { padding: 40px 24px 64px; }
+      footer { padding: 32px 24px; }
+    }
+    @media (max-width: 600px) {
+      .findings-cards { grid-template-columns: 1fr; }
+      .article-meta-row { gap: 24px; }
+    }
+  </style>
 </head>
-	<header class="w3-container w3-center w3-black" id="home">
-    	<h1 class="w3-xxlarge"><span class="w3-hide-small">Violence and the Environment | </span>Michael Lengefeld</h1>
-	</header>
 <body>
-	<div class="w3-xxlarge w3-center">PAGE UNDER CONSTRUCTION</div>
-</body>
-	<!-- END PAGE CONTENT -->
-<div class="footer center" style="color:black">    
+
+  <!-- ─── NAV ──────────────────────────────────────── -->
+  <header>
+    <nav>
+      <a href="../index.html" class="nav-brand">Michael Lengefeld <span>PhD</span></a>
+      <ul class="nav-links">
+        <li><a href="../research/index.html" class="active">Research</a></li>
+        <li><a href="../teaching/index.html">Teaching</a></li>
+        <li><a href="../civic/index.html">Service</a></li>
+        <li><a href="../about/index.html">Bio</a></li>
+        <li><a href="/img/CV_5.25.26_noref.pdf" class="nav-cv">CV ↓</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ─── HERO ─────────────────────────────────── -->
+    <section class="article-hero">
+      <div class="hero-bg"></div>
+      <div class="hero-inner">
+        <div class="breadcrumb">
+          <a href="../index.html">Home</a>
+          <span class="breadcrumb-sep">›</span>
+          <a href="../research/index.html">Research</a>
+          <span class="breadcrumb-sep">›</span>
+          <span class="breadcrumb-cur">War &amp; the Environment</span>
         </div>
+
+        <span class="article-tag">Military &amp; Environment · Environmental Sociology · Book Chapter</span>
+
+        <h1 class="article-title">
+          War and<br><em>the Environment</em>
+        </h1>
+
+        <div class="article-meta-row">
+          <div>
+            <p class="meta-block-label">Authors</p>
+            <p class="meta-block-value">Lengefeld, Hooks &amp; Smith</p>
+          </div>
+          <div>
+            <p class="meta-block-label">Published In</p>
+            <p class="meta-block-value">Handbook of Environmental Sociology</p>
+          </div>
+          <div>
+            <p class="meta-block-label">Publisher</p>
+            <p class="meta-block-value">Springer · 2021</p>
+          </div>
+          <div>
+            <p class="meta-block-label">Chapter</p>
+            <p class="meta-block-value">18 · Pages 381–401</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── KEY ARGUMENTS ────────────────────────── -->
+    <div class="findings-strip">
+      <div class="findings-inner">
+        <p class="findings-label">Core Arguments</p>
+        <div class="findings-cards">
+          <div>
+            <p class="finding-stat">Blind<br>Spot</p>
+            <p class="finding-desc">War and militarism remain a major gap in environmental sociology — despite being among the most ecologically destructive human activities in recorded history</p>
+          </div>
+          <div>
+            <p class="finding-stat">Unique</p>
+            <p class="finding-desc">Military-driven environmental destruction cannot be reduced to capitalism — the treadmill of destruction operates through a distinct and independent institutional logic</p>
+          </div>
+          <div>
+            <p class="finding-stat">Global</p>
+            <p class="finding-desc">Cross-national panel research confirms military expenditures per soldier significantly drive carbon emissions and ecological footprints across 126+ nations</p>
+          </div>
+          <div>
+            <p class="finding-stat">Path<br>Dependent</p>
+            <p class="finding-desc">Treadmill dynamics generate self-reinforcing "lock-in" — the environmental damage from nuclear warmaking and risk-transfer militarism is structurally persistent, not accidental</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── TWO TREADMILLS FRAMEWORK ─────────────── -->
+    <div class="framework-band">
+      <div class="framework-inner">
+        <p class="framework-label">Two Complementary Theories</p>
+        <h2 class="framework-title">The Treadmill Tradition: Production, Destruction, and the Environment</h2>
+        <div class="framework-grid">
+          <div class="framework-card">
+            <p class="framework-card-tag">Treadmill of Production</p>
+            <h3 class="framework-card-title">The Logic of Economic Growth</h3>
+            <p class="framework-card-body">The foundational theory in environmental sociology emphasizes corporate competition and the pursuit of profit as engines that accelerate ecological degradation. The endless drive for economic growth systematically undermines environmental protection — not as an accident, but as a structural feature of capitalist production. This theory provides the conceptual anchor from which treadmill of destruction thinking extends.</p>
+          </div>
+          <div class="framework-card">
+            <p class="framework-card-tag">Treadmill of Destruction</p>
+            <h3 class="framework-card-title">The Logic of Geopolitical Competition</h3>
+            <p class="framework-card-body">Military-driven environmental degradation is generated by the inertial growth dynamics of national militaries and arms races — a qualitatively distinct dynamic from capitalism. Geopolitical competition compels states to pursue technological prowess in warmaking, driving resource-intensive and baroque weapons technologies whose environmental costs cannot be reduced to economic logic. Nuclear weapons are the paradigmatic case: their development is driven by national security, not profit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── ARTICLE BODY ──────────────────────────── -->
+    <div class="article-body">
+
+      <article class="prose">
+
+        <!-- BACKGROUND -->
+        <section class="prose-section">
+          <p class="section-kicker">Background</p>
+          <h2>A Blind Spot in Environmental Sociology</h2>
+          <p>
+            Sociologists have examined violence in many different forms across macro and micro levels of analysis. Yet in its early years, <strong>environmental sociology all but ignored conflict and war</strong>. A growing line of research has begun to fill this gap over the last quarter-century — but much important work remains. This chapter considers how prominent environmental sociology theories investigate environmental degradation and inequality in relation to warmaking and large-scale organized violence.
+          </p>
+          <p>
+            As Gould observed, <em>"militarization is the single most ecologically destructive human endeavor."</em> Ecosystems are destroyed by militarization "numerous times and at numerous levels including extraction, production, distribution, testing, transportation, disposal, implementation, and reconstruction." Despite this, the scholarly literature has heavily emphasized economic institutions and processes as contributors to environmental harm while largely ignoring the military.
+          </p>
+
+          <figure class="prose-figure">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Bikini_Atoll_nuclear_test_-_1946.jpg/1280px-Bikini_Atoll_nuclear_test_-_1946.jpg"
+              alt="Nuclear weapons test at Bikini Atoll, 1946"
+              loading="lazy">
+            <figcaption><strong>Nuclear weapons test at Bikini Atoll, 1946.</strong> The U.S. nuclear arsenal grew from roughly one thousand warheads in 1953 to approximately eighteen thousand by 1960. Each new generation consumed more energy, produced more radioactive waste, and had a greater environmental impact. Plutonium — a byproduct of weapons production — has a half-life of 500,000 years. Source: U.S. Navy / Public Domain</figcaption>
+          </figure>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- HISTORICAL TRANSFORMATION -->
+        <section class="prose-section">
+          <p class="section-kicker">Historical Context</p>
+          <h2>The Industrialization of War and Environmental Destruction</h2>
+          <p>
+            The links between environmental degradation and warmaking grew precipitously as nation-states became the dominant political and military organization in the modern world, and with the fusion of industrialism and militarism. This fusion produced qualitatively new forms of ecological harm:
+          </p>
+          <ul class="impact-list">
+            <li><strong>Mass troop mobilization</strong> required industrial provisioning and energy-intensive transportation at a scale that dwarfed civilian activities</li>
+            <li><strong>Deliberate ecocide</strong> — destroying the natural environment to destroy an enemy's morale or deprive them of natural resources — became a calculated military strategy, from chemical weapons in WWI to herbicides in Vietnam</li>
+            <li><strong>Nuclear weapons development</strong> created radioactive and toxic contamination that will persist for geological timescales — plutonium's half-life exceeds 500,000 years</li>
+            <li><strong>Risk-transfer militarism</strong> — the shift to high-tech, long-distance warfare — directs casualties and environmental harms away from the homeland onto peripheral nations and populations</li>
+          </ul>
+
+          <div class="figure-pair">
+            <figure class="prose-figure">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/US_military_spraying_agent_orange.jpg/1280px-US_military_spraying_agent_orange.jpg"
+                alt="U.S. military aircraft spraying Agent Orange over Vietnam"
+                loading="lazy">
+              <figcaption><strong>U.S. military aircraft spraying Agent Orange over Vietnam.</strong> The deliberate use of herbicides as a weapon of war — destroying forest cover to deprive enemy forces of concealment — caused catastrophic ecological damage across Southeast Asia and exposed millions to toxic contamination. Source: U.S. Air Force / Public Domain</figcaption>
+            </figure>
+            <figure class="prose-figure">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Aerial_View_of_Hanford_Site.jpg/1280px-Aerial_View_of_Hanford_Site.jpg"
+                alt="Aerial view of the Hanford nuclear site, Washington State"
+                loading="lazy">
+              <figcaption><strong>Hanford nuclear site, Washington State.</strong> The most contaminated nuclear site in the U.S. — a product of Cold War weapons production. National sacrifice zones like Hanford are disproportionately located on or adjacent to Indigenous lands, producing cascading environmental injustices. Source: U.S. DOE / Public Domain</figcaption>
+            </figure>
+          </div>
+
+          <div class="callout-box">
+            <p class="callout-box-label">The U.S. Case: Ecological Imperialism</p>
+            <p>
+              The United States waged formal and informal wars against Indigenous peoples across North America, deliberately destroying "the flora and fauna that American Indians used for food and other purposes." The near-extinction of the American bison in the late nineteenth century — driven by industrialization, settler expansion, and deliberate extermination — is one vivid example. The United States did not simply conquer and settle the continent: it <strong>pursued a policy of ecological imperialism from the Atlantic to the Pacific.</strong>
+            </p>
+          </div>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- TREADMILL OF DESTRUCTION -->
+        <section class="prose-section">
+          <p class="section-kicker">Theory</p>
+          <h2>The Treadmill of Destruction</h2>
+          <p>
+            Building on the treadmill of production, the treadmill of destruction theory argues that environmental destruction can be generated by the inertial growth dynamics of national militaries. <strong>This military-driven growth dynamic is not a derivative of capitalism</strong> — it has a qualitatively distinct institutional logic rooted in geopolitical competition and arms races.
+          </p>
+
+          <div class="treadmill-grid">
+            <div class="treadmill-card">
+              <p class="treadmill-tag">Driving Force</p>
+              <p class="treadmill-name">Geopolitical Competition &amp; Arms Races</p>
+              <p class="treadmill-desc">Technical sophistication in weaponry provides decisive military advantage. This advantage compels continuous investment in weapons technology, which has steadily increased in environmental lethality. States pursuing geopolitical goals are not subject to the profit motive — they will "spare no expense, human, more-than-human, or otherwise," to maintain military parity.</p>
+            </div>
+            <div class="treadmill-card">
+              <p class="treadmill-tag">Key Finding</p>
+              <p class="treadmill-name">Capital Intensity &amp; Environmental Inequality</p>
+              <p class="treadmill-desc">In an analysis of 126 nations from 2000–2010, military expenditures per soldier significantly drove carbon emissions in both developed and lesser developed countries — positive in developed nations, negative in lesser developed ones. This bifurcated pattern reflects ecologically unequal exchange: powerful nations externalize environmental costs to the global periphery.</p>
+            </div>
+          </div>
+
+          <p>
+            The treadmill of destruction theory's most important contribution is identifying the <strong>unique institutional logic of military-driven environmental harm</strong>. Whereas corporations might damage the environment as a side effect of profit-seeking, military competition can and does set in motion the deliberate degradation of the environment to achieve strategic objectives. The nuclear weapons complex is the clearest illustration: no profit motive drives the production of warheads; the driving force is geopolitical existential competition.
+          </p>
+
+          <div class="pull-quote">
+            <p>"The nuclear weapons-systems possessed by modern militaries are technologically sophisticated, resource-intensive, and generate unprecedented forms and volumes of waste."</p>
+          </div>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- ENVIRONMENTAL SECURITY DEBATE -->
+        <section class="prose-section">
+          <p class="section-kicker">Theoretical Debate</p>
+          <h2>Environmental Security vs. Political Ecology</h2>
+          <p>
+            Since the end of the Cold War, the study of violence and the environment has developed around a productive and contentious debate between two perspectives. The environmental security tradition — most influentially associated with Homer-Dixon and Kaplan — argues that resource scarcity and population growth are the central forces generating conflict. Political ecologists challenged this neo-Malthusian framing, pointing instead to <strong>poverty, structural inequality, and the diverse forms of state-sanctioned violence</strong> that damage environments in pursuit of geopolitical or economic objectives.
+          </p>
+          <p>
+            The chapter's central lesson from this debate: the focus on resource-driven conflict obscures attention from the myriad forms of state-sanctioned violence in developed societies that degrade the environment and pose threats to global ecological security. <strong>Violence against environmental justice activists has reached unprecedented levels in the twenty-first century</strong> — spanning the developed and underdeveloped world — even as military and intelligence agencies have embraced environmental security rhetoric.
+          </p>
+
+          <figure class="prose-figure">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Deforestation_in_Colombia.jpg/1280px-Deforestation_in_Colombia.jpg"
+              alt="Deforestation in Colombia linked to conflict and coca eradication"
+              loading="lazy">
+            <figcaption><strong>Deforestation in Colombia linked to armed conflict.</strong> The confluence of treadmills of production and destruction — narcotraffickers, paramilitaries, state forces, and coca eradication programs — has generated severe human and environmental health consequences in some of the most ecologically sensitive areas of the world. Source: Wikimedia Commons / CC BY-SA 4.0</figcaption>
+          </figure>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- NUCLEAR & ASYMMETRIC WAR -->
+        <section class="prose-section">
+          <p class="section-kicker">Contemporary Dynamics</p>
+          <h2>Nuclear Weapons, Asymmetric War &amp; the Anthropocene</h2>
+
+          <h3>Nuclear Weapons as a Treadmill Case Study</h3>
+          <p>
+            Nuclear weapons punctuate the treadmill of destruction metaphor. Nuclear arsenals are planned decades in advance of their production and amassed through extensive cycles of research, development, and testing. <strong>Profit has never been a primary incentive.</strong> The trajectory of nuclear warmaking is not subject to the will of corporate managers or shareholders — it is driven by geopolitical competition and existential security calculations that have their own expansionary inertia.
+          </p>
+          <p>
+            Research consistently shows that nuclear weapons possession is powerfully associated with higher carbon emissions — and that <em>civilian nuclear energy fails to provide enough efficiency to offset other sources of carbon emissions</em>. The current costs of American nuclear warmaking have dramatically expanded since the Cold War, leading to what the Alliance for Nuclear Accountability calls the "Trillion Dollar Trainwreck."
+          </p>
+
+          <h3>Risk-Transfer Militarism</h3>
+          <p>
+            Modern warmaking is characterized by resource-intensive, high-tech weapons that direct the attendant risks of war — casualties and environmental and human health harms — <strong>away from the homeland and its troops</strong> toward the periphery. This "asymmetric war" and "risk-transfer militarism" concentrates the benefits of military power among dominant nations while externalizing the environmental costs onto lesser-developed countries and internal peripheries — including Native American reservations within the United States.
+          </p>
+
+          <figure class="prose-figure">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Rocky_Flats_aerial.jpg/1280px-Rocky_Flats_aerial.jpg"
+              alt="Rocky Flats nuclear weapons plant, Colorado"
+              loading="lazy">
+            <figcaption><strong>Rocky Flats nuclear weapons plant, Colorado.</strong> Site of plutonium pit production for U.S. nuclear warheads. The facility produced contamination that persists in surrounding soil and groundwater. Rocky Flats is one of many "national sacrifice zones" disproportionately located near communities with limited political power. Source: U.S. DOE / Public Domain</figcaption>
+          </figure>
+        </section>
+
+        <hr class="prose-rule">
+
+        <!-- PATH FORWARD -->
+        <section class="prose-section">
+          <p class="section-kicker">The Path Forward</p>
+          <h2>Ontological Asymmetry, the Meso-Scale &amp; Path Dependency</h2>
+          <p>
+            The chapter proposes a productive theoretical path forward for environmental sociology's engagement with war: a focus on <strong>ontological asymmetry and the meso-scale of analysis</strong>. This approach acknowledges that reality is stratified, has emergent causal tendencies, and that these tendencies are multidimensional — operating at multiple scales simultaneously.
+          </p>
+          <p>
+            War and warmaking are not nominal events that occur at a fixed point in time and space. They are <em>processes</em> that can develop their own expansionary logic — as the treadmill of destruction argues. A focus on ontological asymmetry reveals the interplay of history, social structure, and the natural world that drives the environmental impacts of warmaking across different historical periods and geopolitical contexts.
+          </p>
+          <p>
+            The <strong>path dependency method</strong> offers the most promising analytical framework. A critical juncture — the time and place in which a powerful organization enacts a schema that amasses power through the appropriation of nature — can initiate reactive sequences that "lock in" to a causal pattern of accelerating environmental degradation. Once a treadmill achieves structural persistence, alternative developmental paths become increasingly difficult to access. Understanding when and how treadmills emerge, intensify, and might be dissolved is one of the central theoretical tasks that lies ahead.
+          </p>
+        </section>
+
+      </article>
+
+      <!-- ─── SIDEBAR ──────────────────────────────── -->
+      <aside class="sidebar">
+
+        <div class="sidebar-card">
+          <p class="sidebar-card-title">Citation</p>
+          <p class="citation-text">
+            Lengefeld, M.R., Hooks, G., and Smith, C.L. (2021). "War and the Environment." In Caniglia, B.S., Jorgenson, A., Malin, S.A., Peek, L., Pellow, D.N., and Huang, X. (Eds.), <em>Handbook of Environmental Sociology.</em> Springer. Chapter 18, pp. 381–401.
+          </p>
+          <a href="https://doi.org/10.1007/978-3-030-77712-8_18"
+             target="_blank" rel="noopener" class="citation-doi">Read Chapter ↗</a>
+        </div>
+
+        <div class="sidebar-card">
+          <p class="sidebar-card-title">Chapter Details</p>
+          <ul class="detail-list">
+            <li>
+              <p class="detail-label">Type</p>
+              <p class="detail-value">Handbook Chapter · Invited</p>
+            </li>
+            <li>
+              <p class="detail-label">Volume</p>
+              <p class="detail-value">Handbooks of Sociology and Social Research</p>
+            </li>
+            <li>
+              <p class="detail-label">Publisher</p>
+              <p class="detail-value">Springer Nature</p>
+            </li>
+            <li>
+              <p class="detail-label">Year</p>
+              <p class="detail-value">2021</p>
+            </li>
+            <li>
+              <p class="detail-label">Pages</p>
+              <p class="detail-value">381–401 (21 pages)</p>
+            </li>
+            <li>
+              <p class="detail-label">Key Frameworks</p>
+              <p class="detail-value">Treadmill of Destruction · Political Ecology · Environmental Security · Critical Realism · Path Dependency</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <p class="sidebar-card-title">Related Research</p>
+          <ul class="related-links">
+            <li class="related-link-item">
+              <a href="nuclear_production.html">
+                <span class="link-tag">Nuclear Weapons</span>
+                Nuclear Weapons &amp; the Anthropocene
+              </a>
+            </li>
+            <li class="related-link-item">
+              <a href="afsarticle.html">
+                <span class="link-tag">Asymmetric War</span>
+                Asymmetric Warfare &amp; Carbon Emissions
+              </a>
+            </li>
+            <li class="related-link-item">
+              <a href="colombia.html">
+                <span class="link-tag">Drug Policy</span>
+                War on Drugs in Colombia
+              </a>
+            </li>
+            <li class="related-link-item">
+              <a href="colombiancivilwar.html">
+                <span class="link-tag">Treadmill Theory</span>
+                Treadmills in the Anthropocene
+              </a>
+            </li>
+            <li class="related-link-item">
+              <a href="nucleartech.html">
+                <span class="link-tag">Nuclear &amp; CO₂</span>
+                Nuclear Shadows: CO₂ &amp; Nuclear Technology
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </aside>
+    </div><!-- /.article-body -->
+
+    <!-- ─── GALLERY ───────────────────────────────── -->
+    <section class="gallery-section">
+      <div class="gallery-inner">
+        <p class="gallery-label">Photography</p>
+        <div class="gallery-grid">
+          <div class="gallery-item wide">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Bikini_Atoll_nuclear_test_-_1946.jpg/1280px-Bikini_Atoll_nuclear_test_-_1946.jpg"
+              alt="Nuclear test at Bikini Atoll 1946" loading="lazy">
+            <div class="gallery-caption">Nuclear weapons test at Bikini Atoll, 1946. The Cold War arms race produced approximately 18,000 U.S. nuclear warheads by 1960 — each new generation more resource-intensive and environmentally lethal than the last. Source: U.S. Navy / Public Domain</div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/US_military_spraying_agent_orange.jpg/1280px-US_military_spraying_agent_orange.jpg"
+              alt="Agent Orange spraying Vietnam War" loading="lazy">
+            <div class="gallery-caption">U.S. aircraft spraying Agent Orange over Vietnam — deliberate ecocide as military strategy, destroying forest cover and poisoning ecosystems across Southeast Asia. Source: U.S. Air Force / Public Domain</div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Aerial_View_of_Hanford_Site.jpg/1280px-Aerial_View_of_Hanford_Site.jpg"
+              alt="Hanford nuclear site aerial view" loading="lazy">
+            <div class="gallery-caption">Hanford nuclear site, Washington State — the most contaminated nuclear facility in the U.S., a Cold War national sacrifice zone disproportionately located near Indigenous lands. Source: U.S. DOE / Public Domain</div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Deforestation_in_Colombia.jpg/1280px-Deforestation_in_Colombia.jpg"
+              alt="Deforestation in Colombia" loading="lazy">
+            <div class="gallery-caption">Deforestation in Colombia driven by the confluence of treadmills of production and destruction — coca cultivation, armed conflict, and U.S.-backed eradication campaigns combining to devastate one of the world's most biodiverse ecosystems. Source: Wikimedia Commons / CC BY-SA 4.0</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── BOTTOM NAV ─────────────────────────────── -->
+    <div class="article-footer-nav">
+      <a href="../research/index.html" class="back-link">← All Research</a>
+      <a href="../about/index.html"    class="bio-link">About Dr. Lengefeld →</a>
+    </div>
+
+  </main>
+
+  <!-- ─── FOOTER ──────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-brand-sm">Michael Lengefeld, PhD · Northeastern University</p>
+      <div class="footer-ext">
+        <a href="https://scholar.google.com/citations?hl=en&user=zWWml-4AAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+        <a href="https://orcid.org/0000-0002-8063-0808" target="_blank" rel="noopener">ORCiD ↗</a>
+      </div>
+      <p class="footer-copy">© 2026 Michael Lengefeld, PhD · Northeastern University</p>
+    </div>
+  </footer>
+
+</body>
 </html>
