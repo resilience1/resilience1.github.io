@@ -1,43 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>News App</title>
-  <link rel="stylesheet" type="text/css" href="public/reset.css" />
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto+Slab:700" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="public/style.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Where Warming Lands Hardest — Climate Vulnerability Globe</title>
+<meta name="description" content="An interactive 3D globe of climate vulnerability by country, based on the ND-GAIN Country Index." />
+
+<!-- Fonts: Fraunces (editorial display) · Inter (UI) · IBM Plex Mono (data) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- globe.gl (bundles three.js) -->
+<script src="https://unpkg.com/globe.gl"></script>
+
+<style>
+  :root{
+    /* Sequential vulnerability ramp — pale sand to deep ember */
+    --c0:#f4e6c3; --c1:#f0c25a; --c2:#e08a3c; --c3:#c9482e; --c4:#7d1d2b;
+    --ocean:#0a1622; --nodata:#2c3a45;
+    --bg-0:#0c1a2b; --bg-1:#060a12; --bg-2:#04060b;
+    --ink:#eef2f4; --muted:#8aa0ad; --faint:#56697a;
+    --accent:#f0c25a;
+    --line:rgba(255,255,255,.10);
+    --panel:rgba(9,16,24,.55);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{
+    background:
+      radial-gradient(120% 90% at 72% 18%, var(--bg-0) 0%, var(--bg-1) 48%, var(--bg-2) 100%);
+    color:var(--ink);
+    font-family:"Inter",system-ui,sans-serif;
+    overflow:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* faint starfield */
+  .stars{position:fixed;inset:0;pointer-events:none;opacity:.55;
+    background-image:
+      radial-gradient(1px 1px at 12% 22%, #fff, transparent),
+      radial-gradient(1px 1px at 28% 64%, #cfe2ff, transparent),
+      radial-gradient(1px 1px at 47% 12%, #fff, transparent),
+      radial-gradient(1px 1px at 63% 78%, #fff, transparent),
+      radial-gradient(1px 1px at 81% 34%, #dfeaff, transparent),
+      radial-gradient(1px 1px at 91% 67%, #fff, transparent),
+      radial-gradient(1px 1px at 8% 84%, #fff, transparent),
+      radial-gradient(1px 1px at 38% 91%, #cfe2ff, transparent),
+      radial-gradient(1px 1px at 55% 47%, #fff, transparent),
+      radial-gradient(1px 1px at 73% 9%, #fff, transparent);
+  }
+
+  #globe{position:fixed;inset:0;z-index:1}
+  #globe canvas{display:block}
+
+  /* ---- Header (top-left) ---- */
+  .masthead{position:fixed;z-index:3;top:clamp(18px,3.2vw,40px);left:clamp(18px,3.2vw,44px);
+    max-width:min(46ch,42vw);pointer-events:none}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--accent);margin:0 0 14px;display:flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--accent);opacity:.7}
+  h1{font-family:"Fraunces",serif;font-weight:400;font-size:clamp(34px,5.4vw,68px);
+    line-height:.98;letter-spacing:-.015em;margin:0 0 16px}
+  h1 em{font-style:italic;color:var(--accent)}
+  .lede{font-size:clamp(14px,1.05vw,16px);line-height:1.55;color:var(--muted);
+    max-width:40ch;margin:0}
+
+  /* ---- Side panel: ranked list (right) ---- */
+  .panel{position:fixed;z-index:3;top:clamp(18px,3.2vw,40px);right:clamp(18px,3.2vw,44px);
+    width:min(312px,34vw);background:var(--panel);backdrop-filter:blur(9px);
+    -webkit-backdrop-filter:blur(9px);border:1px solid var(--line);border-radius:14px;
+    padding:18px 18px 8px;box-shadow:0 24px 60px -28px rgba(0,0,0,.8)}
+  .panel h2{font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:11px;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
+  .panel .sub{font-size:11px;color:var(--faint);margin:0 0 14px;line-height:1.4}
+  ol{list-style:none;margin:0;padding:0}
+  .row{display:grid;grid-template-columns:24px 1fr auto;align-items:center;gap:10px;
+    width:100%;text-align:left;background:none;border:0;color:inherit;cursor:pointer;
+    padding:9px 8px;border-radius:9px;font-family:inherit;
+    transition:background .18s ease, transform .18s ease}
+  .row:hover,.row:focus-visible{background:rgba(255,255,255,.06);transform:translateX(2px);outline:none}
+  .row .rk{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--faint)}
+  .row .nm{font-size:14px;font-weight:500;letter-spacing:-.01em}
+  .row .dot{width:11px;height:11px;border-radius:50%;justify-self:end;
+    box-shadow:0 0 0 1px rgba(255,255,255,.12)}
+  .row.active{background:rgba(240,194,90,.12)}
+  .row.active .nm{color:var(--accent)}
+
+  /* ---- Legend (bottom-left) ---- */
+  .legend{position:fixed;z-index:3;left:clamp(18px,3.2vw,44px);bottom:clamp(58px,7vw,72px)}
+  .legend .lab{display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;
+    font-size:10px;letter-spacing:.06em;color:var(--muted);margin-bottom:7px}
+  .ramp{width:min(260px,40vw);height:9px;border-radius:6px;
+    background:linear-gradient(90deg,var(--c0),var(--c1),var(--c2),var(--c3),var(--c4));
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
+
+  /* ---- Footer / provenance ---- */
+  footer{position:fixed;z-index:3;left:0;right:0;bottom:0;
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    padding:12px clamp(18px,3.2vw,44px);font-size:11px;color:var(--faint);
+    background:linear-gradient(0deg,rgba(4,6,11,.85),transparent)}
+  footer a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line)}
+  footer a:hover{color:var(--accent)}
+
+  /* hover tooltip (globe.gl injects .scene-tooltip; we style our own inner markup) */
+  .tip{font-family:"Inter",sans-serif;background:rgba(8,14,22,.92);border:1px solid var(--line);
+    border-radius:10px;padding:10px 13px;box-shadow:0 18px 40px -20px #000;min-width:150px}
+  .tip .t-nm{font-size:14px;font-weight:600;margin-bottom:6px}
+  .tip .t-row{display:flex;justify-content:space-between;gap:18px;font-size:12px;color:var(--muted)}
+  .tip .t-row b{font-family:"IBM Plex Mono",monospace;color:var(--ink);font-weight:500}
+  .tip .t-tier{margin-top:7px;font-family:"IBM Plex Mono",monospace;font-size:10px;
+    letter-spacing:.12em;text-transform:uppercase}
+
+  .status{position:fixed;z-index:4;inset:0;display:flex;align-items:center;justify-content:center;
+    font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted);
+    letter-spacing:.04em;pointer-events:none;text-align:center;padding:24px}
+
+  @media (max-width:860px){
+    .masthead{max-width:88vw;top:18px;left:18px}
+    .panel{position:fixed;top:auto;bottom:96px;right:50%;transform:translateX(50%);
+      width:min(420px,92vw);max-height:34vh;overflow:auto}
+    .legend{bottom:auto;top:initial;left:50%;transform:translateX(-50%);bottom:62px;display:none}
+    footer{font-size:10px}
+  }
+  @media (prefers-reduced-motion:reduce){.row{transition:none}}
+</style>
 </head>
-<header>
-  <h1>What's New?</h1>
-  <form>
-    <button id="engadget" class="engadget" type="button">Engadget</button>
-    <button id="recode" type="button">Recode</button>
-    <button id="nextWeb" type="button">The Next Web</button>
-    <button id="ignNews" type="button">IGN News</button>
-  </form>
-</header>
-
 <body>
+  <div class="stars" aria-hidden="true"></div>
+  <div id="globe" role="img" aria-label="Rotating 3D globe shaded by national climate vulnerability"></div>
 
-  <div class="container">
-    <section class="info">
-      
-    </section>
-    <main>
-    </main>
+  <header class="masthead">
+    <p class="eyebrow">Climate vulnerability · ND-GAIN Index</p>
+    <h1>Where warming<br>lands <em>hardest</em></h1>
+    <p class="lede">Every nation faces a warming climate, but not equally. Shading reflects each
+      country's exposure to climate hazards and its capacity to adapt across food, water, health,
+      habitat, and infrastructure. Warmer means less able to absorb the shock.</p>
+  </header>
+
+  <aside class="panel" aria-label="Most exposed countries">
+    <h2>Most exposed</h2>
+    <p class="sub">Tap a country to bring it into view.</p>
+    <ol id="ranklist"></ol>
+  </aside>
+
+  <div class="legend" aria-hidden="true">
+    <div class="lab"><span>Less vulnerable</span><span>More vulnerable</span></div>
+    <div class="ramp"></div>
   </div>
-  <footer>
-    <div class="wrapper">
-      <p>News feed powered by: <a href="https://newsapi.org/">NewsAPI</a> </p>
-    </div>
-  </footer>
-  <script src="public/main.js"></script>
-  <script src="public/Twitter.js"></script>
-  <script src="public/sha1.js"></script>
-</body>
 
+  <footer>
+    <span>Vulnerability normalized 0–100 for display, ordered after the ND-GAIN Country Index.</span>
+    <span>Source: University of Notre Dame Global Adaptation Initiative — <a href="https://gain.nd.edu/our-work/country-index/" target="_blank" rel="noopener">gain.nd.edu</a></span>
+  </footer>
+
+  <div class="status" id="status">Loading country boundaries…</div>
+
+<script>
+/* ============================================================
+   DATA — vulnerability index 0..100 (higher = more vulnerable)
+   Ordering follows the ND-GAIN Country Index vulnerability
+   component; values are normalized for display. Keyed by ISO-A2.
+   ============================================================ */
+const VULN = {
+  // Severe
+  TD:97, CF:95, ER:94, SO:93, SD:92, GW:91, CD:90, NE:89, AF:88, SS:87,
+  ML:86, BI:85, LR:84, YE:83, SL:82, HT:81, MR:80, MG:80, MW:79, BF:78,
+  // High
+  ZW:76, MZ:75, ET:74, UG:73, NG:72, KM:72, GN:71, GM:70, TG:69, BJ:68,
+  RW:67, CG:66, DJ:65, LS:65, SZ:64, GA:62, PK:74, BD:71, MM:69, KH:68,
+  NP:66, AO:70, TZ:67, KE:64, ZM:66, CM:67, CI:66, GH:60, SN:62, PG:67,
+  LA:65, TJ:63, IQ:62, LK:58, BT:55, IN:60,
+  // Elevated
+  PH:57, ID:55, VN:54, EG:56, BO:57, GT:56, HN:57, NI:56, PE:52, CO:50,
+  MA:53, DZ:52, MX:48, BR:46, CN:48, TR:47, IR:54, ZA:49, TH:50, VE:55,
+  EC:51, PY:50, SV:54, DO:49, TN:51, LY:55, SY:60, JO:53, LB:50, UZ:56,
+  TM:55, KG:54, MN:53, KZ:48, AZ:47, GE:44, AM:45,
+  // Moderate
+  RU:42, AR:40, CL:38, UY:39, MY:44, SA:45, AE:43, QA:44, KW:45, OM:44,
+  BH:43, BN:46, CR:42, PA:43, CU:48, JM:50, TT:42, RO:38, BG:39, RS:38,
+  UA:42, BY:39, GR:40, PT:38, ES:36, IT:36, HR:37, HU:38, PL:36, SK:36,
+  CZ:35, IL:42, MK:39, BA:40, AL:42, MD:43,
+  // Lower
+  NO:24, FI:25, SE:25, DK:26, CH:24, DE:30, NL:31, AT:29, NZ:28, IS:25,
+  LU:28, SG:34, JP:32, KR:33, AU:34, CA:30, US:33, GB:31, FR:31, IE:30,
+  BE:31, EE:33, LV:34, LT:34, SI:33
+};
+// Natural Earth ne_110m marks France & Norway ISO_A2 as "-99" — patch by name.
+const NAME_PATCH = { "France":"FR", "Norway":"NO", "Kosovo":"RS", "Somaliland":"SO" };
+
+// Top of the ranked list, with view coordinates for fly-to.
+const RANK = [
+  ["Chad","TD",15.4,18.7],["Central African Rep.","CF",6.6,20.9],["Eritrea","ER",15.2,39.8],
+  ["Somalia","SO",5.2,46.2],["Sudan","SD",15.5,30.2],["Guinea-Bissau","GW",12.0,-15.0],
+  ["DR Congo","CD",-2.9,23.6],["Niger","NE",17.6,8.1],["Afghanistan","AF",33.9,67.7],
+  ["South Sudan","SS",7.9,30.0],["Mali","ML",17.6,-4.0],["Burundi","BI",-3.4,29.9]
+];
+
+/* ---- color ramp ---- */
+const STOPS = [[0,[244,230,195]],[35,[240,194,90]],[60,[224,138,60]],[80,[201,72,46]],[100,[125,29,43]]];
+function rampColor(v){
+  if(v==null) return 'rgba(70,86,99,0.62)';            // no-data slate
+  v=Math.max(0,Math.min(100,v));
+  for(let i=0;i<STOPS.length-1;i++){
+    const [a,ca]=STOPS[i],[b,cb]=STOPS[i+1];
+    if(v<=b){const t=(v-a)/(b-a||1);
+      const c=ca.map((x,k)=>Math.round(x+(cb[k]-x)*t));
+      return `rgb(${c[0]},${c[1]},${c[2]})`;}
+  }
+  return 'rgb(125,29,43)';
+}
+function tier(v){
+  if(v>=80) return ["Severe","#c9482e"];
+  if(v>=65) return ["High","#e08a3c"];
+  if(v>=50) return ["Elevated","#f0c25a"];
+  if(v>=35) return ["Moderate","#cdb27a"];
+  return ["Lower","#9fb6a0"];
+}
+function isoOf(props){
+  let iso = props.ISO_A2 || props.ISO_A2_EH || props.iso_a2;
+  if(!iso || iso==='-99'){ iso = NAME_PATCH[props.ADMIN||props.NAME||props.name]; }
+  return iso;
+}
+function scoreOf(props){ const i=isoOf(props); return i!=null?VULN[i]:undefined; }
+function nameOf(props){ return props.ADMIN || props.NAME || props.name || 'Unknown'; }
+
+/* ============================================================
+   GLOBE
+   ============================================================ */
+const el = document.getElementById('globe');
+const statusEl = document.getElementById('status');
+const reduceMotion = matchMedia('(prefers-reduced-motion:reduce)').matches;
+let world, selectedIso = null;
+
+function buildRankList(){
+  const ol = document.getElementById('ranklist');
+  RANK.forEach(([name,iso,lat,lng],i)=>{
+    const v = VULN[iso];
+    const b = document.createElement('button');
+    b.className='row'; b.type='button'; b.dataset.iso=iso;
+    b.innerHTML =
+      `<span class="rk">${String(i+1).padStart(2,'0')}</span>`+
+      `<span class="nm">${name}</span>`+
+      `<span class="dot" style="background:${rampColor(v)}"></span>`;
+    b.addEventListener('click',()=>flyTo(lat,lng,iso));
+    ol.appendChild(b);
+  });
+}
+
+function flyTo(lat,lng,iso){
+  selectedIso = iso;
+  if(world){
+    world.controls().autoRotate=false;
+    world.pointOfView({lat,lng,altitude:1.7},1100);
+    world.polygonAltitude(d=>isoOf(d.properties)===selectedIso?0.07:0.01);
+    world.polygonCapColor(capColor);
+  }
+  document.querySelectorAll('.row').forEach(r=>r.classList.toggle('active',r.dataset.iso===iso));
+}
+
+function capColor(d){
+  const v=scoreOf(d.properties);
+  const base=rampColor(v);
+  if(isoOf(d.properties)===selectedIso) return base; // full strength when selected
+  return base;
+}
+
+const GEO_URL = 'https://raw.githubusercontent.com/vasturiano/globe.gl/master/example/datasets/ne_110m_admin_0_countries.geojson';
+
+fetch(GEO_URL)
+  .then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); })
+  .then(geo=>{
+    const features = geo.features.filter(f=>nameOf(f.properties)!=='Antarctica');
+    statusEl.style.display='none';
+
+    world = Globe()(el)
+      .backgroundColor('rgba(0,0,0,0)')
+      .showGlobe(true)
+      .showAtmosphere(true)
+      .atmosphereColor('#5b9bd5')
+      .atmosphereAltitude(0.18)
+      .polygonsData(features)
+      .polygonCapColor(capColor)
+      .polygonSideColor(()=> 'rgba(8,14,22,0.65)')
+      .polygonStrokeColor(()=> 'rgba(255,255,255,0.16)')
+      .polygonAltitude(0.01)
+      .polygonLabel(({properties:p})=>{
+        const v=scoreOf(p); const [tl,tc]=tier(v??-1);
+        return `<div class="tip">
+            <div class="t-nm">${nameOf(p)}</div>
+            <div class="t-row"><span>Vulnerability</span><b>${v!=null?v+' / 100':'no data'}</b></div>
+            ${v!=null?`<div class="t-tier" style="color:${tc}">${tl} exposure</div>`:''}
+          </div>`;
+      })
+      .onPolygonHover(hov=>{
+        world.polygonAltitude(d=> d===hov ? 0.06 : (isoOf(d.properties)===selectedIso?0.07:0.01));
+      })
+      .onPolygonClick((d)=>{
+        const c = world.controls(); c.autoRotate=false;
+        const ll = polyCentroid(d);
+        if(ll) flyTo(ll[1],ll[0],isoOf(d.properties));
+      });
+
+    // dark ocean material
+    world.globeMaterial().color.set('#0a1622');
+    world.globeMaterial().shininess = 6;
+
+    // sizing
+    const size=()=>world.width(el.clientWidth).height(el.clientHeight);
+    size(); addEventListener('resize',size);
+
+    // camera + spin
+    world.pointOfView({lat:12,lng:18,altitude:2.3},0);
+    const c=world.controls();
+    c.enableZoom=true; c.autoRotate=!reduceMotion; c.autoRotateSpeed=0.55;
+    c.minDistance=180; c.maxDistance=520;
+    // resume gentle spin after idle
+    let idle; const wake=()=>{c.autoRotate=false;clearTimeout(idle);
+      idle=setTimeout(()=>{ if(!reduceMotion) c.autoRotate=true; },4000);};
+    el.addEventListener('pointerdown',wake);
+  })
+  .catch(err=>{
+    statusEl.innerHTML='Could not load map boundaries.<br>Check your network connection and reload.';
+    console.error('Geometry load failed:',err);
+  });
+
+/* rough centroid from the largest ring of a (multi)polygon */
+function polyCentroid(feature){
+  const g=feature.geometry; if(!g) return null;
+  let ring;
+  if(g.type==='Polygon') ring=g.coordinates[0];
+  else if(g.type==='MultiPolygon'){
+    let best=0; g.coordinates.forEach(p=>{ if(p[0].length>best){best=p[0].length;ring=p[0];} });
+  }
+  if(!ring) return null;
+  let x=0,y=0; ring.forEach(p=>{x+=p[0];y+=p[1];});
+  return [x/ring.length, y/ring.length];
+}
+
+buildRankList();
+</script>
+</body>
 </html>
