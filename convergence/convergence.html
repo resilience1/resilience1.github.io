@@ -369,7 +369,7 @@
   <div class="wrap">
     <div class="section-head">
       <h2>Today's Convergence</h2>
-      <div class="sub">Curated stories where at least two of the three domains — military, environment, health — intersect directly.</div>
+      <div class="sub">Curated stories where at least two of the three domains — military, environment, health — intersect directly, including nuclear weapons and nuclear energy coverage.</div>
     </div>
     <div class="grid" id="storyGrid"></div>
   </div>
@@ -476,7 +476,7 @@
       <h2>Methodology</h2>
     </div>
     <p style="max-width:640px;color:var(--ink-soft);font-size:14px;">
-      Stories are selected where military activity, environmental disruption, and public or ecological health outcomes visibly intersect — toxic exposure at bases, conflict-driven pollution and disease, climate impacts on military planning, and related legacy contamination. Each entry links to its original source. The archive and manual additions are stored only in this browser's local storage; use Export/Import to move your archive between devices.
+      Stories are selected where military activity, environmental disruption, and public or ecological health outcomes visibly intersect — toxic exposure at bases, conflict-driven pollution and disease, climate impacts on military planning, related legacy contamination, and nuclear energy or nuclear weapons — from arsenal modernization and arms-control treaties to reactor safety, radiation health effects, and weapons-production legacies. Each entry links to its original source. The archive and manual additions are stored only in this browser's local storage; use Export/Import to move your archive between devices.
     </p>
     <p style="max-width:640px;color:var(--ink-soft);font-size:14px;">
       <strong style="color:var(--ink);">Editorial floor:</strong> relevant stories from Democracy Now!, The Intercept, and Dropsite News are always carried in the Email Brief, independent of their circulation score — marked with a <span class="tag pinned" style="margin-left:0;">📌 Always in Brief</span> badge on the story card. This is a fixed rule in the code (see <code>PRIORITY_SOURCES</code>), not an editable setting on the page itself.
@@ -589,6 +589,30 @@
       url:"https://www.dropsitenews.com/p/gaza-genocide-yellow-line-israel-killing-palestinians-ceasefire",
       cat:"health",
       circ:40
+    },
+    {
+      title:"U.S. Nuclear Arsenal Overhaul on Track to Cost at Least $1.7 Trillion",
+      dek:"FY2026 defense spending pushes nuclear-forces funding to $62 billion as the Pentagon replaces nearly every leg of the strategic triad — the B-21 bomber, Columbia-class submarines, and the Sentinel ICBM — with total modernization costs now projected past $1.7 trillion over coming decades.",
+      source:"Arms Control Association",
+      url:"https://www.armscontrol.org/factsheets/us-modernization-2024-update",
+      cat:"mil",
+      circ:60
+    },
+    {
+      title:"Nationwide Study Links Nuclear Power Plants to Higher Cancer Mortality",
+      dek:"A Harvard-led analysis published in Nature Communications estimates roughly 115,000 U.S. cancer deaths between 2000 and 2018 were associated with proximity to nuclear power plants — a finding disputed by some researchers over its reliance on geographic proximity rather than direct radiation measurements.",
+      source:"Harvard T.H. Chan School of Public Health",
+      url:"https://hsph.harvard.edu/news/proximity-to-nuclear-power-plants-associated-with-increased-cancer-mortality/",
+      cat:"health",
+      circ:68
+    },
+    {
+      title:"New START Expires, Leaving No Treaty Limiting U.S.-Russia Nuclear Arsenals",
+      dek:"The last treaty capping American and Russian strategic nuclear weapons lapsed on February 5, 2026; both sides have informally agreed to keep observing its limits, but nothing legally constrains either arsenal for the first time since 1969.",
+      source:"Council on Foreign Relations",
+      url:"https://www.cfr.org/articles/nukes-without-limits-a-new-era-after-the-end-of-new-start",
+      cat:"mil",
+      circ:75
     }
   ];
 
@@ -600,11 +624,12 @@
     return PRIORITY_SOURCES.some(function(p){ return source.indexOf(p.toLowerCase()) !== -1; });
   }
 
-  var TICKER_TAGS = ["Toxic Exposure","Military Emissions","Conflict & Disease","Veteran Health","Climate & War","Zoonotic Risk","Air Quality","Water Security"];
+  var TICKER_TAGS = ["Toxic Exposure","Military Emissions","Conflict & Disease","Veteran Health","Climate & War","Zoonotic Risk","Air Quality","Water Security","Nuclear Weapons","Nuclear Energy"];
 
-  // Bumped to v2 so browsers that already stored a v1 "today" list (before the
-  // Democracy Now! / Intercept / Dropsite priority stories existed) get reseeded.
-  var LS_TODAY = "convergence_today_v2";
+  // Bumped to v3 so browsers that already stored an older "today" list (before the
+  // Democracy Now! / Intercept / Dropsite priority stories, and before nuclear
+  // energy/weapons stories, existed) get reseeded with the current set.
+  var LS_TODAY = "convergence_today_v3";
   var LS_ARCHIVE = "convergence_archive_v1";
 
   function todayKey(){
