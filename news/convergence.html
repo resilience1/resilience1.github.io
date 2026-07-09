@@ -228,19 +228,23 @@
   }
   .card button.remove:hover{color:var(--accent-2);}
 
-  /* ---------- newsmap ---------- */
+  /* ---------- newsmap ----------
+     A CSS grid rather than a freeform treemap: every tile is guaranteed at
+     least one full cell (sized to comfortably fit a headline), and more
+     circulated stories span more cells — bigger footprint, same legibility floor. */
   #newsmap-box{
-    position:relative;
-    width:100%;
-    height:420px;
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(170px, 1fr));
+    grid-auto-rows:96px;
+    grid-auto-flow:dense;
+    gap:6px;
     border:1px solid var(--line);
     background:var(--card-bg);
-    overflow:hidden;
+    padding:6px;
   }
   .nm-tile{
-    position:absolute;
     box-sizing:border-box;
-    border:1px solid var(--paper);
+    border-radius:2px;
     padding:10px 12px;
     overflow:hidden;
     color:#fff;
@@ -249,8 +253,14 @@
     transition:filter .12s ease;
   }
   .nm-tile:hover{filter:brightness(1.08);}
-  .nm-tile .nm-title{font-size:13px;font-weight:700;line-height:1.25;}
-  .nm-tile .nm-foot{font-size:10.5px;opacity:.85;display:flex;justify-content:space-between;}
+  .nm-tile.size-lg{grid-column:span 2;}
+  .nm-tile.size-xl{grid-column:span 2;grid-row:span 2;}
+  .nm-tile .nm-title{
+    font-size:13px;font-weight:700;line-height:1.25;
+    display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;
+  }
+  .nm-tile.size-xl .nm-title{font-size:16px;-webkit-line-clamp:7;}
+  .nm-tile .nm-foot{font-size:10.5px;opacity:.85;display:flex;justify-content:space-between;gap:8px;}
   .nm-tile.env{background:var(--accent);}
   .nm-tile.mil{background:var(--accent-2);}
   .nm-tile.health{background:var(--accent-3);}
@@ -695,114 +705,55 @@
   }
   function escapeAttr(str){ return escapeHtml(str); }
 
-  // ---------- squarified treemap ----------
-  function squarify(items, x, y, w, h){
-    // items: [{value, ...}], returns items with .rect = {x,y,w,h}
-    var total = items.reduce(function(a,b){return a+b.value;},0) || 1;
-    var scale = (w*h)/total;
-    var nodes = items.map(function(it){ return Object.assign({}, it, {area: it.value*scale}); })
-                     .sort(function(a,b){return b.area-a.area;});
-    var result = [];
-    var rowStart = 0;
-
-    function layoutRow(row, x, y, w, h, horizontal){
-      var rowArea = row.reduce(function(a,b){return a+b.area;},0);
-      var thickness = horizontal ? (w>0? rowArea/w : 0) : (h>0? rowArea/h : 0);
-      var offset = 0;
-      row.forEach(function(it){
-        var len = thickness>0 ? it.area/thickness : 0;
-        if(horizontal){
-          it.rect = {x:x+offset, y:y, w:len, h:thickness};
-        }else{
-          it.rect = {x:x, y:y+offset, w:thickness, h:len};
-        }
-        offset += len;
-      });
-    }
-
-    var remaining = nodes.slice();
-    var cx=x, cy=y, cw=w, ch=h;
-
-    function worst(row, sideLen){
-      var area = row.reduce(function(a,b){return a+b.area;},0);
-      if(area===0 || sideLen===0) return Infinity;
-      var maxA = Math.max.apply(null,row.map(function(r){return r.area;}));
-      var minA = Math.min.apply(null,row.map(function(r){return r.area;}));
-      var s2 = sideLen*sideLen;
-      return Math.max((s2*maxA)/(area*area), (area*area)/(s2*minA));
-    }
-
-    while(remaining.length){
-      var horizontal = cw >= ch;
-      var sideLen = horizontal ? ch : cw;
-      var row = [remaining[0]];
-      var rest = remaining.slice(1);
-      while(rest.length){
-        var testRow = row.concat([rest[0]]);
-        if(worst(testRow, sideLen) <= worst(row, sideLen)){
-          row = testRow; rest = rest.slice(1);
-        } else break;
-      }
-      var rowArea = row.reduce(function(a,b){return a+b.area;},0);
-      var thickness = sideLen>0 ? rowArea/sideLen : 0;
-      layoutRow(row, cx, cy, horizontal? cw:thickness, horizontal? thickness:ch, horizontal);
-      row.forEach(function(r){ result.push(r); });
-      if(horizontal){ cy += thickness; ch -= thickness; }
-      else{ cx += thickness; cw -= thickness; }
-      remaining = rest;
-      if(cw<=0 || ch<=0) {
-        // push any leftovers with zero rect to avoid infinite loop
-        remaining.forEach(function(r){ r.rect = {x:cx,y:cy,w:0,h:0}; result.push(r); });
-        remaining = [];
-      }
-    }
-    return result;
+  // ---------- newsmap: tiered grid ----------
+  // Tile size is a discrete tier (xl / lg / default) rather than a continuously
+  // scaled area. This guarantees every single tile — even the lowest-circulation
+  // one — is at least one full grid cell, which #newsmap-box's CSS sizes to
+  // comfortably fit a wrapped headline. Higher-circulation stories simply span
+  // more cells, so "more circulated" still reads as "bigger footprint."
+  function tierForRank(rank, total){
+    var topCut = Math.max(1, Math.round(total * 0.15));   // biggest ~15%
+    var midCut = Math.max(topCut + 1, Math.round(total * 0.45)); // next ~30%
+    if(rank < topCut) return "xl";
+    if(rank < midCut) return "lg";
+    return "";
   }
 
   function renderNewsmap(){
     var box = document.getElementById("newsmap-box");
     box.innerHTML = "";
-    var rect = box.getBoundingClientRect();
-    var W = rect.width, H = rect.height;
-    // Always maps every story currently in Today's Convergence — same array as the grid.
-    var items = todayData.stories.map(function(s){ return {value: Math.max(s.circ,1), story:s}; });
-    if(!items.length){
+
+    // Every story in the Email Brief must also appear here. Both are built from
+    // the same todayData.stories array, so this holds by construction — the
+    // brief is always a subset of what's mapped below, never a separate list.
+    var stories = todayData.stories;
+
+    if(!stories.length){
       box.innerHTML = '<p class="empty-note" style="padding:16px;">No stories to map yet.</p>';
       document.getElementById("findingsLine").innerHTML = "";
       return;
     }
-    var placed = squarify(items, 0, 0, W, H);
-    placed.forEach(function(p){
-      var s = p.story;
+
+    var ranked = stories.slice().sort(function(a,b){ return b.circ - a.circ; });
+    ranked.forEach(function(s, rank){
+      var tier = tierForRank(rank, ranked.length);
       var tile = document.createElement(s.url ? "a" : "div");
-      tile.className = "nm-tile "+s.cat;
+      tile.className = "nm-tile "+(tier ? "size-"+tier+" " : "")+s.cat;
       if(s.url){
         tile.href = s.url;
         tile.target = "_blank";
         tile.rel = "noopener";
       }
-      tile.style.left = p.rect.x+"px";
-      tile.style.top = p.rect.y+"px";
-      tile.style.width = Math.max(p.rect.w,0)+"px";
-      tile.style.height = Math.max(p.rect.h,0)+"px";
-      var showText = p.rect.w > 90 && p.rect.h > 46;
-      tile.innerHTML = showText ?
-        ('<div class="nm-title">'+escapeHtml(s.title)+'</div>'+
-         '<div class="nm-foot"><span>'+escapeHtml(s.source)+'</span><span>'+s.circ+'</span></div>')
-        : '';
+      tile.innerHTML =
+        '<div class="nm-title">'+escapeHtml(s.title)+'</div>'+
+        '<div class="nm-foot"><span>'+escapeHtml(s.source)+'</span><span>'+s.circ+'</span></div>';
       tile.title = s.title+" — circulation "+s.circ+(s.url ? " — click to read" : "");
       box.appendChild(tile);
     });
 
-    var sorted = todayData.stories.slice().sort(function(a,b){return b.circ-a.circ;});
-    var top3 = sorted.slice(0,3).map(function(s){return s.title;}).join(" · ");
+    var top3 = ranked.slice(0,3).map(function(s){return s.title;}).join(" · ");
     document.getElementById("findingsLine").innerHTML =
       "<b>Most circulated today:</b> " + escapeHtml(top3 || "—");
-  }
-
-  window.addEventListener("resize", debounce(renderNewsmap, 200));
-  function debounce(fn, ms){
-    var t; return function(){ clearTimeout(t); t=setTimeout(fn, ms); };
   }
 
   // ---------- archive ----------
