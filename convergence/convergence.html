@@ -338,13 +338,12 @@
     <div class="brand">
       <h1>The <b>Convergence</b> Desk</h1>
     </div>
-    <p class="tagline">A daily read on where military power, environmental change, and public health collide — plus a running archive so the pattern is visible over time.</p>
+    <p class="tagline">A daily read on where military power, environmental change, and public health collide.</p>
     <nav class="mainnav">
       <a href="#today" class="active">Today</a>
       <a href="#newsmap">Newsmap</a>
       <a href="#archive">Archive</a>
       <a href="#email">Email Brief</a>
-      <a href="#add">Add a Story</a>
       <a href="#about">Methodology</a>
     </nav>
   </div>
@@ -369,7 +368,7 @@
   <div class="wrap">
     <div class="section-head">
       <h2>Today's Convergence</h2>
-      <div class="sub">Curated stories where at least two of the three domains — military, environment, health — intersect directly, including nuclear weapons and nuclear energy coverage.</div>
+      <div class="sub">Curated stories where at least two of the three domains — military, environment, health — intersect directly.</div>
     </div>
     <div class="grid" id="storyGrid"></div>
   </div>
@@ -383,7 +382,7 @@
     </div>
     <div id="newsmap-box"></div>
     <div class="findings" id="findingsLine"></div>
-    <p class="methodology">Circulation score (0–100) is an editorial estimate based on cross-outlet coverage volume and recency, not a licensed analytics feed. Adjust scores any time via "Add a Story."</p>
+    <p class="methodology">Circulation score (0–100) is an editorial estimate based on cross-outlet coverage volume and recency, not a licensed analytics feed. </p>
   </div>
 </section>
 
@@ -405,53 +404,12 @@
   </div>
 </section>
 
-<section id="add">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Add a Story</h2>
-      <div class="sub">Manually curate today's list — useful once you're tracking beyond the seeded stories.</div>
-    </div>
-    <div class="add-form">
-      <div class="full">
-        <label>Headline</label>
-        <input type="text" id="f-title" placeholder="Headline">
-      </div>
-      <div class="full">
-        <label>Summary</label>
-        <input type="text" id="f-dek" placeholder="One or two sentence summary">
-      </div>
-      <div>
-        <label>Source name</label>
-        <input type="text" id="f-source" placeholder="e.g. Reuters">
-      </div>
-      <div>
-        <label>Source URL</label>
-        <input type="url" id="f-url" placeholder="https://…">
-      </div>
-      <div>
-        <label>Category</label>
-        <select id="f-cat">
-          <option value="env">Environment</option>
-          <option value="mil">Military</option>
-          <option value="health">Health</option>
-        </select>
-      </div>
-      <div>
-        <label>Circulation estimate (0–100)</label>
-        <input type="number" id="f-circ" min="0" max="100" value="50">
-      </div>
-      <div class="full">
-        <button class="btn" id="addStoryBtn">Add to Today's List</button>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section id="email">
   <div class="wrap">
     <div class="section-head">
       <h2>Email Brief</h2>
-      <div class="sub">A very brief daily overview — top headlines only, with a link back to this page. Democracy Now!, The Intercept, and Dropsite News stories are always included, regardless of circulation. Static pages can't send email on a schedule by themselves, so use "Send me today's brief" for an instant copy, and export the subscriber list into a mailer (Buttondown, Mailchimp, etc.) to automate daily sends.</div>
+      <div class="sub">A very brief daily overview — top headlines only. Static pages can't send email on a schedule by themselves, so use "Send me today's brief" for an instant copy, and export the subscriber list into a mailer (Buttondown, Mailchimp, etc.) to automate daily sends.</div>
     </div>
 
     <form class="subscribe-inline" id="fullSubscribeForm" style="margin-bottom:6px;">
@@ -460,8 +418,6 @@
     </form>
 
     <div class="subs-toolbar">
-      <span class="subs-count" id="subsCount">0 subscribers stored locally</span>
-      <button class="btn secondary" id="exportSubsBtn">Export Subscribers CSV</button>
       <button class="btn secondary" id="previewBriefBtn">Preview Today's Brief</button>
       <button class="btn" id="copyBriefBtn">Copy Brief Text</button>
     </div>
@@ -479,7 +435,7 @@
       Stories are selected where military activity, environmental disruption, and public or ecological health outcomes visibly intersect — toxic exposure at bases, conflict-driven pollution and disease, climate impacts on military planning, related legacy contamination, and nuclear energy or nuclear weapons — from arsenal modernization and arms-control treaties to reactor safety, radiation health effects, and weapons-production legacies. Each entry links to its original source. The archive and manual additions are stored only in this browser's local storage; use Export/Import to move your archive between devices.
     </p>
     <p style="max-width:640px;color:var(--ink-soft);font-size:14px;">
-      <strong style="color:var(--ink);">Editorial floor:</strong> relevant stories from Democracy Now!, The Intercept, and Dropsite News are always carried in the Email Brief, independent of their circulation score — marked with a <span class="tag pinned" style="margin-left:0;">📌 Always in Brief</span> badge on the story card. This is a fixed rule in the code (see <code>PRIORITY_SOURCES</code>), not an editable setting on the page itself.
+      <strong style="color:var(--ink);"
     </p>
   </div>
 </section>
@@ -687,7 +643,6 @@
       card.innerHTML =
         '<span class="num">'+String(i+1).padStart(2,"0")+'</span>'+
         '<span class="tag '+s.cat+'">'+CAT_LABEL[s.cat]+'</span>'+
-        (pinned ? '<span class="tag pinned" title="Always included in the Email Brief, regardless of circulation">📌 Always in Brief</span>' : '')+
         '<h3>'+escapeHtml(s.title)+'</h3>'+
         '<p class="dek">'+escapeHtml(s.dek)+'</p>'+
         '<div class="meta"><span class="src">'+escapeHtml(s.source)+'</span>'+
