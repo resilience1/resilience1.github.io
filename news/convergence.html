@@ -36,21 +36,32 @@
 
   /* ---------- site nav (mirrors mlengefeld.com) ---------- */
   .sitenav{
-    background:#fff;
-    border-bottom:1px solid var(--line);
+    background:#efe8d7;
+    border-bottom:1px solid #ddd2b8;
   }
   .sitenav .wrap{
     display:flex;justify-content:space-between;align-items:center;
-    padding-top:16px;padding-bottom:16px;flex-wrap:wrap;gap:10px;
+    padding-top:30px;padding-bottom:30px;flex-wrap:wrap;gap:16px;
   }
   .sitenav .sitelogo{
     font-family:"Iowan Old Style","Palatino Linotype",Georgia,"Times New Roman",serif;
-    font-size:16px;font-weight:600;color:var(--ink);
+    font-size:29px;font-weight:600;color:#201c17;
+    display:inline-flex;align-items:baseline;gap:8px;
   }
-  .sitenav .sitelinks{display:flex;gap:22px;font-size:13.5px;flex-wrap:wrap;}
-  .sitenav .sitelinks a{color:var(--ink-soft);padding-bottom:3px;border-bottom:2px solid transparent;}
-  .sitenav .sitelinks a:hover{color:var(--ink);}
-  .sitenav .sitelinks a.active{color:var(--ink);font-weight:700;border-bottom-color:var(--accent-2);}
+  .sitenav .sitelogo em{
+    font-style:italic;font-weight:400;color:#8c8171;
+  }
+  .sitenav .sitelinks{display:flex;align-items:center;gap:40px;flex-wrap:wrap;}
+  .sitenav .sitelinks a{
+    font-family:"Iowan Old Style","Palatino Linotype",Georgia,"Times New Roman",serif;
+    font-size:14.5px;letter-spacing:.11em;text-transform:uppercase;
+    color:#6f6350;
+  }
+  .sitenav .sitelinks a:hover{color:#201c17;}
+  .sitenav .sitelinks a.cv-btn{
+    border:1px solid #8c8171;padding:9px 18px;color:#6f6350;
+  }
+  .sitenav .sitelinks a.cv-btn:hover{border-color:#201c17;color:#201c17;}
 
   /* ---------- top strip ---------- */
   .topstrip{
@@ -334,14 +345,14 @@
 
 <nav class="sitenav">
   <div class="wrap">
-    <a class="sitelogo" href="https://www.mlengefeld.com/index.html">Michael Lengefeld, PhD</a>
+    <a class="sitelogo" href="https://www.mlengefeld.com/index.html">Michael Lengefeld <em>PhD</em></a>
     <div class="sitelinks">
       <a href="https://www.mlengefeld.com/research/index.html">Research</a>
       <a href="https://www.mlengefeld.com/teaching/index.html">Teaching</a>
       <a href="https://www.mlengefeld.com/civic/index.html">Service</a>
       <a href="https://www.mlengefeld.com/about/index.html">Bio</a>
-      <a href="convergence-desk.html" class="active">News</a>
-      <a href="https://www.mlengefeld.com/img/CV_5.25.26_noref.pdf" target="_blank" rel="noopener">CV ↓</a>
+      <a href="convergence-desk.html">News</a>
+      <a class="cv-btn" href="https://www.mlengefeld.com/img/CV_5.25.26_noref.pdf" target="_blank" rel="noopener">CV ↓</a>
     </div>
   </div>
 </nav>
