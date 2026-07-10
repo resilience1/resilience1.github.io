@@ -1325,7 +1325,7 @@
   function applyMode(m){
     mode=m; const eco=(m==='eco');
     renderEmit();
-    $('ca-emit-tag').textContent=eco?'Contribution · annual CO₂ emissions':'Contribution · military footprint (modeled)';
+    $('ca-emit-tag').textContent=eco?'Contribution · CO₂ emissions in 2024':'Contribution · military footprint (modeled based on 2024 data)';
     $('ca-emit-title').textContent=eco?'Who puts the carbon up':'The armed-forces share';
     $('ca-btn-eco').setAttribute('aria-pressed',eco?'true':'false');
     $('ca-btn-mil').setAttribute('aria-pressed',eco?'false':'true');
